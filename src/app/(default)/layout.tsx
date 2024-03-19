@@ -3,9 +3,9 @@ import { Toaster } from '@/components/ui/toaster';
 import '@/styles/globals.css';
 import  Provider  from '@/components/Provider';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Prompt } from 'next/font/google';
 
-const inter = Inter({ subsets: ['latin'] });
+const prompt = Prompt({ subsets: ["latin"],weight: "400" });
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -19,9 +19,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={inter.className}>
+      <body className={prompt.className}>
         <Provider>
-        <main className='h-screen flex flex-col justify-center items-center'>
+        <main className="">
+        {/* <main className='h-screen flex flex-col justify-center items-center'> */}
           <Navbar />
           {children}
         </main>
