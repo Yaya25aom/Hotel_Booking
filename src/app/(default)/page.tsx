@@ -12,7 +12,7 @@ export default async function Home() {
     <>
       <div>
         <div>
-          <img className="w-full h-[70vh]" src="/assets/image/banner.jpg" />
+          <Image width={1280} height={853} alt="?" className="w-full h-[70vh]" src="/assets/image/banner.jpg" />
         </div>
         <div className="border-2 border-[#000000]">
           <div className="flex justify-center mt-16 mb-16 gap-5">
