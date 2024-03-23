@@ -8,16 +8,19 @@ export async function GET(
     { params } : { params : { id: string} }
 ) {
     const id = Number(params.id)
-    const roomType = await db.roomType.findUnique({
+    const room = await db.room.findUnique({
         where: {
-            RoomType_Id: id
+            RoomNo: id
+        },
+        include : {
+            RoomType : true,
         }
-      
+   
      
     })
-    if (!roomType) {
+    if (!room) {
         return  NextResponse.json("Employee not found", { status: 404 });
     }
 
-    return NextResponse.json(roomType);
+    return NextResponse.json(room);
 }

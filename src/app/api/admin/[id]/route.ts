@@ -11,6 +11,9 @@ export async function GET(
     const employee = await db.employee.findUnique({
         where: {
             Employee_Id: emid
+        },
+        include : {
+            Role : true,
         }
     })
     if (!employee) {

@@ -2,7 +2,11 @@ import { db } from "@/lib/db";
 import { NextResponse } from "next/server";
 
 export async function GET(){
-    const roomType = await db.roomType.findMany()
+    const roomType = await db.roomType.findMany({
+        include:{
+            Room : true,
+        }
+    })
     return Response.json(roomType)
 }
 export async function POST (request: Request) {

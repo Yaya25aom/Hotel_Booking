@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 import { hash } from 'bcrypt';
 import * as z from 'zod';
 
+
 const userSchema = z.object({
   Employee_Id: z.number().min(1, 'EmployeeID is required').max(100000),
   Emfname: z.string().min(1, 'Username is required').max(100),
@@ -16,7 +17,11 @@ const userSchema = z.object({
 
 export async function GET(){
   
-    const employee = await db.employee.findMany()
+    const employee = await db.employee.findMany({
+      include: {
+        Role : true
+      }
+    })
     return Response.json(employee)
   }
 
