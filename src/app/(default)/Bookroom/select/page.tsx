@@ -2,17 +2,20 @@
 'use client'
 import React, { useState } from 'react';
 
+
 const Page = () => {
     const [items, setItems] = useState<string[]>([]); // กำหนดชนิดของ items เป็น string[]
   
     const addItem = () => {
         if (items.length < 3) {
-          const newItem = `Item ${items.length + 1}`;
+          const newItem = `Room ${items.length + 1}`;
           setItems([...items, newItem]);
         } else {
           alert('You can only add up to 3 items.');
         }
       };
+      const [adult, setAdult] = useState<number>(1);
+const [children, setChildren] = useState<number>(0);
       
 
   const deleteItem = (index: number) => {
@@ -29,14 +32,20 @@ const Page = () => {
         <div>
           <p className="textadult" style={{ fontFamily: 'Raleway, Roboto, sans-serif !important'}}>GUEST & ROOM</p>
           <div className="flex items-center">
-          <select className="bg-gray-700  py-1 px-2 mr-2 border-b border-gray-700" style={{color: '#efa982', borderColor:'#90bdd7',backgroundColor:'rgb(55 65 81 / 0%)',paddingRight:'8rem'}}>
+          <select className="bg-gray-700  py-1 px-2 mr-2 border-b border-gray-700" 
+          value={adult}
+          onChange={(e) => setAdult(Number(e.target.value))} 
+          style={{color: '#efa982', borderColor:'#90bdd7',backgroundColor:'rgb(55 65 81 / 0%)',paddingRight:'8rem'}}>
               <option value="1">1 Adult</option>
               <option value="2">2 Adults</option>
               <option value="3">3 Adults</option>
             </select>
             </div>
             <div className="flex items-center" style={{paddingLeft:'17rem', marginTop:'-35px'}}>
-          <select className="bg-gray-700  py-1 px-2 mr-2 border-b border-gray-700" style={{color: '#efa982', borderColor:'#90bdd7',backgroundColor:'rgb(55 65 81 / 0%)',paddingRight:'8rem'}}>
+          <select className="bg-gray-700  py-1 px-2 mr-2 border-b border-gray-700"
+          value={children}
+          onChange={(e) => setChildren(Number(e.target.value))} 
+          style={{color: '#efa982', borderColor:'#90bdd7',backgroundColor:'rgb(55 65 81 / 0%)',paddingRight:'8rem'}}>
               <option value="1">0 Children</option>
               <option value="2">1 Childrens</option>
               <option value="3">2 Chil</option>
@@ -44,8 +53,9 @@ const Page = () => {
             </div>
             <div>
             <button className="btn" style={{marginLeft:'-126px'}} onClick={addItem}>Add a Room</button>
-{items.map((item, index) => (
+{items.map((Room, index) => ( 
   <div key={index} className="flex items-center mb-4" style={{display:'grid'}}>
+   <li key={index}>{Room}</li>
     <div className="flex items-center">
       <select className="bg-gray-700 py-1 px-2 mr-2 border-b border-gray-700" style={{ color: '#efa982', borderColor: '#90bdd7', backgroundColor: 'rgb(55 65 81 / 0%)', paddingRight: '8rem' }}>
         <option value="1">1 Adult</option>
@@ -66,7 +76,12 @@ const Page = () => {
 
         </div>
         <button className='' style={{backgroundColor:'#d4b4be',padding:'0.65rem',width:'50%',marginLeft:'100px',marginTop:
-    '100px'}}>UPDATE GUEST & ROOM</button>
+    '100px'}} onClick={() => {
+        const totalGuests = adult + children;
+        console.log(`Total Guests: ${totalGuests}`);
+        // ส่วนนี้คุณสามารถใช้ค่า totalGuests ได้ต่อไป
+        // เช่น ส่งข้อมูลไปยัง API หรือนำไปแสดงผลใน UI
+      }}>UPDATE GUEST & ROOM</button>
             </div>
             </div>
             </div>
