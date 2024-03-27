@@ -1,5 +1,5 @@
 import React from 'react';
-import MyDatePicker from '@/components/form/calendar';
+import MyDatePicker from '@/components/form/calendar2';
 
 const App = () => {
   return (
