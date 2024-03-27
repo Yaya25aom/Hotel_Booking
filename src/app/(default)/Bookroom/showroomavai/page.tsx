@@ -68,6 +68,10 @@ const List = () =>{
               <span className="text-sm mr-2">Best Flexible With Wellbeing Credits</span>
               <span className="text-xl font-bold">THB 36,160.64</span>
             </div>
+            <div className="flex items-center mb-2">
+              <span className="text-sm mr-2">Best Flexible With Wellbeing Credits</span>
+              <span className="text-xl font-bold">THB 36,160.64</span>
+            </div>
           </div>
           <div className="flex justify-between items-center mt-4">
             <span className="text-2xl font-bold">THB 31,339.22</span>
