@@ -113,68 +113,81 @@ const CalendarComponent: React.FC<CalendarProps> = () => {
         {new Date(state.currentMonth.getFullYear(), state.currentMonth.getMonth() + 1, 1).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
       </div>
       </div>
-      <div className="grid grid-cols-7 gap-5 mb-4 text-sm font-bold text-gray-800">
-        <span className="text-center">SUN</span>
-        <span className="text-center">MON</span>
-        <span className="text-center">TUE</span>
-        <span className="text-center">WED</span>
-        <span className="text-center">THU</span>
-        <span className="text-center">FRI</span>
-        <span className="text-center">SAT</span>
-      </div>
-      
-<div className="grid grid-cols-2 gap-4">
-      <div className="grid grid-cols-7 gap-1 text-sm">
-        {dates.map((date) => (
-          <div
+
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+            <div className="grid grid-cols-7 gap-1 mb-2 text-sm font-bold text-gray-800">
+                <span className="text-center">SUN</span>
+                <span className="text-center">MON</span>
+                <span className="text-center">TUE</span>
+                <span className="text-center">WED</span>
+                <span className="text-center">THU</span>
+                <span className="text-center">FRI</span>
+                <span className="text-center">SAT</span>
+            </div>
+            <div className="grid grid-cols-7 gap-1 text-sm">
+                {dates.map((date) => (
+                <div
+                    key={date.getTime()}
+                    onClick={() => handleDateClick(date)}
+                    className={`text-center py-2 rounded cursor-pointer ${
+                    state.checkInDate && date.getTime() === state.checkInDate.getTime()
+                        ? 'bg-blue-500 text-white'
+                        : ''
+                    } ${
+                    state.checkOutDate && date.getTime() === state.checkOutDate.getTime() 
+                    ? 'bg-green-500 text-white' 
+                    : ''
+                    } ${
+                    state.checkInDate &&
+                    state.checkOutDate &&
+                    date > state.checkInDate &&
+                    date < state.checkOutDate
+                        ? 'bg-yellow-300'
+                        : ''
+                    }`}
+                >
+                    <span>{date.getDate()}</span>
+                </div>
+                ))}
+            </div>
+        </div>
+        <div>
+        <div className="grid grid-cols-7 gap-1 mb-2 text-sm font-bold text-gray-400">
+                <span className="text-center">SUN</span>
+                <span className="text-center">MON</span>
+                <span className="text-center">TUE</span>
+                <span className="text-center">WED</span>
+                <span className="text-center">THU</span>
+                <span className="text-center">FRI</span>
+                <span className="text-center">SAT</span>
+            </div>
+            <div className="grid grid-cols-7 gap-1 text-sm">
+                {nextMonthDates.map((date) => (
+            <div
             key={date.getTime()}
             onClick={() => handleDateClick(date)}
-            className={`text-center py-2 rounded cursor-pointer ${
-              state.checkInDate && date.getTime() === state.checkInDate.getTime()
+            className={`text-center py-2 rounded cursor-pointer text-gray-400 ${
+                state.checkInDate && date.getTime() === state.checkInDate.getTime()
                 ? 'bg-blue-500 text-white'
                 : ''
             } ${
-              state.checkOutDate && date.getTime() === state.checkOutDate.getTime() 
-              ? 'bg-green-500 text-white' 
-              : ''
+                state.checkOutDate && date.getTime() === state.checkOutDate.getTime()
+                ? 'bg-green-500 text-white'
+                : ''
             } ${
-              state.checkInDate &&
-              state.checkOutDate &&
-              date > state.checkInDate &&
-              date < state.checkOutDate
-                ? 'bg-yellow-300'
+                state.checkInDate &&
+                state.checkOutDate &&
+                date > state.checkInDate &&
+                date < state.checkOutDate
+                ? 'bg-yellow-300 text-black'
                 : ''
             }`}
-          >
+            >
             <span>{date.getDate()}</span>
-          </div>
+            </div>
         ))}
-</div>
-<div className="grid grid-cols-7 gap-1 text-sm">
-        {nextMonthDates.map((date) => (
-    <div
-      key={date.getTime()}
-      onClick={() => handleDateClick(date)}
-      className={`text-center py-2 rounded cursor-pointer text-gray-400 ${
-        state.checkInDate && date.getTime() === state.checkInDate.getTime()
-          ? 'bg-blue-500 text-white'
-          : ''
-      } ${
-        state.checkOutDate && date.getTime() === state.checkOutDate.getTime()
-          ? 'bg-green-500 text-white'
-          : ''
-      } ${
-        state.checkInDate &&
-        state.checkOutDate &&
-        date > state.checkInDate &&
-        date < state.checkOutDate
-          ? 'bg-yellow-300 text-black'
-          : ''
-      }`}
-    >
-      <span>{date.getDate()}</span>
-    </div>
-  ))}
+  </div>
   </div>
 </div>
       <div className="mt-4 flex justify-between items-center">
