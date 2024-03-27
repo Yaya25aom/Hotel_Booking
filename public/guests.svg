@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <g id="guests" transform="translate(389 -122)">
+    <rect id="Rectangle_3790" data-name="Rectangle 3790" width="32" height="32" transform="translate(-389 122)" fill="#fff"/>
+    <path id="Icon_ionic-md-person" data-name="Icon ionic-md-person" d="M12.69,12.69A4.1,4.1,0,1,0,8.6,8.6,4.107,4.107,0,0,0,12.69,12.69Zm0,2.048c-2.713,0-8.19,1.382-8.19,4.1v2.048H20.881V18.833C20.881,16.12,15.4,14.738,12.69,14.738Z" transform="translate(-386 130)" fill="none" stroke="#000" stroke-width="1"/>
+  </g>
+</svg>
