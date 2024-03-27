@@ -73,7 +73,7 @@ const CalendarComponent: React.FC<CalendarProps> = () => {
       <div className="flex justify-between items-center mb-4">
         <button
           onClick={handlePrevMonth}
-          className="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded"
+          className="text-gray-500 hover:text-gray-700 font-bold"
         >
           <span className="text-2xl">&lt;</span>
         </button>
@@ -82,19 +82,19 @@ const CalendarComponent: React.FC<CalendarProps> = () => {
         </div>
         <button
           onClick={handleNextMonth}
-          className="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded"
+          className="text-gray-500 hover:text-gray-700 font-bold"
         >
           <span className="text-2xl">&gt;</span>
         </button>
       </div>
-      <div className="grid grid-cols-7 gap-1 mb-4 text-xs font-bold text-gray-600">
-        <span className="text-center">SUN</span>
-        <span className="text-center">MON</span>
-        <span className="text-center">TUE</span>
-        <span className="text-center">WED</span>
-        <span className="text-center">THU</span>
-        <span className="text-center">FRI</span>
-        <span className="text-center">SAT</span>
+      <div className="grid grid-cols-7 gap-1 mb-2">
+        <span className="text-xs text-gray-500 font-bold text-center">Su</span>
+        <span className="text-xs text-gray-500 font-bold text-center">Mo</span>
+        <span className="text-xs text-gray-500 font-bold text-center">Tu</span>
+        <span className="text-xs text-gray-500 font-bold text-center">We</span>
+        <span className="text-xs text-gray-500 font-bold text-center">Th</span>
+        <span className="text-xs text-gray-500 font-bold text-center">Fr</span>
+        <span className="text-xs text-gray-500 font-bold text-center">Sa</span>
       </div>
       <div className="grid grid-cols-7 gap-1 text-sm">
         {dates.map((date) => (
@@ -111,6 +111,10 @@ const CalendarComponent: React.FC<CalendarProps> = () => {
               date > state.checkInDate &&
               date < state.checkOutDate
                 ? 'bg-yellow-300'
+                : ''
+            } ${
+              date.getMonth() !== state.currentMonth.getMonth()
+                ? 'text-gray-300 cursor-default'
                 : ''
             }`}
           >
