@@ -3,17 +3,18 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const BeachHouseComponent = () => {
+
+const OceanHouseComponent = () => {
   const [currentImage, setCurrentImage] = useState(0);
 
   const images = [
-    '/assets/image/sky1.jpg',
-    '/assets/image/sky4.jpg',
-    '/assets/image/sky5.jpg',
-    '/assets/image/sky3.jpg',
-    '/assets/image/sky2.jpg',
+    '/assets/image/bf1.jpg',
+    '/assets/image/bf2.jpg',
+    '/assets/image/bf4.jpg',
+    '/assets/image/bf3.jpg',
+    '/assets/image/bf5.jpg',
     
-
+        
   ];
 
   const handlePrevImage = () => {
@@ -25,11 +26,11 @@ const BeachHouseComponent = () => {
   };
 
   return (
-     <div className="container mx-auto p-40" style={{ paddingTop: '8rem' }}> 
+    <div className="container mx-auto p-40" style={{ paddingTop: '8rem' }}>
       <div className="grid grid-cols-1 md:grid-cols-1 gap-8">
-        <div className="relative flex justify-center items-center">
-          <div className="relative">
-  <Image
+      <div className="relative flex justify-center items-center">
+      <div className="relative">
+      <Image
     src={images[currentImage]}
     alt="Sky"
     className="w-full h-auto rounded-lg shadow-lg"
@@ -42,7 +43,7 @@ const BeachHouseComponent = () => {
   <div className="absolute top-1/2 left-4 transform -translate-y-1/2">
   <button
     onClick={handlePrevImage}
-    className="bg-green-900 hover:bg-green-700 text-white font-normal py-2 px-4 rounded text-3xl"
+    className="bg-blue-200 hover:bg-blue-100 text-#263B56 font-normal py-1 px-3 rounded text-2xl"
   >
     &lt;
   </button>
@@ -50,24 +51,27 @@ const BeachHouseComponent = () => {
 <div className="absolute top-1/2 right-4  transform -translate-y-1/2">
   <button
     onClick={handleNextImage}
-    className="bg-green-900 hover:bg-green-700 text-white font-normal py-2 px-4 rounded text-3xl"
+    className="bg-blue-200 hover:bg-blue-100 text-#263B56 font-normal py-1 px-3 rounded text-2xl"
   >
     &gt;
   </button>
 </div>
+
   </div>
 </div>
 
         </div><br/><br/>
-        <div>
-          <h1 className="text-4xl font-bold mb-4">THE SKY BEACHFRONT</h1>
-          <p className="mb-10" style={{ fontSize: '1.25rem' }}>
-          In our bespoke Sky Beachfront, sitting on the top floor of our beachfront building, guests will indulge in an expansive, floor-to-ceiling glass windowed sanctuary. Relax in a luxurious bathtub while enjoying the beautiful and endless views of the Gulf of Thailand. Truly get lost in the elements.
-          </p>
+          <div>
+            <h1 className="text-4xl font-bold mb-4">POOL VILLA BEACHFRONT</h1>
+            <p className="mb-10" style={{ fontSize: '1.25rem' }}>
+            The Beachfront Pool Villa is your own private sanctuary, a luxurious yet cozy hideaway. Step into the spacious villa with an open space and enjoy a unique VALA escape. The villa is completed with earthy tones which compliments its natural surfaces,
+            with a living area to relax in. Equipped with a large terrace and sunloungers, it’s ideal for lounging with a refreshment in hand. The villa opens onto a 2.8 x 8 m private pool and garden, merely steps away from the sandy beach, what better way to
+            indulge?After a day of activities, refresh yourselves in our indoor bathtub and the luxurious amenities only exclusive to VALA’s villas.
+            </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
                 <div>
                 <p className="text-sm font-bold mb-1" style={{ fontSize: '1.25rem' }}>SIZE</p>
-                <p>46 SQ.M</p>
+                <p>140-207 SQ.M</p>
               </div>
               <div>
                 <p className="text-sm font-bold mb-1" style={{ fontSize: '1.25rem' }}>BEDS</p>
@@ -104,29 +108,52 @@ const BeachHouseComponent = () => {
             <div style={{ display: 'flex', alignItems: 'center' }}>
               <Image src="/tub.svg" alt="WiFi Icon" width={24} height={24} style={{ marginRight: '8px' }} />
               <p style={{ margin: 0 ,fontSize: '1.15rem'}}>Indoor Bathtub</p>
-            </div><br />           
+            </div><br />
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <Image src="/shower.svg" alt="WiFi Icon" width={24} height={30} style={{ marginRight: '8px' }} />
+              <p style={{ margin: 0 ,fontSize: '1.15rem'}}>Outdoor rainforest shower</p>
+            </div><br />
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <Image src="/sofa.svg" alt="WiFi Icon" width={24} height={24} style={{ marginRight: '8px' }} />
+              <p style={{ margin: 0 ,fontSize: '1.15rem'}}>Living Space</p>
+            </div><br />    
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <Image src="/blue.svg" alt="WiFi Icon" width={24} height={24} style={{ marginRight: '8px' }} />
+              <p style={{ margin: 0 ,fontSize: '1.15rem'}}>Bluetooth speaker</p>
+            </div><br />         
             <div style={{ display: 'flex', alignItems: 'center' }}>
               <Image src="/hair.svg" alt="WiFi Icon" width={24} height={24} style={{ marginRight: '8px' }} />
               <p style={{ margin: 0 ,fontSize: '1.15rem'}}>Hairdryer</p>
             </div><br />
-            
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <Image src="/pool.svg" alt="WiFi Icon" width={24} height={24} style={{ marginRight: '8px' }} />
+              <p style={{ margin: 0 ,fontSize: '1.15rem'}}>Private swimming pool size: 2.8 x 8 m.</p>
+            </div><br />
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <Image src="/flower.svg" alt="WiFi Icon" width={22} height={22} style={{ marginRight: '8px' }} />
+              <p style={{ margin: 0 ,fontSize: '1.15rem'}}>Expansive private garden</p>
+            </div><br />
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <Image src="/sun.svg" alt="WiFi Icon" width={24} height={30} style={{ marginRight: '8px' }} />
+              <p style={{ margin: 0 ,fontSize: '1.15rem'}}>Sunloungers</p>
+            </div><br />
+
               </div>
+              
             <div className="flex items-center">
             <Link
-                  href="//front/ShowDetails"
-                  className="font-normal py-2 px-4"
-                  style={{ color: 'white', textDecoration: 'none', border: '1px solid #446341', borderRadius: '5px', padding: '7px 35px', backgroundColor: '#446341' ,
-                  fontSize: '1.25rem' }}
+                 href="//front/ShowDetails"
+                 className="font-normal py-2 px-4"
+                 style={{ color: 'white', textDecoration: 'none', border: '1px solid #446341', borderRadius: '5px', padding: '7px 35px', backgroundColor: '#263B56' ,
+                 fontSize: '1.25rem' }}
                 >
                   BOOK
                 </Link>
               
             </div>
           </div>
-        </div>        
-
+          </div>
   );
 };
 
-export default BeachHouseComponent;
-              
+export default OceanHouseComponent;
