@@ -227,35 +227,49 @@ const List = () => {
         </p>
         <p className="mb-4">USD 1,211.60</p>
       </div>
-      <button className=" text-white py-2 px-4" style={{backgroundColor:'#725a5a'
-}}>
+      <button className=" text-white py-2 px-4" style={{backgroundColor:'#725a5a'}}>
         ADD ROOM & CHECKOUT
       </button>
     </div>
     <img src="/assets/image/oc2.png"></img>
-    <div>
+    <div className="flex gap-8">
         <h1 className="mb-1" style={{paddingTop:'5rem',fontSize:'1.87rem',fontFamily:'Raleway, Roboto, sans-serif'}}>Enhance Your Stay
   OR
-</h1>
+  </h1>
+  <div className="" style={{paddingTop:'5rem'}}>
+
+    <button className='text-white py-2 px-4' style={{backgroundColor:'#725a5a'}}>SKIP & CHECKOUT</button>
+  </div>
+  </div>
+  
+  
 
 <div className="flex gap-16 mb-2 py-8">
     <img src="/assets/image/lob.jpeg" style={{width:'40%'}}></img>
     <img src="/assets/image/bbq.jpeg" style={{width:'40%'}}></img>
     </div>
-    <div className=" flex gap-28 mb-2 py-8 " >
+    <div className=" flex  " style={{gap:'13em'}} >
+        <div>
     <button className='text-white py-2 px-4'style={{backgroundColor:'#725a5a'}}> ADD ENHANCMENT</button>
+    </div>
+    <div>
     <button className='text-white py-2 px-4'style={{backgroundColor:'#725a5a'}}>ADD ENHANCMENT</button>
+    </div>
     </div>
     <div className="flex gap-16 py-3 mb-3">
     <img src="/assets/image/roman.webp" style={{width:'40%'}}></img>
     <img src="/assets/image/treat.jpeg" style={{width:'40%'}}></img>
     </div>
-    <div className=" flex gap-28 mb-2 py-8 " >
+    <div className=" flex  " style={{gap:'13em'}} >
+        <div>
     <button className='text-white py-2 px-4'style={{backgroundColor:'#725a5a'}}> ADD ENHANCMENT</button>
+    </div>
+    <div>
     <button className='text-white py-2 px-4'style={{backgroundColor:'#725a5a'}}>ADD ENHANCMENT</button>
     </div>
+    </div>
 </div>
-  </div>
+  
   
 )}
 
@@ -265,6 +279,7 @@ const List = () => {
       ))}
       
     </div>
+    
     
   );
 };

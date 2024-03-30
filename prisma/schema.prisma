@@ -25,13 +25,13 @@ model RoomType {
   RoomPrice        Int
   DefalutRoomPrice Int
   RoomTypeDescrip  String
-  Room             Room?
+  Room             Room[]
 }
 
 model Room {
   RoomNo   Int       @id @unique
   Status   Boolean
-  Typeid   Int?      @unique
+  Typeid   Int?
   RoomType RoomType? @relation(fields: [Typeid], references: [RoomType_Id], onDelete: NoAction, onUpdate: NoAction, map: "public_Room_Typeid_fkey")
 }
 
@@ -50,4 +50,10 @@ model Employee {
   Email       String @unique
   Salary      Float
   Password    String
+}
+model Enhanc{
+  EnhancID Int @unique
+  Enhancname String
+  Enhancdescrip String
+  EnhancPrice Int
 }
