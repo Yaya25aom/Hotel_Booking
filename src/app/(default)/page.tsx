@@ -14,7 +14,7 @@ const Home = () => {
 
 
   return (
-    <div className="flex flex-col md:flex-row justify-center items-center h-screen" style={{ paddingTop: '47rem' }}>
+    <div className="flex flex-col md:flex-row justify-center items-center h-screen" style={{ paddingTop: '55rem' }}>
       <div>
         <img
           src="/assets/image/home2.jpg"
@@ -109,25 +109,18 @@ const Home = () => {
             Make CASA your away.</p></div>
 
 
-        <div className="w-auto mt-1 text-center" style={{ textAlign: 'center', paddingTop: '1rem', paddingRight: '3rem', paddingBottom: '1rem', paddingLeft: '3rem' }}>
-          <h1 style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>CASA Hotel</h1>
-          <p style={{ fontSize: '2rem', marginTop: '0.5rem', marginBottom: '2rem' }}>5-star luxury hotels & resorts</p>
-          <p style={{ fontSize: '1.2rem' }}>
-          </p> </div>
-          <div style={{ width: '100%', height: '400px', marginTop: '20px' }}>
-  <iframe
-    width="100%"
-    height="100%"
-    frameBorder="0"
-    style={{ border: 0 }}
-    src={`https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=CASA+Hotel`}
-    allowFullScreen
-  ></iframe>
-</div>
-
+        <div className="w-auto mt-1 text-center" style={{ textAlign: 'center', paddingTop: '2rem', paddingRight: '2rem', paddingBottom: '2rem', paddingLeft: '2rem' }}>
+        <iframe
+            width="30%"
+            height="400"
+            frameBorder="0"
+            style={{ border: 0 }}
+            src="https://www.openstreetmap.org/export/embed.html?bbox=100.5117%2C13.8218%2C100.5127%2C13.8231&layer=mapnik"
+            allowFullScreen
+          ></iframe>
+          </div>
       </div>
     </div>
-
 
 
   );
