@@ -29,20 +29,20 @@ model RoomType {
 }
 
 model Room {
-  RoomNo   Int      @id @unique
+  RoomNo   Int       @id @unique
   Status   Boolean
-  RoomType RoomType @relation(fields: [RoomNo], references: [RoomType_Id], onDelete: NoAction, onUpdate: NoAction, map: "public_Room_RoomNo_fkey")
+  Typeid   Int?      @unique
+  RoomType RoomType? @relation(fields: [Typeid], references: [RoomType_Id], onDelete: NoAction, onUpdate: NoAction, map: "public_Room_Typeid_fkey")
 }
 
 model Role {
-  Role_Id    Int       @unique
+  Role_Id    Int    @unique
   Role_Title String
   Role_Des   String
-  Employee   Employee?
 }
 
 model Employee {
-  Employee_Id Int    @unique
+  Employee_Id Int    @id @unique
   Emfname     String
   Emlname     String
   Gender      String
@@ -50,5 +50,4 @@ model Employee {
   Email       String @unique
   Salary      Float
   Password    String
-  Role        Role   @relation(fields: [Employee_Id], references: [Role_Id], onDelete: NoAction, onUpdate: NoAction, map: "public_Employee_Employee_Id_fkey")
 }
