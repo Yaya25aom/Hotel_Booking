@@ -153,10 +153,10 @@ const PaymentMethod = () => {
       <h2 className="text-xl font-bold mb-4">Payment Method</h2>
       <div className="mb-4">
         <div className="flex items-center mb-2">
-          <img src="/visa.png" alt="Visa" className="h-6 mr-2" />
-          <img src="/mastercard.png" alt="Mastercard" className="h-6 mr-2" />
-          <img src="/amex.png" alt="American Express" className="h-6 mr-2" />
-          <img src="/paypal.png" alt="PayPal" className="h-6 mr-2" />
+          <img src="/assets/image/visa1.png" alt="Visa" className="h-20 mr-2" />
+          <img src="/assets/image/mastercard.png" alt="Mastercard" className="h-20 mr-2" />
+          <img src="/assets/image/unionpay.png" alt="Unionpay" className="h-12 mr-2" />
+          <img src="/assets/image/qr.png" alt="qrcode" className="h-20 mr-2" />
         </div>
         <label htmlFor="cardNumber" className="block text-gray-700 font-bold mb-2">
           Card Number
