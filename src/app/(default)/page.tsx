@@ -14,7 +14,7 @@ const Home = () => {
 
 
   return (
-    <div className="flex flex-col md:flex-row justify-center items-center h-screen" style={{ paddingTop: '54rem' }}>
+    <div className="flex flex-col md:flex-row justify-center items-center h-screen" style={{ paddingTop: '54rem'}}>
       <div>
         <img
           src="/assets/image/home2.jpg"
@@ -22,8 +22,8 @@ const Home = () => {
           style={{ borderRadius: "0px" }}
         />
         <div className="w-full md:w-5/5 p-8 rounded-md flex flex-col md:flex-row">
-          <div className="md:mr-4 mb-4 md:mb-0 w-full md:w-1/2 md:w-full" style={{ paddingRight: '5rem', paddingLeft: '5rem' }}>
-            <label htmlFor="checkin" className="block mb-2">Check-in Date:</label>
+          <div className="md:mr-4 mb-4 md:mb-0 w-full md:w-1/2 md:w-full" style={{ paddingRight: '5rem', paddingLeft: '5rem', }}>
+            <label htmlFor="checkin" className="block mb-2" style={{fontFamily: 'Raleway, Roboto, sans-serif'}}>Check-in Date:</label>
             <DatePicker
               selected={startDate}
               onChange={(date) => setStartDate(date as Date)}
@@ -31,11 +31,11 @@ const Home = () => {
               startDate={startDate}
               endDate={endDate}
               dateFormat={dateFormat}
-              className="w-full p-2 border border-gray-300 rounded-md"
+              className="w-full p-2 border border-gray-300 rounded-md "
             />
           </div>
           <div className="w-full md:w-1/2 md:w-full mb-4 md:mb-0">
-            <label htmlFor="checkout" className="block mb-2">Check-out Date:</label>
+            <label htmlFor="checkout" className="block mb-2" style={{fontFamily: 'Raleway, Roboto, sans-serif'}}>Check-out Date:</label>
             <DatePicker
               selected={endDate}
               onChange={(date) => setEndDate(date as Date)}
@@ -49,7 +49,7 @@ const Home = () => {
           </div>
           <div className="w-full md:w-1/2 mt-4 md:mt-0 md:ml-4 flex">
             <div className="mr-4">
-              <label htmlFor="adults" className="block mb-1">Adults:</label>
+              <label htmlFor="adults" className="block mb-1" style={{fontFamily: 'Raleway, Roboto, sans-serif'}}>Adults:</label>
               <select
                 id="adults"
                 className="w-full p-2 border border-gray-300 rounded-md"
@@ -62,7 +62,7 @@ const Home = () => {
               </select>
             </div>
             <div>
-              <label htmlFor="children" className="block mb-1">Children:</label>
+              <label htmlFor="children" className="block mb-1" style={{fontFamily: 'Raleway, Roboto, sans-serif'}}>Children:</label>
               <select
                 id="children"
                 className="w-full p-2 border border-gray-300 rounded-md"
@@ -75,31 +75,34 @@ const Home = () => {
               </select>
             </div>
           </div>
-          <div className="flex items-center md:mt-5" style={{ paddingRight: '5rem', paddingLeft: '5rem' }}>
+          <div className=" items-center md:mt-5 px-24 self-center">
             <Link
-              href="//front/ShowDetails"
-              className="font-normal py-2 px-4 inline-block text-center "
+              href="/Bookroom/select"
+              className="font-normal py-3 px-24 inline-block text-center "
               style={{
                 color: 'white',
                 textDecoration: 'none',
                 border: '0px solid #446341',
                 borderRadius: '1px',
-                padding: '5px 50px',
+                padding: '15px 25px',
                 backgroundColor: '#4E7B96',
                 fontSize: '1rem',
                 display: 'flex',
-                justifyContent: 'center'
+                justifyContent: 'center' ,
+                fontFamily: 'Raleway, Roboto, sans-serif'
               }}
             >
+              <div className='w-24'>
               BOOK NOW
+              </div>
             </Link>
 
           </div>
         </div>
         <div className="w-auto mt-10 text-center" style={{ textAlign: 'center', backgroundColor: '#f7ede5', paddingTop: '5rem', paddingRight: '20rem', paddingBottom: '5rem', paddingLeft: '20rem' }}>
-          <h1 style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>CASA Hotel</h1>
-          <p style={{ fontSize: '2rem', marginTop: '0.5rem', marginBottom: '2rem' }}>5-star luxury hotels & resorts</p>
-          <p style={{ fontSize: '1.2rem' }}>
+        <h1 style={{ fontSize: '2.5rem', marginBottom: '0.5rem', fontFamily: 'Raleway, Roboto, sans-serif', fontWeight: 'bold' }}>CASA Hotel</h1>
+          <p style={{ fontSize: '2rem', marginTop: '0.5rem', marginBottom: '2rem' , fontFamily: 'Raleway, Roboto, sans-serif'}}>5-star luxury hotels & resorts</p>
+          <p style={{ fontSize: '1.2rem' , fontFamily: 'Raleway, Roboto, sans-serif'}}>
             Built on expansive, generous space with endless greenery, the hotel is surrounded by leafy,
             mature trees with direct access to a well-preserved beachfront. There is a synergy between nature
             and history; the curator of local gems, hidden spots and undiscovered heritage. Let us take you on
@@ -116,11 +119,10 @@ const Home = () => {
           </div>
           <div className="w-full">
               <div className="p-20">
-                    <p className="font-bold text-2xl">  KING MONGKUT'S UNIVERSITY OF TECHNOLOGY NORTH BANGKOK</p>
-                    <p>1518 Pracharat 1 Road,Wongsawang, Bangsue, Bangkok 10800</p>
-                    <div className="mt-10">
-                    <p>Contact Us. Tel: 099-999-9999</p>
-                    <p>Line: ม จริง พรี่</p>
+                    <p className="font-bold text-2xl" style={{fontFamily: 'Raleway, Roboto, sans-serif'}} >  KING MONGKUT'S UNIVERSITY OF TECHNOLOGY NORTH BANGKOK</p>
+                    <p style={{fontFamily: 'Raleway, Roboto, sans-serif'}} >1518 Pracharat 1 Road,Wongsawang, Bangsue, Bangkok 10800</p>
+                    <div className="mt-10" style={{fontFamily: 'Raleway, Roboto, sans-serif'}}>
+                    <p style={{fontFamily: 'Raleway, Roboto, sans-serif'}} >Contact Us. Tel: 099-999-9999</p>
                     </div>
               </div>
       </div>

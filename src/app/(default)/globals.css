@@ -24,4 +24,8 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+    font-family: 'Raleway, Roboto, sans-serif';
+}
+* {
+  font-family: 'Raleway, Roboto, sans-serif';
 }
