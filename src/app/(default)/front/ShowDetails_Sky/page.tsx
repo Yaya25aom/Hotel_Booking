@@ -105,7 +105,7 @@ const BeachHouseComponent = () => {
               <Image src="/tub.svg" alt="WiFi Icon" width={24} height={24} style={{ marginRight: '8px' }} />
               <p style={{ margin: 0 ,fontSize: '1.15rem', fontFamily: 'Raleway, Roboto, sans-serif'}}>Indoor Bathtub</p>
             </div>          
-            <div style={{ display: 'flex', alignItems: 'center',paddingBottom: '1rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center',paddingBottom: '3rem' }}>
               <Image src="/hair.svg" alt="WiFi Icon" width={24} height={24} style={{ marginRight: '8px' }} />
               <p style={{ margin: 0 ,fontSize: '1.15rem', fontFamily: 'Raleway, Roboto, sans-serif'}}>Hairdryer</p>
             </div>
