@@ -2,7 +2,7 @@ import React from 'react';
 
 const ReservationForm = () => {
   return (
-    <div className="flex items- mb-4" style={{paddingTop:'8rem'}}>
+    <div className="flex items- mb-4" style={{ paddingTop: '8rem' }}>
       <div className="w-full md:w-1/3 bg-white p-6 rounded-lg shadow-md mr-4 mb-4 md:mb-0">
         <YourReservation />
       </div>
@@ -28,34 +28,34 @@ const YourReservation = () => {
         <p className="text-gray-800 font-bold">3 Bedroom Ocean Front Residence (Villa Sawani) - 1 room</p>
         <p className="text-gray-600">USD 101,120.00</p>
       </div>
-<div className='flex '>  
-<div className="flex">
-<svg
-      fill="currentColor"
-      viewBox="0 0 16 16"
-      height="1em"
-      width="1em"
-      
-    >
-      <path d="M14 0H2a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z" />
-      <path d="M6.5 7a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm-9 3a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm-9 3a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2z" />
-    </svg>
+      <div className='flex '>
+        <div className="flex">
+          <svg
+            fill="currentColor"
+            viewBox="0 0 16 16"
+            height="1em"
+            width="1em"
 
-  <span className="text-gray-600">8 nights</span>
-  </div>
-  <div className='flex'>
-  <svg
-    fill="currentColor"
-    viewBox="0 0 16 16"
-    height="1em"
-    width="1em"
-    className="text-gray-400 ml-4 mr-2"
-  >
-    <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 017 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 01-.014.002H7.022zM11 7a2 2 0 100-4 2 2 0 000 4zm3-2a3 3 0 11-6 0 3 3 0 016 0zM6.936 9.28a5.88 5.88 0 00-1.23-.247A7.35 7.35 0 005 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 015 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 004 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 116 0 3 3 0 01-6 0zm3-2a2 2 0 100 4 2 2 0 000-4z" />
-  </svg>
-  <span className="text-gray-600">20 adults, 4 children</span>
-</div>
-</div>    
+          >
+            <path d="M14 0H2a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z" />
+            <path d="M6.5 7a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm-9 3a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm-9 3a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2z" />
+          </svg>
+
+          <span className="text-gray-600">8 nights</span>
+        </div>
+        <div className='flex'>
+          <svg
+            fill="currentColor"
+            viewBox="0 0 16 16"
+            height="1em"
+            width="1em"
+            className="text-gray-400 ml-4 mr-2"
+          >
+            <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 017 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 01-.014.002H7.022zM11 7a2 2 0 100-4 2 2 0 000 4zm3-2a3 3 0 11-6 0 3 3 0 016 0zM6.936 9.28a5.88 5.88 0 00-1.23-.247A7.35 7.35 0 005 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 015 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 004 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 116 0 3 3 0 01-6 0zm3-2a2 2 0 100 4 2 2 0 000-4z" />
+          </svg>
+          <span className="text-gray-600">20 adults, 4 children</span>
+        </div>
+      </div>
 
       <ul className="list-none">
         {/* Loop through dates and prices */}
@@ -108,7 +108,7 @@ const GuestInformation = () => {
           type="text"
           id="firstName"
           className="border border-gray-400 p-2 w-full"
-          // placeholder="Enter your first name"
+        // placeholder="Enter your first name"
         />
         <label htmlFor="lastname" className="block text-gray-700 font-bold mb-1">
           Last Name
@@ -117,7 +117,7 @@ const GuestInformation = () => {
           type="text"
           id="lastname"
           className="border border-gray-400 p-2 w-full"
-          // placeholder="Enter your last name"
+        // placeholder="Enter your last name"
         />
         <label htmlFor="email" className="block text-gray-700 font-bold mb-1">
           Email Address
@@ -126,7 +126,7 @@ const GuestInformation = () => {
           type="text"
           id="email"
           className="border border-gray-400 p-2 w-full"
-          // placeholder="Enter your Email Address"
+        // placeholder="Enter your Email Address"
         />
         <label htmlFor="phone" className="block text-gray-700 font-bold mb-1">
           Phone Number
@@ -135,7 +135,7 @@ const GuestInformation = () => {
           type="text"
           id="phone"
           className="border border-gray-400 p-2 w-full"
-          // placeholder="Enter your phone number"
+        // placeholder="Enter your phone number"
         />
         <label htmlFor="address" className="block text-gray-700 font-bold mb-1">
           Address
@@ -144,7 +144,7 @@ const GuestInformation = () => {
           type="text"
           id="address"
           className="border border-gray-400 p-2 w-full"
-          // placeholder="Enter your address"
+        // placeholder="Enter your address"
         />
         <label htmlFor="city" className="block text-gray-700 font-bold mb-1">
           City
@@ -153,7 +153,7 @@ const GuestInformation = () => {
           type="text"
           id="city"
           className="border border-gray-400 p-2 w-full"
-          // placeholder="Enter your address"
+        // placeholder="Enter your address"
         />
         <label htmlFor="country" className="block text-gray-700 font-bold mb-1">
           Country
@@ -162,7 +162,7 @@ const GuestInformation = () => {
           type="text"
           id="country"
           className="border border-gray-400 p-2 w-full"
-          // placeholder="Enter your address"
+        // placeholder="Enter your address"
         />
       </div>
       {/* Add more form fields for last name, email, phone number, address, etc. */}
@@ -179,7 +179,9 @@ const PaymentMethod = () => {
           <img src="/assets/image/visa1.png" alt="Visa" className="h-20 mr-2" />
           <img src="/assets/image/mastercard.png" alt="Mastercard" className="h-20 mr-2" />
           <img src="/assets/image/unionpay.png" alt="Unionpay" className="h-12 mr-2" />
-          <img src="/assets/image/qr.png" alt="qrcode" className="h-20 mr-2" />
+          <a href="/Bookroom/detailbook/qrcode">
+            <img src="/assets/image/qr.png" alt="qrcode" className="h-20 mr-2" />
+          </a>
         </div>
         <label htmlFor="cardNumber" className="block text-gray-700 font-bold mb-2">
           Card Number
@@ -255,7 +257,7 @@ const PaymentMethod = () => {
           </label>
         </div>
       </div>
-      <button className="bg-brown-500 text-white py-2 px-4 rounded">
+      <button className="bg-gray-600 text-white py-2 px-4 rounded w-full">
         COMPLETE RESERVATION
       </button>
     </div>
