@@ -24,10 +24,12 @@ const Navbar = async () => {
             Sign in
           </Link>
         )}
-         
         
-      </div>
+        
+     </div>
+      
     </div>
+    
   );
 };
 

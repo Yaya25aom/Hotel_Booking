@@ -14,7 +14,7 @@ const Home = () => {
 
 
   return (
-    <div className="flex flex-col md:flex-row justify-center items-center h-screen" style={{ paddingTop: '55rem' }}>
+    <div className="flex flex-col md:flex-row justify-center items-center h-screen" style={{ paddingTop: '54rem' }}>
       <div>
         <img
           src="/assets/image/home2.jpg"
@@ -22,7 +22,7 @@ const Home = () => {
           style={{ borderRadius: "0px" }}
         />
         <div className="w-full md:w-5/5 p-8 rounded-md flex flex-col md:flex-row">
-          <div className="md:mr-4 mb-4 md:mb-0 w-full md:w-1/2 md:w-full">
+          <div className="md:mr-4 mb-4 md:mb-0 w-full md:w-1/2 md:w-full" style={{ paddingRight: '5rem', paddingLeft: '5rem' }}>
             <label htmlFor="checkin" className="block mb-2">Check-in Date:</label>
             <DatePicker
               selected={startDate}
@@ -75,16 +75,16 @@ const Home = () => {
               </select>
             </div>
           </div>
-          <div className="flex items-center md:mt-5">
+          <div className="flex items-center md:mt-5" style={{ paddingRight: '5rem', paddingLeft: '5rem' }}>
             <Link
               href="//front/ShowDetails"
-              className="font-normal py-2 px-4 inline-block text-center"
+              className="font-normal py-2 px-4 inline-block text-center "
               style={{
                 color: 'white',
                 textDecoration: 'none',
                 border: '0px solid #446341',
                 borderRadius: '1px',
-                padding: '2px 50px',
+                padding: '5px 50px',
                 backgroundColor: '#4E7B96',
                 fontSize: '1rem',
                 display: 'flex',
@@ -108,19 +108,27 @@ const Home = () => {
             sides of CASA for you; a reflective getaway, a family staycation or a vacation with friends.<br />
             Make CASA your away.</p></div>
 
-
-        <div className="w-auto mt-1 text-center" style={{ textAlign: 'center', paddingTop: '2rem', paddingRight: '2rem', paddingBottom: '2rem', paddingLeft: '2rem' }}>
-        <iframe
-            width="30%"
-            height="400"
-            frameBorder="0"
-            style={{ border: 0 }}
-            src="https://www.openstreetmap.org/export/embed.html?bbox=100.5117%2C13.8218%2C100.5127%2C13.8231&layer=mapnik"
-            allowFullScreen
-          ></iframe>
+            <div className="self-center">
+          <div className="flex gap-5 p-10">
+            <div>
+        
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3874.331252595549!2d100.51171287485724!3d13.81913698657983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29b877800c9af%3A0xd754c571fc7177b!2z4Lih4Lir4Liy4Lin4Li04LiX4Lii4Liy4Lil4Lix4Lii4LmA4LiX4LiE4LmC4LiZ4LmC4Lil4Lii4Li14Lie4Lij4Liw4LiI4Lit4Lih4LmA4LiB4Lil4LmJ4Liy4Lie4Lij4Liw4LiZ4LiE4Lij4LmA4Lir4LiZ4Li34Lit!5e0!3m2!1sth!2sth!4v1711870591318!5m2!1sth!2sth" width="700" height="300"  loading="lazy" className=" rounded-lg shadow"></iframe>
           </div>
+          <div className="w-full">
+              <div className="p-20">
+                    <p className="font-bold text-2xl">  KING MONGKUT'S UNIVERSITY OF TECHNOLOGY NORTH BANGKOK</p>
+                    <p>1518 Pracharat 1 Road,Wongsawang, Bangsue, Bangkok 10800</p>
+                    <div className="mt-10">
+                    <p>Contact Us. Tel: 099-999-9999</p>
+                    <p>Line: ม จริง พรี่</p>
+                    </div>
+              </div>
       </div>
     </div>
+    </div>
+    </div>
+    </div>
+
 
 
   );
