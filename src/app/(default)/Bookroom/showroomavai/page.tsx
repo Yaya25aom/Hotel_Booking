@@ -8,26 +8,14 @@ import { useRouter } from "next/router";
 import AddEnhancementButton from '@/components/ui/AddEnhancementButton';
 import EnhancementModal from '@/components/form/EnhancementModal'; // นำเข้า EnhancementModal มาก่อนเรียกใช้
 
-const YourPage: React.FC = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleOpenModal = () => {
-    setIsModalOpen(true);
+const List = () => {
+  const [selectedRateOption, setSelectedRateOption] = useState("limited-time-offer");
+  const handleRateOptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedRateOption(event.target.value);
   };
+  
 
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
-
-  return (
-    <>
-      <List />
-      <EnhancementModal isOpen={isModalOpen} onClose={handleCloseModal} /> {/* เรียกใช้ EnhancementModal ที่นำเข้ามา */}
-    </>
-  );
-};
-
-const List: React.FC = () => {
   const [isOpen, setIsOpen] = useState<number | null>(null);
   const [hoveredRoom, setHoveredRoom] = useState(null);
   const [roomTypes, setRoomTypes] = useState([]);
@@ -44,7 +32,7 @@ const List: React.FC = () => {
       name: "Deluxe Ocean View Suite",
       image: "/assets/image/oc2.png",
     },
-    // เพิ่มข้อมูลห้องอื่น ๆ ตามต้องการ
+    // Add other room data as needed
   ];
 
   const fetchRoomTypes = async () => {
@@ -56,15 +44,12 @@ const List: React.FC = () => {
     }
   };
 
- 
-
   const toggleCollapse = (roomNo: number) => {
     setIsOpen(prevOpen => (prevOpen === roomNo ? null : roomNo));
   };
 
   useEffect(() => {
     fetchRoomTypes();
-
   }, []);
     return (
         <div>
@@ -146,19 +131,33 @@ const List: React.FC = () => {
               <p className="mb-4">The Ocean View Pool Junior Suites are situated on the highest level of the resort, offering cool breezes, total privacy and panoramic ocean views overlooking It has a private entrance walkway leading to the 70 squar...</p>
               <a href="#" className="text-blue-500 hover:text-blue-700 mb-6 inline-block">View Room Details And Enhancements</a>
               <div className="flex items-center mb-4">
-                <div className="flex items-center mr-4">
-                  <input id="limited-time-offer" type="radio" name="rate-option" defaultChecked className="form-radio h-5 w-5 text-blue-500" />
-                  <label htmlFor="limited-time-offer" className="ml-2">Limited Time Offer With Wellbeing Credits</label>
-                </div>
-                <span className="font-semibold">THB {room.RoomType.RoomPrice}</span>
-              </div>
-              <div className="flex items-center mb-6">
-                <div className="flex items-center mr-4">
-                  <input id="best-flexible" type="radio" name="rate-option" className="form-radio h-5 w-5 text-blue-500" />
-                  <label htmlFor="best-flexible" className="ml-2">Best Flexible <label>With Wellbeing Credits</label></label>
-                </div>
-                <span className="font-semibold">THB {room.RoomType.DefalutRoomPrice}</span>
-              </div>
+              <div className="flex items-center mr-4">
+              <input
+      id={`limited-time-offer-${room.RoomNo}`}
+      type="radio"
+      name={`rate-option-${room.RoomNo}`}
+      value="limited-time-offer"
+      defaultChecked
+      className="form-radio h-5 w-5 text-blue-500"
+      onChange={handleRateOptionChange}
+    />
+    <label htmlFor={`limited-time-offer-${room.RoomNo}`} className="ml-2">Limited Time Offer With Wellbeing Credits</label>
+    <span className="font-semibold">THB {room.RoomType.RoomPrice}</span>
+</div>
+<div className="flex items-center mb-4">
+<input
+      id={`best-flexible-${room.RoomNo}`}
+      type="radio"
+      name={`rate-option-${room.RoomNo}`}
+      value="best-flexible"
+      className="form-radio h-5 w-5 text-blue-500"
+      onChange={handleRateOptionChange}
+    />
+    <label htmlFor={`best-flexible-${room.RoomNo}`} className="ml-2">Best Flexible With Wellbeing Credits</label> {/* แก้ label เป็นปกติ */}
+    <span className="font-semibold">THB {room.RoomType.DefalutRoomPrice}</span>
+  </div>
+ 
+</div>
               <div className="flex items-center justify-between">
                 <span className="text-2xl font-semibold">THB {room.RoomType.RoomPrice}</span>
                 <button
@@ -227,26 +226,29 @@ const List: React.FC = () => {
     </div>
     <span className="text-gray-600 text-center jutify-content">{room.RoomType?.RoomTypeDescrip}</span>
     <div className="border border-black p-4 font-sans" style={{width:'40%',marginLeft:'820px',marginTop:'-180px'}}>
-      <h3 className="bg-red-600 text-white py-2 px-4 mb-4">Limited Time Offer</h3>
-      <div>
-        <h4 className="font-bold mb-2">Current Rate Selection</h4>
-        <p className="mb-1">Limited Time Offer</p>
-        <p className="mb-1">With Wellbeing Credits</p>
-        <p className="mb-1">
-          THB {room.RoomType.RoomPrice} x 1 Night{' '}
-          <span className="line-through">THB {room.RoomType.DefalutRoomPrice}</span>
-        </p>
-        <p className="mb-4">THB {room.RoomType.RoomPrice}</p>
-        <hr className="border-black mb-4" />
-        <p className="mb-1">
-          Subtotal <span className="line-through">THB {room.RoomType.DefalutRoomPrice}</span>
-        </p>
-        <p className="mb-4">THB {room.RoomType.RoomPrice}</p>
-      </div>
-      <button className=" text-white py-2 px-4" style={{backgroundColor:'#725a5a'}}>
-        ADD ROOM & CHECKOUT
-      </button>
-    </div>
+  <h3 className="bg-red-600 text-white py-2 px-4 mb-4">Limited Time Offer</h3>
+  <div>
+    <h4 className="font-bold mb-2">Current Rate Selection</h4>
+    <p className="mb-1">Limited Time Offer</p>
+    <p className="mb-1">With Wellbeing Credits</p>
+    <p className="mb-1">
+      THB {selectedRateOption === 'limited-time-offer' ? room.RoomType.RoomPrice : room.RoomType.DefalutRoomPrice} x 1 Night{' '}
+      <span className="line-through">THB {room.RoomType.DefalutRoomPrice}</span>
+    </p>
+    <p className="mb-4">THB {selectedRateOption === 'limited-time-offer' ? room.RoomType.RoomPrice : room.RoomType.DefalutRoomPrice}</p>
+    <hr className="border-black mb-4" />
+    <p className="mb-1">
+      Subtotal <span className="line-through">THB {room.RoomType.DefalutRoomPrice}</span>
+    </p>
+    <p className="mb-4">THB {selectedRateOption === 'limited-time-offer' ? room.RoomType.RoomPrice : room.RoomType.DefalutRoomPrice}</p>
+  </div>
+  <Link href="/Bookroom/detailbook" passHref>
+  <button className="text-white py-2 px-4" style={{ backgroundColor: '#725a5a' }}>
+    ADD ROOM & CHECKOUT
+  </button>
+</Link>
+</div>
+
     <img src="/assets/image/oc2.png"></img>
     <div className="flex gap-8">
         <h1 className="mb-1" style={{paddingTop:'5rem',fontSize:'1.87rem',fontFamily:'Raleway, Roboto, sans-serif'}}>Enhance Your Stay
@@ -299,6 +301,8 @@ const List: React.FC = () => {
     
     
   );
+          
 };
+
 
 export default List;
