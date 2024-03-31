@@ -57,7 +57,7 @@ const Edit = ({ params }: { params: { id: string } }) => {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
-      <h1 className="text-2xl font-semibold mb-6">Edit EmployeeID {id}</h1>
+      <h1 className="text-2xl font-semibold mb-6 py-10" style={{paddingTop:'8rem'}}>Edit EmployeeID {id}</h1>
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
           <label
