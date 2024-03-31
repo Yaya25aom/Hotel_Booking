@@ -103,7 +103,7 @@ const CalendarComponent: React.FC<CalendarProps> = () => {
                 >
                     <span className="text-2xl">&lt;</span>
                 </button>
-                <div className="text-lg font-bold ">
+                <div className="text-2xl font-bold ">
                     {state.currentMonth.toLocaleDateString('en-US', { year: 'numeric' })}
                 </div>
                 {/* </div> */}
@@ -146,9 +146,9 @@ const CalendarComponent: React.FC<CalendarProps> = () => {
                                     className={`text-center py-2 rounded cursor-pointer ${state.checkInDate && dateOrObj.getTime() === state.checkInDate.getTime()
                                         ? 'bg-blue-500 text-white'
                                         : dateOrObj.toDateString() === new Date().toDateString() // Check if the date is today's date
-                                            ? 'bg-lime-400 text-black' // Apply lime background for today's date
+                                            ? 'bg-lime-300 text-black' // Apply lime background for today's date
                                             : dateOrObj >= new Date() // Check if the date is after today
-                                                ? 'bg-lime-400 text-black' // Apply lime background for future dates
+                                                ? 'bg-lime-300 text-black' // Apply lime background for future dates
                                                 : ''
                                         } ${state.checkOutDate && dateOrObj.getTime() === state.checkOutDate.getTime()
                                             ? 'bg-green-500 text-white'
@@ -170,9 +170,9 @@ const CalendarComponent: React.FC<CalendarProps> = () => {
                                     className={`text-center py-2 rounded cursor-pointer text-gray-400 ${state.checkInDate && dateOrObj.date.getTime() === state.checkInDate.getTime()
                                         ? 'bg-blue-500 text-white'
                                         : dateOrObj.isToday // Check if the date is today's date
-                                            ? 'bg-lime-400 text-black' // Apply green background for today's date
+                                            ? 'bg-lime-300 text-black' // Apply green background for today's date
                                             : dateOrObj.date >= new Date() // Check if the date is after today
-                                                ? 'bg-lime-400 text-black' // Apply lime background for future dates
+                                                ? 'bg-lime-300 text-black' // Apply lime background for future dates
                                                 : ''
                                         } ${state.checkOutDate && dateOrObj.date.getTime() === state.checkOutDate.getTime()
                                             ? 'bg-green-500 text-white'
@@ -192,42 +192,42 @@ const CalendarComponent: React.FC<CalendarProps> = () => {
                     </div>
                 </div>
                 <div>
-    <div className="grid grid-cols-7 gap-1 mb-2 text-sm font-bold text-gray-400">
-        <span className="text-center">SUN</span>
-        <span className="text-center">MON</span>
-        <span className="text-center">TUE</span>
-        <span className="text-center">WED</span>
-        <span className="text-center">THU</span>
-        <span className="text-center">FRI</span>
-        <span className="text-center">SAT</span>
-    </div>
-    <div className="grid grid-cols-7 gap-1 text-sm">
-        {nextMonthDates.map((date) => (
-            <div
-                key={date.getTime()}
-                onClick={() => handleDateClick(date)}
-                className={`text-center py-2 rounded cursor-pointer text-gray-400 ${state.checkInDate && date.getTime() === state.checkInDate.getTime()
-                    ? 'bg-blue-500 text-white'
-                    : ''
-                    } ${state.checkOutDate && date.getTime() === state.checkOutDate.getTime()
-                        ? 'bg-green-500 text-white'
-                        : ''
-                    } ${state.checkInDate &&
-                        state.checkOutDate &&
-                        date > state.checkInDate &&
-                        date < state.checkOutDate
-                        ? 'bg-yellow-300 text-black'
-                        : ''
-                    } ${date >= new Date() // Check if the date is today or after
-                        ? 'bg-lime-300 text-gray-400' // Apply lime background for today's date and future dates
-                        : ''
-                    }`}
-            >
-                <span>{date.getDate()}</span>
-            </div>
-        ))}
-    </div>
-</div>
+                    <div className="grid grid-cols-7 gap-1 mb-2 text-sm font-bold text-gray-400">
+                        <span className="text-center">SUN</span>
+                        <span className="text-center">MON</span>
+                        <span className="text-center">TUE</span>
+                        <span className="text-center">WED</span>
+                        <span className="text-center">THU</span>
+                        <span className="text-center">FRI</span>
+                        <span className="text-center">SAT</span>
+                    </div>
+                    <div className="grid grid-cols-7 gap-1 text-sm">
+                        {nextMonthDates.map((date) => (
+                            <div
+                                key={date.getTime()}
+                                onClick={() => handleDateClick(date)}
+                                className={`text-center py-2 rounded cursor-pointer text-gray-400 ${state.checkInDate && date.getTime() === state.checkInDate.getTime()
+                                    ? 'bg-blue-500 text-white'
+                                    : ''
+                                    } ${state.checkOutDate && date.getTime() === state.checkOutDate.getTime()
+                                        ? 'bg-green-500 text-white'
+                                        : ''
+                                    } ${state.checkInDate &&
+                                        state.checkOutDate &&
+                                        date > state.checkInDate &&
+                                        date < state.checkOutDate
+                                        ? 'bg-yellow-300 text-black'
+                                        : ''
+                                    } ${date >= new Date() // Check if the date is today or after
+                                        ? 'bg-lime-200 text-gray-400' // Apply lime background for today's date and future dates
+                                        : ''
+                                    }`}
+                            >
+                                <span>{date.getDate()}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
 
             </div>
             <div className="mt-4 flex justify-between items-center">

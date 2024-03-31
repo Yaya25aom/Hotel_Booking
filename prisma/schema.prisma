@@ -36,9 +36,10 @@ model Room {
 }
 
 model Role {
-  Role_Id    Int    @unique
+  Role_Id    Int        @id @unique
   Role_Title String
   Role_Des   String
+  Employee   Employee[]
 }
 
 model Employee {
@@ -50,10 +51,13 @@ model Employee {
   Email       String @unique
   Salary      Float
   Password    String
+  Role_ID     Int?
+  Role        Role?  @relation(fields: [Role_ID], references: [Role_Id], onDelete: NoAction, onUpdate: NoAction, map: "public_Employee_Role_ID_fkey")
 }
-model Enhanc{
-  EnhancID Int @unique
-  Enhancname String
+
+model Enhanc {
+  EnhancID      Int    @unique
+  Enhancname    String
   Enhancdescrip String
-  EnhancPrice Int
+  EnhancPrice   Int
 }

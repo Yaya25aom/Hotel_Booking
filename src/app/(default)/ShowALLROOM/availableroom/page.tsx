@@ -38,25 +38,25 @@ const List = () => {
                 scope="col"
                 className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" style={{color:'#000'}}
               >
-                roomno
+                room_no
               </th>
               <th
                 scope="col"
                 className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"style={{color:'#000'}}
               >
-                statusroom
+                status_room
               </th>
               <th
                 scope="col"
                 className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"style={{color:'#000'}}
               >
-                typeroom
+                type_room
               </th>
               <th
                 scope="col"
                 className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"style={{color:'#000'}}
               >
-                roomprice
+                room_price
               </th>
               <th
                 scope="col"

@@ -5,51 +5,67 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 
+import AddEnhancementButton from '@/components/ui/AddEnhancementButton';
+import EnhancementModal from '@/components/form/EnhancementModal'; // นำเข้า EnhancementModal มาก่อนเรียกใช้
 
+const YourPage: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
 
-const List = () => {
-    
-    const roomData = [
-        {
-          id: 1001,
-          name: "Ocean View Pool Junior Suite",
-          image: "/assets/image/pp2.png",
-        },
-        {
-          id: 1002,
-          name: "Deluxe Ocean View Suite",
-          image: "/assets/image/oc2.png",
-        },
-        // เพิ่มข้อมูลห้องอื่น ๆ ตามต้องการ
-      ];
-      const [isOpen, setIsOpen] = useState<number | null>(null);
-  // ...
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+  return (
+    <>
+      <List />
+      <EnhancementModal isOpen={isModalOpen} onClose={handleCloseModal} /> {/* เรียกใช้ EnhancementModal ที่นำเข้ามา */}
+    </>
+  );
+};
+
+const List: React.FC = () => {
+  const [isOpen, setIsOpen] = useState<number | null>(null);
+  const [hoveredRoom, setHoveredRoom] = useState(null);
+  const [roomTypes, setRoomTypes] = useState([]);
+  const [Enhanc, setEnhanc] = useState([]);
+
+  const roomData = [
+    {
+      id: 1001,
+      name: "Ocean View Pool Junior Suite",
+      image: "/assets/image/pp2.png",
+    },
+    {
+      id: 1002,
+      name: "Deluxe Ocean View Suite",
+      image: "/assets/image/oc2.png",
+    },
+    // เพิ่มข้อมูลห้องอื่น ๆ ตามต้องการ
+  ];
+
+  const fetchRoomTypes = async () => {
+    try {
+      const response = await axios.get('/api/statusroom');
+      setRoomTypes(response.data.filter((room: { Status: boolean }) => room.Status === true));
+    } catch (error) {
+      console.log('error', error);
+    }
+  };
+
+ 
 
   const toggleCollapse = (roomNo: number) => {
     setIsOpen(prevOpen => (prevOpen === roomNo ? null : roomNo));
   };
-          
-    
-      const [hoveredRoom, setHoveredRoom] = useState(null);
 
-    const [roomTypes, setRoomTypes] = useState([]);
-    
+  useEffect(() => {
+    fetchRoomTypes();
 
-    const fetchRoomTypes = async () => {
-        try {
-            const response = await axios.get('/api/statusroom');
-            setRoomTypes(response.data.filter((room: { Status: boolean; }) => room.Status === true));
-        } catch(error) {
-            console.log('error', error);
-        }
-    };
-    
-
-    useEffect(() => {
-        fetchRoomTypes();
-    }, []);
-
+  }, []);
     return (
         <div>
       <div
@@ -134,17 +150,17 @@ const List = () => {
                   <input id="limited-time-offer" type="radio" name="rate-option" defaultChecked className="form-radio h-5 w-5 text-blue-500" />
                   <label htmlFor="limited-time-offer" className="ml-2">Limited Time Offer With Wellbeing Credits</label>
                 </div>
-                <span className="font-semibold">USD 947.05</span>
+                <span className="font-semibold">THB {room.RoomType.RoomPrice}</span>
               </div>
               <div className="flex items-center mb-6">
                 <div className="flex items-center mr-4">
                   <input id="best-flexible" type="radio" name="rate-option" className="form-radio h-5 w-5 text-blue-500" />
-                  <label htmlFor="best-flexible" className="ml-2">Best Flexible With Wellbeing Credits</label>
+                  <label htmlFor="best-flexible" className="ml-2">Best Flexible <label>With Wellbeing Credits</label></label>
                 </div>
-                <span className="font-semibold">USD 1,092.75</span>
+                <span className="font-semibold">THB {room.RoomType.DefalutRoomPrice}</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-2xl font-semibold">USD 947.05</span>
+                <span className="text-2xl font-semibold">THB {room.RoomType.RoomPrice}</span>
                 <button
           onClick={() => toggleCollapse(room.RoomNo)} // ส่ง RoomNo เข้าไปใน toggleCollapse เพื่อระบุห้องที่ต้องการเปิด/ปิด
           className="bg-brown-500 text-white py-2 px-4 rounded-md hover:bg-brown-600 transition-colors duration-300"
@@ -217,15 +233,15 @@ const List = () => {
         <p className="mb-1">Limited Time Offer</p>
         <p className="mb-1">With Wellbeing Credits</p>
         <p className="mb-1">
-          USD 1,211.60 x 1 Night{' '}
-          <span className="line-through">USD 1,364.00</span>
+          THB {room.RoomType.RoomPrice} x 1 Night{' '}
+          <span className="line-through">THB {room.RoomType.DefalutRoomPrice}</span>
         </p>
-        <p className="mb-4">USD 1,211.60</p>
+        <p className="mb-4">THB {room.RoomType.RoomPrice}</p>
         <hr className="border-black mb-4" />
         <p className="mb-1">
-          Subtotal <span className="line-through">USD 1,364.00</span>
+          Subtotal <span className="line-through">THB {room.RoomType.DefalutRoomPrice}</span>
         </p>
-        <p className="mb-4">USD 1,211.60</p>
+        <p className="mb-4">THB {room.RoomType.RoomPrice}</p>
       </div>
       <button className=" text-white py-2 px-4" style={{backgroundColor:'#725a5a'}}>
         ADD ROOM & CHECKOUT
@@ -242,36 +258,37 @@ const List = () => {
   </div>
   </div>
   
-  
 
-<div className="flex gap-16 mb-2 py-8">
-    <img src="/assets/image/lob.jpeg" style={{width:'40%'}}></img>
-    <img src="/assets/image/bbq.jpeg" style={{width:'40%'}}></img>
+    <div className="flex gap-16 mb-2 py-8">
+      <img src="/assets/image/lob.jpeg" style={{ width: '40%' }}></img>
+      <img src="/assets/image/bbq.jpeg" style={{ width: '40%' }}></img>
     </div>
-    <div className=" flex  " style={{gap:'13em'}} >
-        <div>
-    <button className='text-white py-2 px-4'style={{backgroundColor:'#725a5a'}}> ADD ENHANCMENT</button>
-    </div>
-    <div>
-    <button className='text-white py-2 px-4'style={{backgroundColor:'#725a5a'}}>ADD ENHANCMENT</button>
-    </div>
+    <div className="flex" style={{ gap: '13em' }}>
+      <div>
+        <button className='text-white py-2 px-4' style={{ backgroundColor: '#725a5a' }}> ADD ENHANCEMENT</button>
+      </div>
+      <div>
+        <button className='text-white py-2 px-4' style={{ backgroundColor: '#725a5a' }}> ADD ENHANCEMENT</button>
+      </div>
+      
     </div>
     <div className="flex gap-16 py-3 mb-3">
-    <img src="/assets/image/roman.webp" style={{width:'40%'}}></img>
-    <img src="/assets/image/treat.jpeg" style={{width:'40%'}}></img>
+      <img src="/assets/image/roman.webp" style={{ width: '40%' }}></img>
+      <img src="/assets/image/treat.jpeg" style={{ width: '40%' }}></img>
     </div>
-    <div className=" flex  " style={{gap:'13em'}} >
-        <div>
-    <button className='text-white py-2 px-4'style={{backgroundColor:'#725a5a'}}> ADD ENHANCMENT</button>
+    <div className="flex" style={{ gap: '13em' }}>
+      <div>
+        <button className='text-white py-2 px-4' style={{ backgroundColor: '#725a5a' }}> ADD ENHANCEMENT</button>
+      </div>
+      
+      <div>
+        <button className='text-white py-2 px-4' style={{ backgroundColor: '#725a5a' }}>ADD ENHANCEMENT</button>
+      </div>
     </div>
-    <div>
-    <button className='text-white py-2 px-4'style={{backgroundColor:'#725a5a'}}>ADD ENHANCMENT</button>
-    </div>
-    </div>
-</div>
-  
+  </div>
   
 )}
+
 
 
         

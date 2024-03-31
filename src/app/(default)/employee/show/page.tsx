@@ -22,13 +22,13 @@ const List = () => {
       }, [])
     
 
-  function deleteEmployee(id: any): void {
+  function deleteEmployee(Employee_Id: any): void {
     throw new Error('Function not implemented.')
   }
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
-      <h1 className="text-2xl font-semibold mb-6">Data Employee</h1>
+      <h1 className="text-2xl font-semibold mb-6" style={{paddingTop:'8rem'}}>Data Employee</h1>
       <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-50">
@@ -43,7 +43,7 @@ const List = () => {
                 scope="col"
                 className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
               >
-                Role_ID
+                Role_title
               </th>
               <th
                 scope="col"
@@ -153,7 +153,7 @@ const List = () => {
                     Edit
                   </Link>
                   <button
-                    onClick={() => deleteEmployee(employee.id)}
+                    onClick={() => deleteEmployee(employee.Employee_Id)}
                     className="text-red-600 hover:text-red-900"
                   >
                     Delete
