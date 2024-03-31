@@ -28,12 +28,35 @@ const YourReservation = () => {
         <p className="text-gray-800 font-bold">3 Bedroom Ocean Front Residence (Villa Sawani) - 1 room</p>
         <p className="text-gray-600">USD 101,120.00</p>
       </div>
-      <div className="mb-4">
-        <i className="fas fa-calendar-alt text-gray-400 mr-2"></i>
-        <span className="text-gray-600">8 nights</span>
-        <i className="fas fa-user-friends text-gray-400 ml-4 mr-2"></i>
-        <span className="text-gray-600">20 adults, 4 children</span>
-      </div>
+<div className='flex '>  
+<div className="flex">
+<svg
+      fill="currentColor"
+      viewBox="0 0 16 16"
+      height="1em"
+      width="1em"
+      
+    >
+      <path d="M14 0H2a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z" />
+      <path d="M6.5 7a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm-9 3a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm-9 3a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2zm3 0a1 1 0 100-2 1 1 0 000 2z" />
+    </svg>
+
+  <span className="text-gray-600">8 nights</span>
+  </div>
+  <div className='flex'>
+  <svg
+    fill="currentColor"
+    viewBox="0 0 16 16"
+    height="1em"
+    width="1em"
+    className="text-gray-400 ml-4 mr-2"
+  >
+    <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 017 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 01-.014.002H7.022zM11 7a2 2 0 100-4 2 2 0 000 4zm3-2a3 3 0 11-6 0 3 3 0 016 0zM6.936 9.28a5.88 5.88 0 00-1.23-.247A7.35 7.35 0 005 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 015 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 004 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 116 0 3 3 0 01-6 0zm3-2a2 2 0 100 4 2 2 0 000-4z" />
+  </svg>
+  <span className="text-gray-600">20 adults, 4 children</span>
+</div>
+</div>    
+
       <ul className="list-none">
         {/* Loop through dates and prices */}
         <li className="flex justify-between mb-2">
