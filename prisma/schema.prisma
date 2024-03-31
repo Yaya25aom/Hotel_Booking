@@ -61,3 +61,25 @@ model Enhanc {
   Enhancdescrip String
   EnhancPrice   Int
 }
+model reservation{
+  BookID Int @unique
+  HotelID Int
+  GuestID Int
+  RoomNo_id Int
+  Bookingdate DateTime @default(now())
+  ArrivalDate DateTime
+  AeeivalDeparture DateTime
+  Numadults Int
+  Numchild Int
+  Enhancment String
+  Specialreq String
+}
+model Hotel{
+  HotelID Int @id
+  Hotelname String
+  Address String
+  Postcode Int
+  City String
+  Country String
+  PhoneNo String
+}
