@@ -133,7 +133,7 @@ Villa exclusives include luxurious amenities; a double vanity, cozy sunloungers,
               <Image src="/flower.svg" alt="WiFi Icon" width={22} height={22} style={{ marginRight: '8px' }} />
               <p style={{ margin: 0 ,fontSize: '1.15rem', fontFamily: 'Raleway, Roboto, sans-serif'}}>Expansive private garden</p>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center' ,paddingBottom: '1rem'}}>
+            <div style={{ display: 'flex', alignItems: 'center' ,paddingBottom: '3rem'}}>
               <Image src="/sun.svg" alt="WiFi Icon" width={24} height={30} style={{ marginRight: '8px' }} />
               <p style={{ margin: 0 ,fontSize: '1.15rem', fontFamily: 'Raleway, Roboto, sans-serif'}}>Sunloungers</p>
             </div>
