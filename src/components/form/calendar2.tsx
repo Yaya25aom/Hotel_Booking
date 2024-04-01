@@ -1,5 +1,11 @@
 'use client'
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import Link from 'next/link';
+
+
+  
+  // Call the function to display room availability when the page loads
 
 interface CalendarProps {
     // ...props
@@ -19,6 +25,52 @@ const CalendarComponent: React.FC<CalendarProps> = () => {
         checkOutDate: null,
         currentMonth: new Date(),
     });
+    interface Room {
+        RoomNo: number;
+        Status: boolean;
+      }
+    
+        const [room, setRoom] = useState<Room[]>([]);
+
+
+      
+        const fetchRooms = async () => {
+          try {
+            const response = await axios.get('/api/statusroom');
+            setRoom(response.data);
+          } catch (error) {
+            console.log('Error fetching rooms:', error);
+          }
+        };
+      
+        useEffect(() => {
+          fetchRooms();
+          
+        }, []);
+
+        const [selectedRoom, setSelectedRoom] = useState<Room | undefined>(undefined);
+
+        const checkRoomAvailability = async (date: Date) => {
+            try {
+                const response = await axios.get('/api/checkdate', {
+                    params: { date: date.toISOString() }
+                });
+                const isAvailable = response.data.isAvailable;
+                if (isAvailable) {
+                    // หากห้องว่าง คุณสามารถเลือกห้องได้ตามเงื่อนไขที่คุณต้องการ
+                    const availableRooms: Room[] = response.data.availableRooms;
+                    // ยกเลิกค่า selectedRoom เก่า และเลือกห้องใหม่
+                    setSelectedRoom(availableRooms[0]); // เลือกห้องแรกที่ว่างออกมา
+                } else {
+                    // กรณีห้องไม่ว่าง
+                    setSelectedRoom(undefined); // ไม่มีห้องที่เลือก
+                }
+            } catch (error) {
+                console.error('Error checking room availability:', error);
+                // ดำเนินการเมื่อเกิดข้อผิดพลาด
+            }
+        };
+        
 
     const handlePrevMonth = () => {
         setState((prevState) => ({
@@ -33,34 +85,56 @@ const CalendarComponent: React.FC<CalendarProps> = () => {
             currentMonth: new Date(prevState.currentMonth.getFullYear(), prevState.currentMonth.getMonth() + 1, 1),
         }));
     };
-
-    const handleDateClick = (date: Date, isCurrentMonth: boolean) => {
-        if (!state.checkInDate) {
-            setState((prevState) => ({
-                ...prevState,
-                checkInDate: date,
-            }));
-        } else if (!state.checkOutDate) {
-            if (isCurrentMonth && date > state.checkInDate) {
+    const handleDateClick = async (date: Date, isCurrentMonth: boolean) => {
+        try {
+            const isCurrentMonthValue = isCurrentMonth;
+            if (!state.checkInDate) {
                 setState((prevState) => ({
                     ...prevState,
-                    checkOutDate: date,
+                    checkInDate: date,
                 }));
-            } else if (!isCurrentMonth) {
+            } else if (!state.checkOutDate) {
+                if (isCurrentMonthValue && date > state.checkInDate) {
+                    setState((prevState) => ({
+                        ...prevState,
+                        checkOutDate: date,
+                    }));
+                } else if (!isCurrentMonthValue) {
+                    setState((prevState) => ({
+                        ...prevState,
+                        checkOutDate: date,
+                    }));
+                }
+            } else {
                 setState((prevState) => ({
                     ...prevState,
-                    checkOutDate: date,
+                    checkInDate: date,
+                    checkOutDate: null,
                 }));
             }
-        } else {
-            setState((prevState) => ({
-                ...prevState,
-                checkInDate: date,
-                checkOutDate: null,
-            }));
+    
+            const response = await axios.get('/api/checkdate', {
+                params: { date: date.toISOString() }
+            });
+            const isAvailable = response.data.isAvailable;
+            if (!isAvailable) {
+                // แสดง Popup ห้องไม่ว่าง
+                alert('ขออภัย ห้องไม่ว่างในวันที่เลือก');
+            } else {
+                // ถ้าห้องว่าง กำหนด selectedRoom ให้เป็นห้องที่ว่างออกมาและตั้งค่า checkOutDate ให้เป็น null
+                const availableRooms: Room[] = response.data.availableRooms;
+                setSelectedRoom(availableRooms[0]); // เลือกห้องแรกที่ว่างออกมา
+                setState((prevState) => ({
+                    ...prevState,
+                    checkOutDate: null,
+                }));
+            }
+        } catch (error) {
+            console.error('Error checking room availability:', error);
+            // ดำเนินการเมื่อเกิดข้อผิดพลาด
         }
     };
-
+    
     const isCurrentMonth = (date: Date) => {
         const currentMonth = state.currentMonth.getMonth();
         const dateMonth = date.getMonth();
