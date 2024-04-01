@@ -1,5 +1,11 @@
 'use client'
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import Link from 'next/link';
+
+
+  
+  // Call the function to display room availability when the page loads
 
 interface CalendarProps {
     // ...props
@@ -19,6 +25,59 @@ const CalendarComponent: React.FC<CalendarProps> = () => {
         checkOutDate: null,
         currentMonth: new Date(),
     });
+    interface Room {
+        RoomNo: number;
+        Status: boolean;
+      }
+    
+        const [room, setRoom] = useState<Room[]>([]);
+
+
+      
+        const fetchRooms = async () => {
+          try {
+            const response = await axios.get('/api/statusroom');
+            setRoom(response.data);
+          } catch (error) {
+            console.log('Error fetching rooms:', error);
+          }
+        };
+      
+        useEffect(() => {
+          fetchRooms();
+          
+        }, []);
+
+        const [selectedRoom, setSelectedRoom] = useState<Room | undefined>(undefined);
+
+        const checkRoomAvailability = async (date: Date) => {
+            try {
+                const response = await axios.get('/api/checkdate', {
+                    params: { date: date.toISOString() }
+                });
+                const isAvailable = response.data.isAvailable;
+                if (isAvailable) {
+                    // หากห้องว่าง คุณสามารถเลือกห้องได้ตามเงื่อนไขที่คุณต้องการ
+                    const availableRooms: Room[] = response.data.availableRooms;
+                    // ยกเลิกค่า selectedRoom เก่า และเลือกห้องใหม่
+                    setSelectedRoom(availableRooms[0]); // เลือกห้องแรกที่ว่างออกมา
+                } else {
+                    // กรณีห้องไม่ว่าง
+                    setSelectedRoom(undefined); // ไม่มีห้องที่เลือก
+                }
+            } catch (error) {
+                console.error('Error checking room availability:', error);
+                // ดำเนินการเมื่อเกิดข้อผิดพลาด
+            }
+        };
+        
+        
+     
+        
+        
+        
+        
+        
 
     const handlePrevMonth = () => {
         setState((prevState) => ({
