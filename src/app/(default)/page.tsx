@@ -14,14 +14,14 @@ const Home = () => {
 
 
   return (
-    <div className="flex flex-col md:flex-row justify-center items-center h-screen" style={{ paddingTop: '52rem' }}>
+    <div className="flex flex-col md:flex-row justify-center items-center h-screen" style={{ paddingTop: '50.3rem' }}>
       <div>
         <img
           src="/assets/image/home2.jpg"
           className="w-full h-auto rounded-lg"
           style={{ borderRadius: "0px" }}
         />
-        <div className="w-full md:w-5/5 p-8 rounded-md flex flex-col md:flex-row">
+        <div className="w-full md:w-5/5 p-8 rounded-md flex flex-col md:flex-row" style={{ paddingTop: '2rem' , paddingBottom: '2rem'}}>
           <div className="md:mr-4 mb-4 md:mb-0 w-full md:w-1/2 md:w-full" style={{ paddingRight: '5rem', paddingLeft: '5rem', }}>
             <label htmlFor="checkin" className="block mb-2" style={{ fontFamily: 'Raleway, Roboto, sans-serif' }}>Check-in Date:</label>
             <DatePicker
@@ -85,7 +85,7 @@ const Home = () => {
                 border: '0px solid #446341',
                 borderRadius: '1px',
                 padding: '15px 25px',
-                backgroundColor: '#4E7B96',
+                backgroundColor: '#075985',
                 fontSize: '1rem',
                 display: 'flex',
                 justifyContent: 'center',
@@ -99,7 +99,7 @@ const Home = () => {
 
           </div>
         </div>
-        <div className="w-auto mt-10 text-center" style={{ textAlign: 'center', backgroundColor: '#f7ede5', paddingTop: '5rem', paddingRight: '20rem', paddingBottom: '5rem', paddingLeft: '20rem' }}>
+        <div className="w-auto mt-10 text-center" style={{ textAlign: 'center', backgroundColor: '#f7F2eB', paddingTop: '5rem', paddingRight: '20rem', paddingBottom: '5rem', paddingLeft: '20rem' }}>
           <h1 style={{ fontSize: '2.5rem', marginBottom: '0.5rem', fontFamily: 'Raleway, Roboto, sans-serif', fontWeight: 'bold' }}>CASA Hotel</h1>
           <p style={{ fontSize: '2rem', marginTop: '0.5rem', marginBottom: '2rem', fontFamily: 'Raleway, Roboto, sans-serif' }}>5-star luxury hotels & resorts</p>
           <p style={{ fontSize: '1.2rem', fontFamily: 'Raleway, Roboto, sans-serif' }}>

@@ -62,7 +62,7 @@ const OceanHouseComponent = () => {
       <div>
         <h1 className="text-4xl font-bold mb-4" style={{ fontFamily: 'Raleway, Roboto, sans-serif' }}>POOL VILLA SEA VIEW</h1>
         <p className="mb-10" style={{ fontSize: '1.25rem', fontFamily: 'Raleway, Roboto, sans-serif' }}>
-          A serene space and filled with CASA luxurious touch, where less is truly more. The spacious terrace comes with sun loungers, offering you hours of pleasure by simply gazing
+          A serene space and filled with CALISA luxurious touch, where less is truly more. The spacious terrace comes with sun loungers, offering you hours of pleasure by simply gazing
           at the glistening sea. Privacy, serenity, private garden, and an impressive view of the sea.
         </p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">

@@ -3,7 +3,7 @@ import React from 'react';
 
 const Experience = () => {
     return (
-        <div className="flex flex-col items-center" style={{ paddingTop: '1rem' }}>
+        <div className="flex flex-col items-center" style={{paddingTop: ''}}>
             <img
                 src="/assets/image/home2.jpg"
                 className="w-full h-auto rounded-lg"
