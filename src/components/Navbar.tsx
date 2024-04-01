@@ -20,7 +20,7 @@ const Navbar = async () => {
         ) : (
           <>
           <a href="#" className="hover:text-white">
-  <img src="/assets/image/logo4.png" alt="logo" style={{ width: '200px', height: '200px' }} />
+  <img src="/assets/image/logo4.png" alt="logo" style={{ width: '100px'}} />
 </a>
 
             <Link className={buttonVariants()} href='/front/ShowAccom'>

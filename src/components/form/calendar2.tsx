@@ -34,17 +34,24 @@ const CalendarComponent: React.FC<CalendarProps> = () => {
         }));
     };
 
-    const handleDateClick = (date: Date) => {
+    const handleDateClick = (date: Date, isCurrentMonth: boolean) => {
         if (!state.checkInDate) {
             setState((prevState) => ({
                 ...prevState,
                 checkInDate: date,
             }));
-        } else if (!state.checkOutDate && date > state.checkInDate) {
-            setState((prevState) => ({
-                ...prevState,
-                checkOutDate: date,
-            }));
+        } else if (!state.checkOutDate) {
+            if (isCurrentMonth && date > state.checkInDate) {
+                setState((prevState) => ({
+                    ...prevState,
+                    checkOutDate: date,
+                }));
+            } else if (!isCurrentMonth) {
+                setState((prevState) => ({
+                    ...prevState,
+                    checkOutDate: date,
+                }));
+            }
         } else {
             setState((prevState) => ({
                 ...prevState,
@@ -53,9 +60,16 @@ const CalendarComponent: React.FC<CalendarProps> = () => {
             }));
         }
     };
-    const handleDateClickSafely = (clickedDate: Date | null) => {
+
+    const isCurrentMonth = (date: Date) => {
+        const currentMonth = state.currentMonth.getMonth();
+        const dateMonth = date.getMonth();
+        return currentMonth === dateMonth;
+    };
+
+    const handleDateClickSafely = (clickedDate: Date | null, isCurrentMonth: boolean) => {
         if (clickedDate) {
-            handleDateClick(clickedDate);
+            handleDateClick(clickedDate, isCurrentMonth);
         }
     };
 
@@ -142,7 +156,7 @@ const CalendarComponent: React.FC<CalendarProps> = () => {
                             dateOrObj instanceof Date ? (
                                 <div
                                     key={index}
-                                    onClick={() => handleDateClickSafely(dateOrObj)}
+                                    onClick={() => handleDateClickSafely(dateOrObj, true)}
                                     className={`text-center py-2 rounded cursor-pointer ${state.checkInDate && dateOrObj.getTime() === state.checkInDate.getTime()
                                         ? 'bg-blue-500 text-white'
                                         : dateOrObj.toDateString() === new Date().toDateString() // Check if the date is today's date
@@ -151,7 +165,7 @@ const CalendarComponent: React.FC<CalendarProps> = () => {
                                                 ? 'bg-lime-300 text-black' // Apply lime background for future dates
                                                 : ''
                                         } ${state.checkOutDate && dateOrObj.getTime() === state.checkOutDate.getTime()
-                                            ? 'bg-green-500 text-white'
+                                            ? 'bg-red-500 text-white'
                                             : ''
                                         } ${state.checkInDate &&
                                             state.checkOutDate &&
@@ -166,7 +180,7 @@ const CalendarComponent: React.FC<CalendarProps> = () => {
                             ) : (
                                 <div
                                     key={index}
-                                    onClick={() => handleDateClickSafely(dateOrObj.date)}
+                                    onClick={() => handleDateClickSafely(dateOrObj.date, true)}
                                     className={`text-center py-2 rounded cursor-pointer text-gray-400 ${state.checkInDate && dateOrObj.date.getTime() === state.checkInDate.getTime()
                                         ? 'bg-blue-500 text-white'
                                         : dateOrObj.isToday // Check if the date is today's date
@@ -175,7 +189,7 @@ const CalendarComponent: React.FC<CalendarProps> = () => {
                                                 ? 'bg-lime-300 text-black' // Apply lime background for future dates
                                                 : ''
                                         } ${state.checkOutDate && dateOrObj.date.getTime() === state.checkOutDate.getTime()
-                                            ? 'bg-green-500 text-white'
+                                            ? 'bg-red-500 text-white'
                                             : ''
                                         } ${state.checkInDate &&
                                             state.checkOutDate &&
@@ -205,12 +219,12 @@ const CalendarComponent: React.FC<CalendarProps> = () => {
                         {nextMonthDates.map((date) => (
                             <div
                                 key={date.getTime()}
-                                onClick={() => handleDateClick(date)}
-                                className={`text-center py-2 rounded cursor-pointer text-gray-400 ${state.checkInDate && date.getTime() === state.checkInDate.getTime()
-                                    ? 'bg-blue-500 text-white'
-                                    : ''
+                                onClick={() => handleDateClick(date, false)}
+                                className={`text-center py-2 rounded cursor-pointer text-gray-400 ${state.checkInDate && date.getTime() === state.checkInDate.getTime() && isCurrentMonth(date) === false
+                                        ? 'bg-blue-500 text-white'
+                                        : ''
                                     } ${state.checkOutDate && date.getTime() === state.checkOutDate.getTime()
-                                        ? 'bg-green-500 text-white'
+                                        ? 'bg-red-500 text-white'
                                         : ''
                                     } ${state.checkInDate &&
                                         state.checkOutDate &&
@@ -218,8 +232,9 @@ const CalendarComponent: React.FC<CalendarProps> = () => {
                                         date < state.checkOutDate
                                         ? 'bg-yellow-300 text-black'
                                         : ''
-                                    } ${date >= new Date() // Check if the date is today or after
-                                        ? 'bg-lime-200 text-gray-400' // Apply lime background for today's date and future dates
+                                    } ${date >= new Date() && // Check if the date is today or after
+                                        new Date(date.getFullYear(), date.getMonth() + 1, 0) >= new Date() // Check if the date is in the next month
+                                        ? 'bg-lime-200 text-gray-400' // Apply lime background for today's date and future dates in the next month
                                         : ''
                                     }`}
                             >
@@ -237,7 +252,7 @@ const CalendarComponent: React.FC<CalendarProps> = () => {
                         <span className="text-sm">Check-in</span>
                     </div>
                     <div className="flex items-center mb-2">
-                        <div className="w-4 h-4 bg-green-500 rounded-full mr-2"></div>
+                        <div className="w-4 h-4 bg-red-500 rounded-full mr-2"></div>
                         <span className="text-sm">Check-out</span>
                     </div>
                     <div className="flex items-center">
