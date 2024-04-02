@@ -11,7 +11,7 @@ const Experience = () => {
             <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-5xl font-bold text-center text-gray-800 mb-8 mg-top-100" style={{ paddingTop: '4rem', fontFamily: 'Raleway, Roboto, sans-serif' }}>Facilities & Wellness</div>
                 <div className="text-center text-xl mb-8" style={{ paddingTop: '2rem', paddingRight: '15rem', paddingBottom: '3rem', paddingLeft: '15rem', fontFamily: 'Raleway, Roboto, sans-serif' }}>
-                    CASA Facilities & Wellness offers guests a well-rounded luxury stay. There are all kinds of experiences to indulge here, from our swimming pools with a view, to our fitness facilities and a beach pavilion for a soothing body treatment. There's something for all parts of the day.
+                    CALISA Facilities & Wellness offers guests a well-rounded luxury stay. There are all kinds of experiences to indulge here, from our swimming pools with a view, to our fitness facilities and a beach pavilion for a soothing body treatment. There's something for all parts of the day.
                 </div>
 
                 <div className="grid grid-cols-2 gap-8 mb-8" style={{ paddingRight: '4rem', paddingLeft: '4rem' }}>

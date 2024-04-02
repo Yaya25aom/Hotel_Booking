@@ -14,8 +14,8 @@ const Navbar = async () => {
           <img src="/assets/image/logo4.png" alt="logo" style={{ width: '100px' }} />
         </Link>
 
-        <div className="flex items-center space-x-40" style={{paddingRight: '15rem', paddingLeft: '15rem',}}>
-        <Link href='/front/ShowAccom' className="text-gray-800 text-lg hover:text-sky-600 transition duration-300">
+        <div className="flex items-center space-x-40" style={{ paddingRight: '15rem', paddingLeft: '15rem', }}>
+          <Link href='/front/ShowAccom' className="text-gray-800 text-lg hover:text-sky-600 transition duration-300">
             Accommodation
           </Link>
           <Link href='/front/ShowExperience' className="text-gray-800 text-lg hover:text-sky-600 transition duration-300">
