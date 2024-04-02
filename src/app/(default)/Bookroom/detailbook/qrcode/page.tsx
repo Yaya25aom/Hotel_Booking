@@ -27,11 +27,9 @@ const PaymentDetail = () => {
         <p className="text-gray-500">Your payment is now being processed on QR PromtPay.</p>
         <p className="text-gray-500">Please verify the purchase information and click "Pay Now" below.</p>
       </div>
-      <div className="bg-gray-100 p-4 rounded-lg mb-6">
-        <p className="text-sm text-gray-500">คุณกำลังทำการชำระเงินผ่านทางค่ายพักโรงแรม Dhevan Dara Resort & Spa, Hua Hin</p>
-        <p className="text-sm text-gray-500">กรุณาตรวจสอบรายละเอียดการสั่งซื้อและคลิก "Pay Now" เพื่อดำเนินการชำระเงินผ่าน K-Payment Gateway</p>
+      <div className="bg-gray-100 p-4 rounded-lg mb-20">
         <div className="mt-4">
-          <p className="font-bold">MERCHANT NAME: Dhevan Dara Resort & Spa, Hua Hin</p>
+          <p className="font-bold">MERCHANT NAME: Calisa Village Hotel</p>
           <p className="font-bold">BOOKING NUMBER: 432024040154582</p>
         </div>
         <div className="mt-4">
@@ -40,12 +38,12 @@ const PaymentDetail = () => {
       </div>
       
       
-      <div className="grid grid-cols-4 gap-4 mb-8">
+      <div className="grid grid-cols-4 gap-4 mb-12">
       <div className="col-span-1 flex flex-col items-center">
-          <div className="relative">
+          <div className=" grid relative">
             <img src="/assets/image/qrst1.png" alt="Step 1" className="h-20 mb-2" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <span className="absolute top-5 left-1 text-black font-bold text- px-0 py-0 rounded">Step 1</span>
+            <div className="absolute inset-0 flex items-center justify-center m-5"style={{margin: '-7.5rem'}}>
+              <p className=" mb-10 left-0 text-black font-bold text-lg px-10 py-6 rounded" style={{paddingBottom : '7.5rem'}}>Step 1</p>
             </div>
           </div>
           <p className="text-sm text-gray-500 text-center">Please click "Pay Now", Merchant generates a QR Code for credit card or bill payment.</p>
@@ -53,8 +51,8 @@ const PaymentDetail = () => {
         <div className="col-span-1 flex flex-col items-center">
           <div className="relative">
             <img src="/assets/image/qrst2.png" alt="Step 2" className="h-20 mb-2" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <span className="text-black font-bold text-lg">Step 2</span>
+            <div className="absolute inset-0 flex items-center justify-center m-5" style={{margin: '-7.5rem'}}>
+              <span className="top-0 left-0 text-black font-bold text-lg px-2 py-1 rounded" style={{paddingBottom : '8.9rem'}}>Step 2</span>
             </div>
           </div>
           <p className="text-sm text-gray-500 text-center">Customer scans the QR Code with his/her mobile banking app.</p>
@@ -62,8 +60,8 @@ const PaymentDetail = () => {
         <div className="col-span-1 flex flex-col items-center">
           <div className="relative">
             <img src="/assets/image/qrst3.png" alt="Step 3" className="h-20 mb-2" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <span className="text-black font-bold text-lg">Step 3</span>
+            <div className="absolute inset-0 flex items-center justify-center m-5" style={{margin: '-7.5rem'}}>
+              <span className="top-0 left-0 text-black font-bold text-lg px-2 py-1 rounded" style={{paddingBottom : '8.9rem'}}>Step 3</span>
             </div>
           </div>
           <p className="text-sm text-gray-500 text-center">Customer completes the payment is his/her mobile banking app.</p>
@@ -71,8 +69,8 @@ const PaymentDetail = () => {
         <div className="col-span-1 flex flex-col items-center">
           <div className="relative">
             <img src="/assets/image/qrst4.png" alt="Step 4" className="h-20 mb-2" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <span className="text-black font-bold text-lg">Step 4</span>
+            <div className="absolute inset-0 flex items-center justify-center m-5" style={{margin: '-7.5rem'}}>
+              <span className="top-0 left-0 text-black font-bold text-lg px-2 py-1 rounded" style={{paddingBottom : '8.9rem'}}>Step 4</span>
             </div>
           </div>
           <p className="text-sm text-gray-500 text-center">Merchant receives notification on payment confirmation and redirect to Thankyou Page.</p>
