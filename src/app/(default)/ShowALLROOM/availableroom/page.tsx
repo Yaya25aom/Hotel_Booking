@@ -5,6 +5,7 @@ import axios from 'axios';
 import Link from 'next/link';
 import { NextResponse } from "next/server";
 
+
 const List = () => {
   const [room, setroom] = useState([])
 
@@ -28,7 +29,7 @@ const List = () => {
 
   return (
     <div className="max-w-6xl mx-auto px-4"  style={{ paddingTop: '8rem' }}>
-        
+       
       <h1 className="text-2xl font-semibold mb-6">ROOMAVAILABLE</h1>
       <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
         <table className="min-w-full divide-y divide-gray-200">
