@@ -100,16 +100,16 @@ const Home = () => {
           </div>
         </div>
         <div className="w-auto mt-10 text-center" style={{ textAlign: 'center', backgroundColor: '#f7F2eB', paddingTop: '5rem', paddingRight: '20rem', paddingBottom: '5rem', paddingLeft: '20rem' }}>
-          <h1 style={{ fontSize: '2.5rem', marginBottom: '0.5rem', fontFamily: 'Raleway, Roboto, sans-serif', fontWeight: 'bold' }}>CALISA Hotel</h1>
+          <h1 style={{ fontSize: '2.5rem', marginBottom: '0.5rem', fontFamily: 'Raleway, Roboto, sans-serif', fontWeight: 'bold' }}>CALISA VILLAGE</h1>
           <p style={{ fontSize: '2rem', marginTop: '0.5rem', marginBottom: '2rem', fontFamily: 'Raleway, Roboto, sans-serif' }}>5-star luxury hotels & resorts</p>
           <p style={{ fontSize: '1.2rem', fontFamily: 'Raleway, Roboto, sans-serif' }}>
             Built on expansive, generous space with endless greenery, the hotel is surrounded by leafy,
             mature trees with direct access to a well-preserved beachfront. There is a synergy between nature
             and history; the curator of local gems, hidden spots and undiscovered heritage. Let us take you on
             a journey of local dishes and untrodden paths whilst you soak up the sea, with sand between your toes
-            and leave with a refreshed mindset. Immerse yourselves in CALISA version of a beach town. There are many
-            sides of CALISA for you; a reflective getaway, a family staycation or a vacation with friends.<br />
-            Make CALISA your away.</p></div>
+            and leave with a refreshed mindset. Immerse yourselves in CALISA VILLAGE version of a beach town. There are many
+            sides of CALISA VILLAGE for you; a reflective getaway, a family staycation or a vacation with friends.<br />
+            Make CALISA VILLAGE your away.</p></div>
 
         <div className="self-center">
           <div className="flex gap-10 p-8">
