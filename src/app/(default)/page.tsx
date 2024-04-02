@@ -107,9 +107,9 @@ const Home = () => {
             mature trees with direct access to a well-preserved beachfront. There is a synergy between nature
             and history; the curator of local gems, hidden spots and undiscovered heritage. Let us take you on
             a journey of local dishes and untrodden paths whilst you soak up the sea, with sand between your toes
-            and leave with a refreshed mindset. Immerse yourselves in CALISA version of a beach town. There are many
-            sides of CALISA for you; a reflective getaway, a family staycation or a vacation with friends.<br />
-            Make CALISA your away.</p></div>
+            and leave with a refreshed mindset. Immerse yourselves in CALISA VILLAGE version of a beach town. There are many
+            sides of CALISA VILLAGE for you; a reflective getaway, a family staycation or a vacation with friends.<br />
+            Make CALISA VILLAGE your away.</p></div>
 
         <div className="self-center">
           <div className="flex gap-10 p-8">
