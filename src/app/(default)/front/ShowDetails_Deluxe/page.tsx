@@ -12,8 +12,6 @@ const BeachHouseComponent = () => {
     '/assets/image/du4.jpg',
     '/assets/image/du3.jpg',
     '/assets/image/du5.jpg',
-
-
   ];
 
   const handlePrevImage = () => {
@@ -32,9 +30,13 @@ const BeachHouseComponent = () => {
             <Image
               src={images[currentImage]}
               alt="Sky"
-              className="w-full h-auto rounded-lg shadow-lg"
+              className="rounded-lg shadow-lg"
               width={1000}
               height={900}
+              priority={true} 
+              
+              
+               // เพิ่มคุณสมบัติ priority ในการโหลดรูปภาพที่มีความสำคัญ
             />
             <div className="absolute bottom-4 right-4 text-white" style={{ fontSize: '1.5rem' }}>
               {currentImage + 1} of {images.length}
@@ -42,25 +44,25 @@ const BeachHouseComponent = () => {
             <div className="absolute top-1/2 left-4 transform -translate-y-1/2">
               <button
                 onClick={handlePrevImage}
-                className="bg-blue-200 hover:bg-blue-100 text-#263B56 font-normal py-1 px-3 rounded text-2xl"
+                className="bg-blue-200 hover:bg-blue-100 font-normal py-1 px-3 rounded text-2xl"
               >
                 &lt;
               </button>
             </div>
-            <div className="absolute top-1/2 right-4  transform -translate-y-1/2">
+            <div className="absolute top-1/2 right-4 transform -translate-y-1/2">
               <button
                 onClick={handleNextImage}
-                className="bg-blue-200 hover:bg-blue-100 text-#263B56 font-normal py-1 px-3 rounded text-2xl"
+                className="bg-blue-200 hover:bg-blue-100 font-normal py-1 px-3 rounded text-2xl"
               >
                 &gt;
               </button>
             </div>
           </div>
         </div>
-
-      </div><br /><br />
+      </div>
+      <br /><br />
       <div>
-        <h1 className="text-4xl font-bold mb-4" style={{ fontFamily: 'Raleway, Roboto, sans-serif' }} >DELUXE ROOM</h1>
+        <h1 className="text-4xl font-bold mb-4" style={{ fontFamily: 'Raleway, Roboto, sans-serif' }}>DELUXE ROOM</h1>
         <p className="mb-10" style={{ color: '#263B56', fontSize: '1.25rem', fontFamily: 'Raleway, Roboto, sans-serif' }}>
           The Deluxe room puts you in the middle of it all. Located on the upper floors, immerse yourselves with views of the vast, expansive green landscapes. There’s nothing better than waking up in nature’s refreshing surroundings. Step onto the terrace and enjoy the ocean view, the bustling city can wait.
         </p>
@@ -101,9 +103,7 @@ const BeachHouseComponent = () => {
             <Image src="/hair.svg" alt="WiFi Icon" width={24} height={24} style={{ marginRight: '8px' }} />
             <p style={{ margin: 0, fontSize: '1.15rem', fontFamily: 'Raleway, Roboto, sans-serif' }}>Hairdryer</p>
           </div>
-
         </div>
-
         <div className="flex items-center">
           <Link
             href="/Bookroom/showroomavai"
@@ -115,11 +115,9 @@ const BeachHouseComponent = () => {
           >
             BOOK
           </Link>
-
         </div>
       </div>
     </div>
-
   );
 };
 
