@@ -7,6 +7,7 @@ import { NextResponse } from "next/server";
 
 const List = () => {
   const [employee, setPosts] = useState([])
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const fetchPosts = async () => {
     try{
@@ -27,33 +28,64 @@ const List = () => {
   }
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8">
-      <h1 className="text-2xl font-semibold mb-6" style={{paddingTop:'8rem'}}>Data Employee</h1>
+    <div className="max-w-6xl mx-auto px-4 py-8" style={{paddingTop:"8rem"}}>
+       <div className="relative">
+        <button
+          onClick={() => setDropdownOpen(!dropdownOpen)}
+          className="flex items-center text-gray-700"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5 mr-1"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fillRule="evenodd"
+              d="M2 4.5a1 1 0 011-1h14a1 1 0 110 2H3a1 1 0 01-1-1zM3 9a1 1 0 100 2h14a1 1 0 100-2H3zm-1 4.5a1 1 0 011-1h14a1 1 0 110 2H3a1 1 0 01-1-1z"
+              clipRule="evenodd"
+            />
+          </svg>
+          <span>MENU</span>
+        </button>
+        {/* Dropdown Content */}
+        {dropdownOpen && (
+          <div className="absolute left-0 mt-1  w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5" style={{backgroundColor:'#ffcfcf'}}>
+            {/* Dropdown Items */}
+            <div className="grid py-3 mb-5 gap-3 px-3" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+              <Link href="/ShowALLROOM/showroom">MANAGE TYPEROOM</Link>
+              <Link href="/ShowALLROOM/availableroom">MANGE ROOM</Link>
+              <Link href="/employee/show">MANGE ACCOUNT</Link>
+            </div>
+          </div>
+        )}
+        </div>
+      <h1 className="text-2xl font-semibold mb-6" >Data Employee</h1>
       <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
         <table className="min-w-full divide-y divide-gray-200">
-          <thead className="bg-gray-50">
+          <thead className="" style={{backgroundColor: '#bcb4ff'}}>
             <tr>
               <th
                 scope="col"
-                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" style={{color:'#000'}}
               >
                 Employee_Id
               </th>
               <th
                 scope="col"
-                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" style={{color:'#000'}}
               >
                 Role_title
               </th>
               <th
                 scope="col"
-                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" style={{color:'#000'}}
               >
                 Firstname
               </th>
               <th
                 scope="col"
-                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" style={{color:'#000'}}
               >
                 Lastname
               </th>
@@ -89,7 +121,7 @@ const List = () => {
               </th> */}
               <th
                 scope="col"
-                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" style={{color:'#000'}}
               >
                 Actions
               </th>

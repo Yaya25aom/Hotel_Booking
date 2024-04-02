@@ -8,6 +8,7 @@ import { NextResponse } from "next/server";
 
 const List = () => {
   const [room, setroom] = useState([])
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const fetchPosts = async () => {
     try{
@@ -28,9 +29,41 @@ const List = () => {
   }
 
   return (
-    <div className="max-w-6xl mx-auto px-4"  style={{ paddingTop: '8rem' }}>
+    <div className="max-w-6xl mx-auto px-10"  style={{ paddingTop: '8rem'}}>
+      <div className="relative">
+        <button
+          onClick={() => setDropdownOpen(!dropdownOpen)}
+          className="flex items-center text-gray-700"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5 mr-1"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fillRule="evenodd"
+              d="M2 4.5a1 1 0 011-1h14a1 1 0 110 2H3a1 1 0 01-1-1zM3 9a1 1 0 100 2h14a1 1 0 100-2H3zm-1 4.5a1 1 0 011-1h14a1 1 0 110 2H3a1 1 0 01-1-1z"
+              clipRule="evenodd"
+            />
+          </svg>
+          <span>MENU</span>
+        </button>
+        {/* Dropdown Content */}
+        {dropdownOpen && (
+          <div className="absolute left-0 mt-1  w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5" style={{backgroundColor:'#ffcfcf'}}>
+            {/* Dropdown Items */}
+            <div className="grid py-3 mb-5 gap-3 px-3" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+              <Link href="/ShowALLROOM/showroom">MANAGE TYPEROOM</Link>
+              <Link href="/ShowALLROOM/availableroom">MANGE ROOM</Link>
+              <Link href="/employee/show">MANGE ACCOUNT</Link>
+            </div>
+          </div>
+        )}
+        </div>
        
       <h1 className="text-2xl font-semibold mb-6">ROOMAVAILABLE</h1>
+     
       <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="" style={{backgroundColor: '#bcb4ff'}}>
