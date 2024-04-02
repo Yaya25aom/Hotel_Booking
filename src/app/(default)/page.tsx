@@ -100,7 +100,7 @@ const Home = () => {
           </div>
         </div>
         <div className="w-auto mt-10 text-center" style={{ textAlign: 'center', backgroundColor: '#f7F2eB', paddingTop: '5rem', paddingRight: '20rem', paddingBottom: '5rem', paddingLeft: '20rem' }}>
-          <h1 style={{ fontSize: '2.5rem', marginBottom: '0.5rem', fontFamily: 'Raleway, Roboto, sans-serif', fontWeight: 'bold' }}>CALISA Hotel</h1>
+          <h1 style={{ fontSize: '2.5rem', marginBottom: '0.5rem', fontFamily: 'Raleway, Roboto, sans-serif', fontWeight: 'bold' }}>CALISA VILLAGE</h1>
           <p style={{ fontSize: '2rem', marginTop: '0.5rem', marginBottom: '2rem', fontFamily: 'Raleway, Roboto, sans-serif' }}>5-star luxury hotels & resorts</p>
           <p style={{ fontSize: '1.2rem', fontFamily: 'Raleway, Roboto, sans-serif' }}>
             Built on expansive, generous space with endless greenery, the hotel is surrounded by leafy,
