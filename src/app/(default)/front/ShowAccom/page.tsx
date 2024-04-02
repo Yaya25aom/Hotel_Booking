@@ -10,10 +10,21 @@ const VillasAndHousesSection = () => {
           className="w-full h-auto rounded-lg"
           style={{ borderRadius: "0px" }} />
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-5xl font-bold text-center text-gray-800 mb-8 mg-top-100" style={{ paddingTop: '4rem', fontFamily: 'Raleway, Roboto, sans-serif' }}>Accommodation</div>
+          <div className="text-5xl font-bold text-center text-gray-800 mb-8 mg-top-100"
+            style={{ paddingTop: '4rem', fontFamily: 'Raleway, Roboto, sans-serif' }}>Accommodation</div>
           <div>
-            <div className="text-center text-xl mb-8" style={{ paddingTop: '2rem', paddingRight: '10rem', paddingBottom: '3rem', paddingLeft: '10rem', fontFamily: 'Raleway, Roboto, sans-serif' }}>
-              Just moments from a secluded beach with serene views over a sparkling bay blend organically with the lush tropical landscape and awaken true feelings of escape. Tranquility and refinement capture the essence of a luxury beach residence, where comfortable furnishings crafted from natural materials combine with neutral color palettes, subtle Thai influences and abundant natural light to infuse a timeless elegance. Immerses the guest in the soothing ambiance of a beachside retreat with floor-to-ceiling windows opening on to the private sanctuary of a verdant garden terrace featuring an plunge pool, relaxed outdoor seating and a daybed.
+            <div className="text-center text-xl mb-8"
+              style={{
+                paddingTop: '2rem', paddingRight: '10rem', paddingBottom: '3rem', paddingLeft: '10rem',
+                fontFamily: 'Raleway, Roboto, sans-serif'
+              }}>
+              Just moments from a secluded beach with serene views over a sparkling bay blend organically
+              with the lush tropical landscape and awaken true feelings of escape. Tranquility and refinement
+              capture the essence of a luxury beach residence, where comfortable furnishings crafted from
+              natural materials combine with neutral color palettes, subtle Thai influences and abundant natural
+              light to infuse a timeless elegance. Immerses the guest in the soothing ambiance of a beachside
+              retreat with floor-to-ceiling windows opening on to the private sanctuary of a verdant garden
+              terrace featuring an plunge pool, relaxed outdoor seating and a daybed.
             </div>
 
             <div className="mt-8 flex justify-center">
@@ -24,20 +35,30 @@ const VillasAndHousesSection = () => {
                     alt="Deluxe room"
                     className="w-full h-auto rounded-lg mb-4"
                   />
-                  <h3 className="text-3xl font-bold mb-2" style={{ color: '#075985', fontFamily: 'Raleway, Roboto, sans-serif' }}>DELUXE ROOM</h3>
+                  <h3 className="text-3xl font-bold mb-2"
+                    style={{ color: '#075985', fontFamily: 'Raleway, Roboto, sans-serif' }}>DELUXE ROOM</h3>
                   <p className="text-gray-600 mb-4" style={{ color: '#4E7B96', fontFamily: 'Raleway, Roboto, sans-serif' }}>
-                    The Deluxe room is located on the upper floors, offering expansive views of lush green landscapes. Step onto the terrace and delight in the view of the sea.
+                    The Deluxe room is located on the upper floors, offering expansive views of lush green landscapes.
+                    Step onto the terrace and delight in the view of the sea.
                   </p>
-                  <p className="text-gray-800 font-bold mb-2" style={{ color: '#4E7B96', fontFamily: 'Raleway, Roboto, sans-serif' }}>45-50 SQ.M</p>
-                  <p className="text-gray-600 mb-4" style={{ color: '#4E7B96', fontFamily: 'Raleway, Roboto, sans-serif' }}>DOUBLE BED | TWO</p>
+                  <p className="text-gray-800 font-bold mb-2"
+                    style={{ color: '#4E7B96', fontFamily: 'Raleway, Roboto, sans-serif' }}>45-50 SQ.M</p>
+                  <p className="text-gray-600 mb-4"
+                    style={{ color: '#4E7B96', fontFamily: 'Raleway, Roboto, sans-serif' }}>DOUBLE BED | TWO</p>
                   <div className="flex justify-between">
                     <Link
-                      href="/front/ShowDetails_Deluxe" className="text-white font-bold py-2 px-10 rounded" style={{ color: '#075985', textDecoration: 'none', border: '1px solid #075985', borderRadius: '5px', padding: '5px 30px', fontFamily: 'Raleway, Roboto, sans-serif' }}>Details
+                      href="/front/ShowDetails_Deluxe" className="text-white font-bold py-2 px-10 rounded" style={{
+                        color: '#075985', textDecoration: 'none',
+                        border: '1px solid #075985', borderRadius: '5px', padding: '5px 30px', fontFamily: 'Raleway, Roboto, sans-serif'
+                      }}>Details
                     </Link>
                     <Link
                       href="/Bookroom/showroomavai"
                       className="font-normal py-2 px-4"
-                      style={{ color: 'white', textDecoration: 'none', border: '1px solid #075985', borderRadius: '5px', padding: '5px 30px', backgroundColor: '#075985', fontFamily: 'Raleway, Roboto, sans-serif' }}
+                      style={{
+                        color: 'white', textDecoration: 'none', border: '1px solid #075985', borderRadius: '5px', padding: '5px 30px',
+                        backgroundColor: '#075985', fontFamily: 'Raleway, Roboto, sans-serif'
+                      }}
                     >
                       BOOK
                     </Link>

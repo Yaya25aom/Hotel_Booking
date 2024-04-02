@@ -14,16 +14,20 @@ const Home = () => {
 
 
   return (
-    <div className="flex flex-col md:flex-row justify-center items-center h-screen" style={{ paddingTop: '50.3rem' }}>
+    <div className="flex flex-col md:flex-row justify-center items-center h-screen"
+      style={{ paddingTop: '50.3rem' }}>
       <div>
         <img
           src="/assets/image/home2.jpg"
           className="w-full h-auto rounded-lg"
           style={{ borderRadius: "0px" }}
         />
-        <div className="w-full md:w-5/5 p-8 rounded-md flex flex-col md:flex-row" style={{ paddingTop: '2rem' , paddingBottom: '2rem'}}>
-          <div className="md:mr-4 mb-4 md:mb-0 w-full md:w-1/2 md:w-full" style={{ paddingRight: '5rem', paddingLeft: '5rem', }}>
-            <label htmlFor="checkin" className="block mb-2" style={{ fontFamily: 'Raleway, Roboto, sans-serif' }}>Check-in Date:</label>
+        <div className="w-full md:w-5/5 p-8 rounded-md flex flex-col md:flex-row"
+          style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
+          <div className="md:mr-4 mb-4 md:mb-0 w-full md:w-1/2 md:w-full"
+            style={{ paddingRight: '5rem', paddingLeft: '5rem' }}>
+            <label htmlFor="checkin" className="block mb-2"
+              style={{ fontFamily: 'Raleway, Roboto, sans-serif' }}>Check-in Date:</label>
             <DatePicker
               selected={startDate}
               onChange={(date) => setStartDate(date as Date)}
@@ -35,7 +39,8 @@ const Home = () => {
             />
           </div>
           <div className="w-full md:w-1/2 md:w-full mb-4 md:mb-0">
-            <label htmlFor="checkout" className="block mb-2" style={{ fontFamily: 'Raleway, Roboto, sans-serif' }}>Check-out Date:</label>
+            <label htmlFor="checkout" className="block mb-2"
+              style={{ fontFamily: 'Raleway, Roboto, sans-serif' }}>Check-out Date:</label>
             <DatePicker
               selected={endDate}
               onChange={(date) => setEndDate(date as Date)}
@@ -49,7 +54,8 @@ const Home = () => {
           </div>
           <div className="w-full md:w-1/2 mt-4 md:mt-0 md:ml-4 flex">
             <div className="mr-4">
-              <label htmlFor="adults" className="block mb-1" style={{ fontFamily: 'Raleway, Roboto, sans-serif' }}>Adults:</label>
+              <label htmlFor="adults" className="block mb-1"
+                style={{ fontFamily: 'Raleway, Roboto, sans-serif' }}>Adults:</label>
               <select
                 id="adults"
                 className="w-full p-2 border border-gray-300 rounded-md"
@@ -62,7 +68,8 @@ const Home = () => {
               </select>
             </div>
             <div>
-              <label htmlFor="children" className="block mb-1" style={{ fontFamily: 'Raleway, Roboto, sans-serif' }}>Children:</label>
+              <label htmlFor="children" className="block mb-1"
+                style={{ fontFamily: 'Raleway, Roboto, sans-serif' }}>Children:</label>
               <select
                 id="children"
                 className="w-full p-2 border border-gray-300 rounded-md"
@@ -99,7 +106,8 @@ const Home = () => {
 
           </div>
         </div>
-        <div className="w-auto mt-10 text-center" style={{ textAlign: 'center', backgroundColor: '#f7F2eB', paddingTop: '5rem', paddingRight: '20rem', paddingBottom: '5rem', paddingLeft: '20rem' }}>
+        <div className="w-auto mt-10 text-center"
+          style={{ textAlign: 'center', backgroundColor: '#f7F2eB', paddingTop: '5rem', paddingRight: '20rem', paddingBottom: '5rem', paddingLeft: '20rem' }}>
           <h1 style={{ fontSize: '2.5rem', marginBottom: '0.5rem', fontFamily: 'Raleway, Roboto, sans-serif', fontWeight: 'bold' }}>CALISA VILLAGE</h1>
           <p style={{ fontSize: '2rem', marginTop: '0.5rem', marginBottom: '2rem', fontFamily: 'Raleway, Roboto, sans-serif' }}>5-star luxury hotels & resorts</p>
           <p style={{ fontSize: '1.2rem', fontFamily: 'Raleway, Roboto, sans-serif' }}>
@@ -115,7 +123,8 @@ const Home = () => {
           <div className="flex gap-10 p-8">
             <div>
 
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3874.331252595549!2d100.51171287485724!3d13.81913698657983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29b877800c9af%3A0xd754c571fc7177b!2z4Lih4Lir4Liy4Lin4Li04LiX4Lii4Liy4Lil4Lix4Lii4LmA4LiX4LiE4LmC4LiZ4LmC4Lil4Lii4Li14Lie4Lij4Liw4LiI4Lit4Lih4LmA4LiB4Lil4LmJ4Liy4Lie4Lij4Liw4LiZ4LiE4Lij4LmA4Lir4LiZ4Li34Lit!5e0!3m2!1sth!2sth!4v1711870591318!5m2!1sth!2sth" width="700" height="300" loading="lazy" className=" rounded-lg shadow"></iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3874.331252595549!2d100.51171287485724!3d13.81913698657983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29b877800c9af%3A0xd754c571fc7177b!2z4Lih4Lir4Liy4Lin4Li04LiX4Lii4Liy4Lil4Lix4Lii4LmA4LiX4LiE4LmC4LiZ4LmC4Lil4Lii4Li14Lie4Lij4Liw4LiI4Lit4Lih4LmA4LiB4Lil4LmJ4Liy4Lie4Lij4Liw4LiZ4LiE4Lij4LmA4Lir4LiZ4Li34Lit!5e0!3m2!1sth!2sth!4v1711870591318!5m2!1sth!2sth"
+                width="700" height="300" loading="lazy" className=" rounded-lg shadow"></iframe>
             </div>
             <div className="w-full">
               <div className="p-15">
