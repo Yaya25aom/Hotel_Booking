@@ -128,7 +128,7 @@ const Home = () => {
             </div>
             <div className="w-full">
               <div className="p-15">
-                <p className="font-bold text-2xl" style={{ fontFamily: 'Raleway, Roboto, sans-serif' }} >  KING MONGKUT'S UNIVERSITY OF TECHNOLOGY NORTH BANGKOK</p>
+                <p className="font-bold text-2xl" style={{ fontFamily: 'Raleway, Roboto, sans-serif' }} >  KING MONGKUTS UNIVERSITY OF TECHNOLOGY NORTH BANGKOK</p>
                 <p style={{ fontFamily: 'Raleway, Roboto, sans-serif', paddingTop: '1rem' }} >1518 Pracharat 1 Road,Wongsawang, Bangsue, Bangkok 10800</p>
                 <div className="mt-10" style={{ fontFamily: 'Raleway, Roboto, sans-serif' }}>
                   <p style={{ fontFamily: 'Raleway, Roboto, sans-serif' }} >Contact Us. Tel: 099-999-9999</p>
