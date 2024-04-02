@@ -20,7 +20,7 @@ const PaymentDetail = () => {
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
-      <div className="flex justify-center mb-6 py-8">
+      <div className="flex justify-center mb-1 py-20" style={{paddingBottom: '2rem'}} >
         <img src="/assets/image/logo4.png" alt="Calisa Village Hotel" className="h-20" />
       </div>
       <div className="mb-6">
@@ -28,7 +28,7 @@ const PaymentDetail = () => {
         <p className="text-gray-500">Please verify the purchase information and click "Pay Now" below.</p>
       </div>
       <div className="bg-gray-100 p-4 rounded-lg mb-20">
-        <div className="mt-4">
+        <div className="mt-2">
           <p className="font-bold">MERCHANT NAME: Calisa Village Hotel</p>
           <p className="font-bold">BOOKING NUMBER: 432024040154582</p>
         </div>
@@ -86,7 +86,7 @@ const PaymentDetail = () => {
       </div>
       {showPopup && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white p-6 rounded-lg">
+          <div className="bg-white p-6 rounded-lg pt-20" >
             <h2 className="text-2xl font-bold mb-4">QR PromtPay</h2>
             <div className="flex flex-col items-center">
               <img src="/assets/image/qrpp.jpg" alt="qrcode" className="h-50 mb-4" />
