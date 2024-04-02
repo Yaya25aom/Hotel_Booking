@@ -42,7 +42,7 @@ const VillasAndHousesSection = () => {
                     Step onto the terrace and delight in the view of the sea.
                   </p>
                   <p className="text-gray-800 font-bold mb-2"
-                    style={{ color: '#4E7B96', fontFamily: 'Raleway, Roboto, sans-serif' }}>45-50 SQ.M</p>
+                    style={{ color: '#4E7B96', fontFamily: 'Raleway, Roboto, sans-serif' }}>56 SQ.M</p>
                   <p className="text-gray-600 mb-4"
                     style={{ color: '#4E7B96', fontFamily: 'Raleway, Roboto, sans-serif' }}>DOUBLE BED | TWO</p>
                   <div className="flex justify-between">
@@ -76,7 +76,7 @@ const VillasAndHousesSection = () => {
                   <p className="text-gray-600 mb-4" style={{ color: '#4E7B96', fontFamily: 'Raleway, Roboto, sans-serif' }}>
                     The Sky Beachfront, located on the top floor of our beachfront building, offers breathtaking ocean views and luxurious bathrooms.
                   </p>
-                  <p className="text-gray-800 font-bold mb-2" style={{ color: '#4E7B96', fontFamily: 'Raleway, Roboto, sans-serif' }}>46 SQ.M</p>
+                  <p className="text-gray-800 font-bold mb-2" style={{ color: '#4E7B96', fontFamily: 'Raleway, Roboto, sans-serif' }}>60 SQ.M</p>
                   <p className="text-gray-600 mb-4" style={{ color: '#4E7B96', fontFamily: 'Raleway, Roboto, sans-serif' }}>KING SIZED BED | TWO</p>
                   <div className="flex justify-between">
                     <Link
@@ -101,7 +101,7 @@ const VillasAndHousesSection = () => {
                   <p className="text-gray-600 mb-4" style={{ color: '#4E7B96', fontFamily: 'Raleway, Roboto, sans-serif' }}>
                     A family-friendly room, perfect for relaxation and enjoyment, with a spacious terrace, a bunk bed, and a play area, perfect for children.
                   </p>
-                  <p className="text-gray-800 font-bold mb-2" style={{ color: '#4E7B96', fontFamily: 'Raleway, Roboto, sans-serif' }}>60 SQ.M</p>
+                  <p className="text-gray-800 font-bold mb-2" style={{ color: '#4E7B96', fontFamily: 'Raleway, Roboto, sans-serif' }}>220 SQ.M</p>
                   <p className="text-gray-600 mb-4" style={{ color: '#4E7B96', fontFamily: 'Raleway, Roboto, sans-serif' }}>KING SIZED & BUNK BEDS | FOUR</p>
                   <div className="flex justify-between">
                     <Link
@@ -128,7 +128,7 @@ const VillasAndHousesSection = () => {
                   <p className="text-gray-600 mb-4" style={{ color: '#4E7B96', fontFamily: 'Raleway, Roboto, sans-serif' }}>
                     The pool villa is set in a serene, enclosed tropical garden, perfect for those seeking privacy and ample space to unwind.
                   </p>
-                  <p className="text-gray-800 font-bold mb-2" style={{ color: '#4E7B96', fontFamily: 'Raleway, Roboto, sans-serif' }}>140-166 SQ.M</p>
+                  <p className="text-gray-800 font-bold mb-2" style={{ color: '#4E7B96', fontFamily: 'Raleway, Roboto, sans-serif' }}>120 SQ.M</p>
                   <p className="text-gray-600 mb-4" style={{ color: '#4E7B96', fontFamily: 'Raleway, Roboto, sans-serif' }}>KING SIZED BED | TWO</p>
                   <div className="flex justify-between">
                     <Link
@@ -154,7 +154,7 @@ const VillasAndHousesSection = () => {
                   <p className="text-gray-600 mb-4" style={{ color: '#4E7B96', fontFamily: 'Raleway, Roboto, sans-serif' }}>
                     A serene space filled with luxurious touches, the spacious terrace boasts sun loungers for you to admire the beautiful sea view.
                   </p>
-                  <p className="text-gray-800 font-bold mb-2" style={{ color: '#4E7B96', fontFamily: 'Raleway, Roboto, sans-serif' }}>130-173 SQ.M</p>
+                  <p className="text-gray-800 font-bold mb-2" style={{ color: '#4E7B96', fontFamily: 'Raleway, Roboto, sans-serif' }}>110 SQ.M</p>
                   <p className="text-gray-600 mb-4" style={{ color: '#4E7B96', fontFamily: 'Raleway, Roboto, sans-serif' }}>KING SIZED BED | TWO</p>
                   <div className="flex justify-between">
                     <Link
@@ -179,7 +179,7 @@ const VillasAndHousesSection = () => {
                   <p className="text-gray-600 mb-4" style={{ color: '#4E7B96', fontFamily: 'Raleway, Roboto, sans-serif' }} >
                     The Pool Villa Beachfront is just a few steps away from the sandy beach, featuring an indoor bathtub and luxurious amenities.
                   </p>
-                  <p className="text-gray-800 font-bold mb-2" style={{ color: '#4E7B96', fontFamily: 'Raleway, Roboto, sans-serif' }}>140-207 SQ.M</p>
+                  <p className="text-gray-800 font-bold mb-2" style={{ color: '#4E7B96', fontFamily: 'Raleway, Roboto, sans-serif' }}>140 SQ.M</p>
                   <p className="text-gray-600 mb-4" style={{ color: '#4E7B96', fontFamily: 'Raleway, Roboto, sans-serif' }}>KING SIZED BED | TWO</p>
                   <div className="flex justify-between">
                     <Link

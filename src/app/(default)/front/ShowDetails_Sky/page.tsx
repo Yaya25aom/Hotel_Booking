@@ -67,7 +67,7 @@ const BeachHouseComponent = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
           <div>
             <p className="text-sm font-bold mb-1" style={{ fontSize: '1.25rem', fontFamily: 'Raleway, Roboto, sans-serif' }}>SIZE</p>
-            <p>46 SQ.M</p>
+            <p>60 SQ.M</p>
           </div>
           <div>
             <p className="text-sm font-bold mb-1" style={{ fontSize: '1.25rem', fontFamily: 'Raleway, Roboto, sans-serif' }}>BEDS</p>
