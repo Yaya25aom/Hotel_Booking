@@ -64,9 +64,9 @@ const OceanHouseComponent = () => {
       <div>
         <h1 className="text-4xl font-bold mb-4" style={{ fontFamily: 'Raleway, Roboto, sans-serif' }}>POOL VILLA BEACHFRONT</h1>
         <p className="mb-10" style={{ fontSize: '1.25rem', fontFamily: 'Raleway, Roboto, sans-serif' }}>
-          The Beachfront Pool Villa is your own private sanctuary, a luxurious yet cozy hideaway. Step into the spacious villa with an open space and enjoy a unique CASA escape. The villa is completed with earthy tones which compliments its natural surfaces,
+          The Beachfront Pool Villa is your own private sanctuary, a luxurious yet cozy hideaway. Step into the spacious villa with an open space and enjoy a unique CALISA escape. The villa is completed with earthy tones which compliments its natural surfaces,
           with a living area to relax in. Equipped with a large terrace and sunloungers, it’s ideal for lounging with a refreshment in hand. The villa opens onto a 2.8 x 8 m private pool and garden, merely steps away from the sandy beach, what better way to
-          indulge?After a day of activities, refresh yourselves in our indoor bathtub and the luxurious amenities only exclusive to CASA villas.
+          indulge? After a day of activities, refresh yourselves in our indoor bathtub and the luxurious amenities only exclusive to CALISA villas.
         </p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
           <div>

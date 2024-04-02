@@ -64,7 +64,7 @@ const OceanHouseComponent = () => {
         <h1 className="text-4xl font-bold mb-4" style={{ fontFamily: 'Raleway, Roboto, sans-serif' }}>POOL VILLA GARDEN</h1>
         <p className="mb-10" style={{ fontSize: '1.25rem', fontFamily: 'Raleway, Roboto, sans-serif' }}>
           The pool villa is set in a serene, enclosed tropical garden.<br />
-          Step inside the spacious villa, comfortably cozy with CASA luxurious touch. This stay is ideal for those who want privacy and the vast grounds to relax in.
+          Step inside the spacious villa, comfortably cozy with CALISA luxurious touch. This stay is ideal for those who want privacy and the vast grounds to relax in.
           There is no need to escape further, with a large terrace and a 2.8 x 8m private pool and sun loungers. Spend your days outside, take in the fresh air and your very own private garden.
           Villa exclusives include luxurious amenities; a double vanity, cozy sunloungers, refreshing in-room bathtub and shower.
         </p>

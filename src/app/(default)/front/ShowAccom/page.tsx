@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const VillasAndHousesSection = () => {
   return (
-    <div className="py-8 flex justify-center items-center" style={{ paddingTop: '1rem' }}>
+    <div className="py-8 flex justify-center items-center" style={{ paddingTop: '0rem' }}>
       <div>
         <img
           src="/assets/image/home2.jpg"
@@ -24,7 +24,7 @@ const VillasAndHousesSection = () => {
                     alt="Deluxe room"
                     className="w-full h-auto rounded-lg mb-4"
                   />
-                  <h3 className="text-3xl font-bold mb-2" style={{ color: '#263B56', fontFamily: 'Raleway, Roboto, sans-serif' }}>DELUXE ROOM</h3>
+                  <h3 className="text-3xl font-bold mb-2" style={{ color: '#075985', fontFamily: 'Raleway, Roboto, sans-serif' }}>DELUXE ROOM</h3>
                   <p className="text-gray-600 mb-4" style={{ color: '#4E7B96', fontFamily: 'Raleway, Roboto, sans-serif' }}>
                     The Deluxe room is located on the upper floors, offering expansive views of lush green landscapes. Step onto the terrace and delight in the view of the sea.
                   </p>
@@ -32,12 +32,12 @@ const VillasAndHousesSection = () => {
                   <p className="text-gray-600 mb-4" style={{ color: '#4E7B96', fontFamily: 'Raleway, Roboto, sans-serif' }}>DOUBLE BED | TWO</p>
                   <div className="flex justify-between">
                     <Link
-                      href="/front/ShowDetails_Deluxe" className="text-white font-bold py-2 px-10 rounded" style={{ color: '#263B56', textDecoration: 'none', border: '1px solid #263B56', borderRadius: '5px', padding: '5px 30px', fontFamily: 'Raleway, Roboto, sans-serif' }}>Details
+                      href="/front/ShowDetails_Deluxe" className="text-white font-bold py-2 px-10 rounded" style={{ color: '#075985', textDecoration: 'none', border: '1px solid #075985', borderRadius: '5px', padding: '5px 30px', fontFamily: 'Raleway, Roboto, sans-serif' }}>Details
                     </Link>
                     <Link
                       href="/Bookroom/showroomavai"
                       className="font-normal py-2 px-4"
-                      style={{ color: 'white', textDecoration: 'none', border: '1px solid #263B56', borderRadius: '5px', padding: '5px 30px', backgroundColor: '#263B56', fontFamily: 'Raleway, Roboto, sans-serif' }}
+                      style={{ color: 'white', textDecoration: 'none', border: '1px solid #075985', borderRadius: '5px', padding: '5px 30px', backgroundColor: '#075985', fontFamily: 'Raleway, Roboto, sans-serif' }}
                     >
                       BOOK
                     </Link>
@@ -50,7 +50,7 @@ const VillasAndHousesSection = () => {
                     alt="The Sky Beachfront"
                     className="w-full h-auto rounded-lg mb-4"
                   />
-                  <h3 className="text-3xl font-bold mb-2" style={{ color: '#263B56', fontFamily: 'Raleway, Roboto, sans-serif' }}>SKY BEACHFRONT</h3>
+                  <h3 className="text-3xl font-bold mb-2" style={{ color: '#075985', fontFamily: 'Raleway, Roboto, sans-serif' }}>SKY BEACHFRONT</h3>
 
                   <p className="text-gray-600 mb-4" style={{ color: '#4E7B96', fontFamily: 'Raleway, Roboto, sans-serif' }}>
                     The Sky Beachfront, located on the top floor of our beachfront building, offers breathtaking ocean views and luxurious bathrooms.
@@ -59,12 +59,12 @@ const VillasAndHousesSection = () => {
                   <p className="text-gray-600 mb-4" style={{ color: '#4E7B96', fontFamily: 'Raleway, Roboto, sans-serif' }}>KING SIZED BED | TWO</p>
                   <div className="flex justify-between">
                     <Link
-                      href="/front/ShowDetails_Sky" className="text-white font-bold py-2 px-10 rounded" style={{ color: '#263B56', textDecoration: 'none', border: '1px solid #263B56', borderRadius: '5px', padding: '5px 30px', fontFamily: 'Raleway, Roboto, sans-serif' }}>Details
+                      href="/front/ShowDetails_Sky" className="text-white font-bold py-2 px-10 rounded" style={{ color: '#075985', textDecoration: 'none', border: '1px solid #075985', borderRadius: '5px', padding: '5px 30px', fontFamily: 'Raleway, Roboto, sans-serif' }}>Details
                     </Link>
                     <Link
                       href="/Bookroom/showroomavai"
                       className="font-normal py-2 px-4"
-                      style={{ color: 'white', textDecoration: 'none', border: '1px solid #263B56', borderRadius: '5px', padding: '5px 30px', backgroundColor: '#263B56', fontFamily: 'Raleway, Roboto, sans-serif' }}
+                      style={{ color: 'white', textDecoration: 'none', border: '1px solid #075985', borderRadius: '5px', padding: '5px 30px', backgroundColor: '#075985', fontFamily: 'Raleway, Roboto, sans-serif' }}
                     >
                       BOOK
                     </Link>
@@ -76,7 +76,7 @@ const VillasAndHousesSection = () => {
                     alt="Family Room"
                     className="w-full h-auto rounded-lg mb-4"
                   />
-                  <h3 className="text-3xl font-bold mb-2" style={{ color: '#263B56', fontFamily: 'Raleway, Roboto, sans-serif' }}>FAMILY ROOM</h3>
+                  <h3 className="text-3xl font-bold mb-2" style={{ color: '#075985', fontFamily: 'Raleway, Roboto, sans-serif' }}>FAMILY ROOM</h3>
                   <p className="text-gray-600 mb-4" style={{ color: '#4E7B96', fontFamily: 'Raleway, Roboto, sans-serif' }}>
                     A family-friendly room, perfect for relaxation and enjoyment, with a spacious terrace, a bunk bed, and a play area, perfect for children.
                   </p>
@@ -84,12 +84,12 @@ const VillasAndHousesSection = () => {
                   <p className="text-gray-600 mb-4" style={{ color: '#4E7B96', fontFamily: 'Raleway, Roboto, sans-serif' }}>KING SIZED & BUNK BEDS | FOUR</p>
                   <div className="flex justify-between">
                     <Link
-                      href="/front/ShowDetails_Fam" className="text-white font-bold py-2 px-10 rounded" style={{ color: '#263B56', textDecoration: 'none', border: '1px solid #263B56', borderRadius: '5px', padding: '5px 30px', fontFamily: 'Raleway, Roboto, sans-serif' }}>Details
+                      href="/front/ShowDetails_Fam" className="text-white font-bold py-2 px-10 rounded" style={{ color: '#075985', textDecoration: 'none', border: '1px solid #075985', borderRadius: '5px', padding: '5px 30px', fontFamily: 'Raleway, Roboto, sans-serif' }}>Details
                     </Link>
                     <Link
                       href="/Bookroom/showroomavai"
                       className="font-normal py-2 px-4"
-                      style={{ color: 'white', textDecoration: 'none', border: '1px solid #263B56', borderRadius: '5px', padding: '5px 30px', backgroundColor: '#263B56', fontFamily: 'Raleway, Roboto, sans-serif' }}
+                      style={{ color: 'white', textDecoration: 'none', border: '1px solid #075985', borderRadius: '5px', padding: '5px 30px', backgroundColor: '#075985', fontFamily: 'Raleway, Roboto, sans-serif' }}
                     >
                       BOOK
                     </Link>
@@ -103,7 +103,7 @@ const VillasAndHousesSection = () => {
                     alt="Pool Villa Garden"
                     className="w-full h-auto rounded-lg mb-4"
                   />
-                  <h3 className="text-3xl font-bold mb-2" style={{ color: '#263B56', fontFamily: 'Raleway, Roboto, sans-serif' }}>VILLA GARDEN</h3>
+                  <h3 className="text-3xl font-bold mb-2" style={{ color: '#075985', fontFamily: 'Raleway, Roboto, sans-serif' }}>VILLA GARDEN</h3>
                   <p className="text-gray-600 mb-4" style={{ color: '#4E7B96', fontFamily: 'Raleway, Roboto, sans-serif' }}>
                     The pool villa is set in a serene, enclosed tropical garden, perfect for those seeking privacy and ample space to unwind.
                   </p>
@@ -111,12 +111,12 @@ const VillasAndHousesSection = () => {
                   <p className="text-gray-600 mb-4" style={{ color: '#4E7B96', fontFamily: 'Raleway, Roboto, sans-serif' }}>KING SIZED BED | TWO</p>
                   <div className="flex justify-between">
                     <Link
-                      href="/front/ShowDetails_Garden" className="text-white font-bold py-2 px-10 rounded" style={{ color: '#263B56', textDecoration: 'none', border: '1px solid #263B56', borderRadius: '5px', padding: '5px 30px', fontFamily: 'Raleway, Roboto, sans-serif' }}>Details
+                      href="/front/ShowDetails_Garden" className="text-white font-bold py-2 px-10 rounded" style={{ color: '#075985', textDecoration: 'none', border: '1px solid #075985', borderRadius: '5px', padding: '5px 30px', fontFamily: 'Raleway, Roboto, sans-serif' }}>Details
                     </Link>
                     <Link
                       href="/Bookroom/showroomavai"
                       className="font-normal py-2 px-4"
-                      style={{ color: 'white', textDecoration: 'none', border: '1px solid #263B56', borderRadius: '5px', padding: '5px 30px', backgroundColor: '#263B56', fontFamily: 'Raleway, Roboto, sans-serif' }}
+                      style={{ color: 'white', textDecoration: 'none', border: '1px solid #075985', borderRadius: '5px', padding: '5px 30px', backgroundColor: '#075985', fontFamily: 'Raleway, Roboto, sans-serif' }}
                     >
                       BOOK
                     </Link>
@@ -129,7 +129,7 @@ const VillasAndHousesSection = () => {
                     alt="Pool Villa Sea view"
                     className="w-full h-auto rounded-lg mb-4"
                   />
-                  <h3 className="text-3xl font-bold mb-2" style={{ color: '#263B56', fontFamily: 'Raleway, Roboto, sans-serif' }}>VILLA SEA VIEW</h3>
+                  <h3 className="text-3xl font-bold mb-2" style={{ color: '#075985', fontFamily: 'Raleway, Roboto, sans-serif' }}>VILLA SEA VIEW</h3>
                   <p className="text-gray-600 mb-4" style={{ color: '#4E7B96', fontFamily: 'Raleway, Roboto, sans-serif' }}>
                     A serene space filled with luxurious touches, the spacious terrace boasts sun loungers for you to admire the beautiful sea view.
                   </p>
@@ -137,12 +137,12 @@ const VillasAndHousesSection = () => {
                   <p className="text-gray-600 mb-4" style={{ color: '#4E7B96', fontFamily: 'Raleway, Roboto, sans-serif' }}>KING SIZED BED | TWO</p>
                   <div className="flex justify-between">
                     <Link
-                      href="/front/ShowDetails_Seaview" className="text-white font-bold py-2 px-10 rounded" style={{ color: '#263B56', textDecoration: 'none', border: '1px solid #263B56', borderRadius: '5px', padding: '5px 30px', fontFamily: 'Raleway, Roboto, sans-serif' }}>Details
+                      href="/front/ShowDetails_Seaview" className="text-white font-bold py-2 px-10 rounded" style={{ color: '#075985', textDecoration: 'none', border: '1px solid #075985', borderRadius: '5px', padding: '5px 30px', fontFamily: 'Raleway, Roboto, sans-serif' }}>Details
                     </Link>
                     <Link
                       href="/Bookroom/showroomavai"
                       className="font-normal py-2 px-4"
-                      style={{ color: 'white', textDecoration: 'none', border: '1px solid #263B56', borderRadius: '5px', padding: '5px 30px', backgroundColor: '#263B56', fontFamily: 'Raleway, Roboto, sans-serif' }}
+                      style={{ color: 'white', textDecoration: 'none', border: '1px solid #075985', borderRadius: '5px', padding: '5px 30px', backgroundColor: '#075985', fontFamily: 'Raleway, Roboto, sans-serif' }}
                     >
                       BOOK
                     </Link>
@@ -154,7 +154,7 @@ const VillasAndHousesSection = () => {
                     alt="Pool Villa Beachfront"
                     className="w-full h-auto rounded-lg mb-4"
                   />
-                  <h3 className="text-3xl font-bold mb-2" style={{ color: '#263B56', fontFamily: 'Raleway, Roboto, sans-serif' }}>VILLA BEACHFRONT</h3>
+                  <h3 className="text-3xl font-bold mb-2" style={{ color: '#075985', fontFamily: 'Raleway, Roboto, sans-serif' }}>VILLA BEACHFRONT</h3>
                   <p className="text-gray-600 mb-4" style={{ color: '#4E7B96', fontFamily: 'Raleway, Roboto, sans-serif' }} >
                     The Pool Villa Beachfront is just a few steps away from the sandy beach, featuring an indoor bathtub and luxurious amenities.
                   </p>
@@ -162,12 +162,12 @@ const VillasAndHousesSection = () => {
                   <p className="text-gray-600 mb-4" style={{ color: '#4E7B96', fontFamily: 'Raleway, Roboto, sans-serif' }}>KING SIZED BED | TWO</p>
                   <div className="flex justify-between">
                     <Link
-                      href="/front/ShowDetails_Beachfront" className="text-white font-bold py-2 px-10 rounded" style={{ color: '#263B56', textDecoration: 'none', border: '1px solid #263B56', borderRadius: '5px', padding: '5px 30px', fontFamily: 'Raleway, Roboto, sans-serif' }}>Details
+                      href="/front/ShowDetails_Beachfront" className="text-white font-bold py-2 px-10 rounded" style={{ color: '#075985', textDecoration: 'none', border: '1px solid #075985', borderRadius: '5px', padding: '5px 30px', fontFamily: 'Raleway, Roboto, sans-serif' }}>Details
                     </Link>
                     <Link
                       href="/Bookroom/showroomavai"
                       className="font-normal py-2 px-4"
-                      style={{ color: 'white', textDecoration: 'none', border: '1px solid #263B56', borderRadius: '5px', padding: '5px 30px', backgroundColor: '#263B56', fontFamily: 'Raleway, Roboto, sans-serif' }}
+                      style={{ color: 'white', textDecoration: 'none', border: '1px solid #075985', borderRadius: '5px', padding: '5px 30px', backgroundColor: '#075985', fontFamily: 'Raleway, Roboto, sans-serif' }}
                     >
                       BOOK
                     </Link>
