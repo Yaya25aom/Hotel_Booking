@@ -57,14 +57,15 @@ model Employee {
 }
 
 model Enhanc {
-  EnhancID      Int    @unique
+  EnhancID      Int           @unique
   Enhancname    String
   Enhancdescrip String
   EnhancPrice   Int
+  reservation   reservation[]
 }
 
 model reservation {
-  BookID           Int       @unique
+  BookID           Int       @id @unique
   HotelID          Int
   GuestID          Int
   RoomNo_id        Int
@@ -72,9 +73,10 @@ model reservation {
   ArrivalDeparture DateTime  @db.Date
   Numadults        Int
   Numchild         Int
-  Enhancment       String
+  Enhancment       Int
   Specialreq       String
   ArrivalDate      DateTime? @db.Date
+  Enhanc           Enhanc    @relation(fields: [Enhancment], references: [EnhancID], onDelete: NoAction, onUpdate: NoAction, map: "public_reservation_Enhancment_fkey")
   Hotel            Hotel     @relation(fields: [HotelID], references: [Hotel_ID], onDelete: NoAction, onUpdate: NoAction, map: "public_reservation_HotelID_fkey")
   Room             Room      @relation(fields: [RoomNo_id], references: [RoomNo], onDelete: NoAction, onUpdate: NoAction, map: "public_reservation_RoomNo_id_fkey")
 }
