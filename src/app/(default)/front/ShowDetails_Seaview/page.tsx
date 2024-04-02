@@ -12,8 +12,7 @@ const OceanHouseComponent = () => {
     '/assets/image/sv4.jpg',
     '/assets/image/sv2.jpg',
     '/assets/image/sv3.jpg',
-
-  ];
+  ].map(src => ({ src, priority: true }));
 
   const handlePrevImage = () => {
     setCurrentImage((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
@@ -29,11 +28,12 @@ const OceanHouseComponent = () => {
         <div className="relative flex justify-center items-center">
           <div className="relative">
             <Image
-              src={images[currentImage]}
+              src={images[currentImage].src}
               alt="Sky"
               className="w-full h-auto rounded-lg shadow-lg"
               width={1000}
               height={900}
+              priority={images[currentImage].priority}
             />
             <div className="absolute bottom-4 right-4 text-white" style={{ fontSize: '1.5rem' }}>
               {currentImage + 1} of {images.length}

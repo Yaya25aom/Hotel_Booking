@@ -12,9 +12,7 @@ const OceanHouseComponent = () => {
     '/assets/image/pool2.jpg',
     '/assets/image/pool4.jpg',
     '/assets/image/pool3.jpg',
-
-
-  ];
+  ].map(src => ({ src, priority: true }));
 
   const handlePrevImage = () => {
     setCurrentImage((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
@@ -30,11 +28,12 @@ const OceanHouseComponent = () => {
         <div className="relative flex justify-center items-center">
           <div className="relative">
             <Image
-              src={images[currentImage]}
-              alt="Sky"
+              src={images[currentImage].src}
+              alt="Pool"
               className="w-full h-auto rounded-lg shadow-lg"
               width={1000}
               height={900}
+              priority={images[currentImage].priority}
             />
             <div className="absolute bottom-4 right-4 text-white" style={{ fontSize: '1.5rem' }}>
               {currentImage + 1} of {images.length}
@@ -71,7 +70,7 @@ const OceanHouseComponent = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
           <div>
             <p className="text-sm font-bold mb-1" style={{ fontSize: '1.25rem', fontFamily: 'Raleway, Roboto, sans-serif' }}>SIZE</p>
-            <p>120 SQ.M</p> 
+            <p>120 SQ.M</p>
           </div>
           <div>
             <p className="text-sm font-bold mb-1" style={{ fontSize: '1.25rem', fontFamily: 'Raleway, Roboto, sans-serif' }}>BEDS</p>

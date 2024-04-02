@@ -7,12 +7,11 @@ const OceanHouseComponent = () => {
   const [currentImage, setCurrentImage] = useState(0);
 
   const images = [
-    '/assets/image/fam1.jpg',
-    '/assets/image/fam2.jpg',
-    '/assets/image/fam3.jpg',
-    '/assets/image/fam5.jpg',
-    '/assets/image/fam4.jpg',
-
+    { src: '/assets/image/fam1.jpg', priority: true },
+    { src: '/assets/image/fam2.jpg', priority: true },
+    { src: '/assets/image/fam3.jpg', priority: true },
+    { src: '/assets/image/fam5.jpg', priority: true },
+    { src: '/assets/image/fam4.jpg', priority: true },
   ];
 
   const handlePrevImage = () => {
@@ -29,12 +28,14 @@ const OceanHouseComponent = () => {
         <div className="relative flex justify-center items-center">
           <div className="relative">
             <Image
-              src={images[currentImage]}
-              alt="Sky"
+              src={images[currentImage].src}
+              alt="Family"
               className="w-full h-auto rounded-lg shadow-lg"
               width={1000}
               height={900}
+              priority={images[currentImage].priority}
             />
+
             <div className="absolute bottom-4 right-4 text-white" style={{ fontSize: '1.5rem' }}>
               {currentImage + 1} of {images.length}
             </div>

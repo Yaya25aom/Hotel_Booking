@@ -7,13 +7,11 @@ const BeachHouseComponent = () => {
   const [currentImage, setCurrentImage] = useState(0);
 
   const images = [
-    '/assets/image/du1.jpg',
-    '/assets/image/du2.jpg',
-    '/assets/image/du4.jpg',
-    '/assets/image/du3.jpg',
-    '/assets/image/du5.jpg',
-
-
+    { src: '/assets/image/du1.jpg', priority: 'high' },
+    { src: '/assets/image/du2.jpg', priority: 'high' },
+    { src: '/assets/image/du4.jpg', priority: 'high' },
+    { src: '/assets/image/du3.jpg', priority: 'high' },
+    { src: '/assets/image/du5.jpg', priority: 'high' }
   ];
 
   const handlePrevImage = () => {
@@ -30,12 +28,14 @@ const BeachHouseComponent = () => {
         <div className="relative flex justify-center items-center">
           <div className="relative">
             <Image
-              src={images[currentImage]}
+              src={images[currentImage].src}
               alt="Sky"
               className="w-full h-auto rounded-lg shadow-lg"
               width={1000}
               height={900}
+              priority={images[currentImage].priority === 'high' ? true : undefined}
             />
+
             <div className="absolute bottom-4 right-4 text-white" style={{ fontSize: '1.5rem' }}>
               {currentImage + 1} of {images.length}
             </div>

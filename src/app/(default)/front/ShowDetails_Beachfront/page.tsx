@@ -13,10 +13,7 @@ const OceanHouseComponent = () => {
     '/assets/image/bf4.jpg',
     '/assets/image/bf3.jpg',
     '/assets/image/bf5.jpg',
-
-
-  ];
-
+  ].map(src => ({ src, priority: true }));
   const handlePrevImage = () => {
     setCurrentImage((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
   };
@@ -31,11 +28,12 @@ const OceanHouseComponent = () => {
         <div className="relative flex justify-center items-center">
           <div className="relative">
             <Image
-              src={images[currentImage]}
+              src={images[currentImage].src}
               alt="Sky"
               className="w-full h-auto rounded-lg shadow-lg"
               width={1000}
               height={900}
+              priority={images[currentImage].priority}
             />
             <div className="absolute bottom-4 right-4 text-white" style={{ fontSize: '1.5rem' }}>
               {currentImage + 1} of {images.length}
@@ -110,7 +108,7 @@ const OceanHouseComponent = () => {
             <p style={{ margin: 0, fontSize: '1.15rem', fontFamily: 'Raleway, Roboto, sans-serif' }}>Indoor Bathtub</p>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', paddingBottom: '1rem' }}>
-            <Image src="/shower.svg" alt="WiFi Icon" width={24} height={30} style={{ marginRight: '8px' }} />
+            <Image src="/shower.svg" alt="WiFi Icon" width={24} height={24} style={{ marginRight: '8px' }} />
             <p style={{ margin: 0, fontSize: '1.15rem', fontFamily: 'Raleway, Roboto, sans-serif' }}>Outdoor rainforest shower</p>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', paddingBottom: '1rem' }}>
@@ -134,7 +132,7 @@ const OceanHouseComponent = () => {
             <p style={{ margin: 0, fontSize: '1.15rem', fontFamily: 'Raleway, Roboto, sans-serif' }}>Expansive private garden</p>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', paddingBottom: '3rem' }}>
-            <Image src="/sun.svg" alt="WiFi Icon" width={24} height={30} style={{ marginRight: '8px' }} />
+            <Image src="/sun.svg" alt="WiFi Icon" width={24} height={24} style={{ marginRight: '8px' }} />
             <p style={{ margin: 0, fontSize: '1.15rem', fontFamily: 'Raleway, Roboto, sans-serif' }}>Sunloungers</p>
           </div>
 
