@@ -34,6 +34,7 @@ const BeachHouseComponent = () => {
               width={1000}
               height={900}
               priority={images[currentImage].priority === 'high' ? true : undefined}
+              style={{ width: '100%' }} // Maintain aspect ratio
             />
 
             <div className="absolute bottom-4 right-4 text-white" style={{ fontSize: '1.5rem' }}>
