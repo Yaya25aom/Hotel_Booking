@@ -24,8 +24,8 @@ const PaymentDetail = () => {
         <img src="/assets/image/logo4.png" alt="Calisa Village Hotel" className="h-20" />
       </div>
       <div className="mb-6">
-        <p className="text-gray-500">Your payment is now being processed on QR PromtPay.</p>
-        <p className="text-gray-500">Please verify the purchase information and click "Pay Now" below.</p>
+        <p className="text-center sm:text-left text-gray-500">Your payment is now being processed on QR PromtPay.</p>
+        <p className="text-center sm:text-left text-gray-500">Please verify the purchase information and click "Pay Now" below.</p>
       </div>
       <div className="bg-gray-100 p-4 rounded-lg mb-20">
         <div className="mt-2">
@@ -97,6 +97,7 @@ const PaymentDetail = () => {
                 Complete Payment
               </button>
             </div>
+            
             <div className="flex flex-col items-center">
             <button
               className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded mt-4"

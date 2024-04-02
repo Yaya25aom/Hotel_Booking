@@ -25,15 +25,65 @@ const List = () => {
   const roomData = [
     {
       id: 1001,
-      name: "Ocean View Pool Junior Suite",
-      image: "/assets/image/pp2.png",
+      name: "Family Villa",
+      image: "/assets/image/fam1.jpg",
     },
     {
       id: 1002,
-      name: "Deluxe Ocean View Suite",
-      image: "/assets/image/oc2.png",
+      name: "Family Villa",
+      image: "/assets/image/fam1.jpg",
     },
-    // Add other room data as needed
+    {
+      id: 1003,
+      name: "Family Villa",
+      image: "/assets/image/fam1.jpg",
+    },
+    {
+      id: 1004,
+      name: "Villa Beachfront",
+      image: "/assets/image/bf1.jpg",
+    },{
+      id: 1005,
+      name: "Villa Garden",
+      image: "/assets/image/pool1.jpg",
+    },
+    {
+      id: 1006,
+      name: "Villa Garden",
+      image: "/assets/image/pool1.jpg",
+    },{
+      id: 1007,
+      name: "Villa Sea View",
+      image: "/assets/image/sv1.jpg",
+    },
+    {
+      id: 1008,
+      name: "Villa Sea View",
+      image: "/assets/image/sv1.jpg",
+    },{
+      id: 1009,
+      name: "Sky Beachfront",
+      image: "/assets/image/sky1.jpg",
+    },
+    {
+      id: 1010,
+      name: "Sky Beachfront",
+      image: "/assets/image/sky1.jpg",
+    },{
+      id: 1011,
+      name: "Sky Beachfront",
+      image: "/assets/image/sky1.jpg",
+    },
+    {
+      id: 1012,
+      name: "Deluxe Room",
+      image: "/assets/image/du1.jpg",
+    },{
+      id: 1013,
+      name: "Deluxe Room",
+      image: "/assets/image/du1.jpg",
+    },
+    
   ];
 
   const fetchRoomTypes = async () => {

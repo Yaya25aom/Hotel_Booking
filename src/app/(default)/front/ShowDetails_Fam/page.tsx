@@ -60,14 +60,14 @@ const OceanHouseComponent = () => {
 
       </div><br /><br />
       <div>
-        <h1 className="text-4xl font-bold mb-4" style={{ fontFamily: 'Raleway, Roboto, sans-serif' }}>FAMITY ROOM</h1>
+        <h1 className="text-4xl font-bold mb-4" style={{ fontFamily: 'Raleway, Roboto, sans-serif' }}>FAMILY ROOM</h1>
         <p className="mb-10" style={{ fontSize: '1.25rem', fontFamily: 'Raleway, Roboto, sans-serif' }}>
           A family friendly room, tailored for a fun getaway. The Family room fits a family of four, with an expansive terrace and an outdoor bathtub, perfect for a relaxing soak.This room is truly one of a kind, it also comes with a bunk bed and an in-room play area. Located close to the hotel’s playground and only steps away from the Family Pool, it is a true haven for your little ones. There really is fun for everyone.
         </p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
           <div>
             <p className="text-sm font-bold mb-1" style={{ fontSize: '1.25rem', fontFamily: 'Raleway, Roboto, sans-serif' }}>SIZE</p>
-            <p>60 SQ.M</p>
+            <p>220 SQ.M</p>
           </div>
           <div>
             <p className="text-sm font-bold mb-1" style={{ fontSize: '1.25rem', fontFamily: 'Raleway, Roboto, sans-serif' }}>BEDS</p>
