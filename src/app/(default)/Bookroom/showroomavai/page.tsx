@@ -80,7 +80,7 @@ const List = () => {
     }
   };
   const handleSubmitBook = () => {
-    alert("ad");
+    // alert("ad");
   };
   const customColorPointofDays = (e: Date) => {
     if (!calendar) return;
@@ -152,8 +152,20 @@ const List = () => {
             <div>
               THB <span className="font-bold text-xl">31,447</span>
             </div>
-            <div>
-              <button className="btn btn-primary btn-sm">Book Now</button>
+            <div> 
+              <button onClick={() => handleSubmitBook()} className="btn btn-primary btn-sm">
+                <Link
+              
+                      href="/Bookroom/select"
+                      className="font-normal py-2 px-4"
+                      style={{
+                        color: 'white', textDecoration: 'none',  borderRadius: '5px', padding: '5px 30px',
+                        fontFamily: 'Raleway, Roboto, sans-serif'
+                      }}
+                    >  
+              Book Now
+                </Link>
+              </button>
             </div>
           </div>
         </div>

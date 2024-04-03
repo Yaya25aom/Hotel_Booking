@@ -21,75 +21,16 @@ const Home = () => {
           src="/assets/image/home2.jpg"
           className="w-full h-auto rounded-lg"
           style={{ borderRadius: "0px" }}
+          alt=''
         />
-        <div className="w-full md:w-5/5 p-8 rounded-md flex flex-col md:flex-row"
-          style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
-          <div className="md:mr-4 mb-4 md:mb-0 w-full md:w-1/2 md:w-full"
-            style={{ paddingRight: '5rem', paddingLeft: '5rem' }}>
-            <label htmlFor="checkin" className="block mb-2"
-              style={{ fontFamily: 'Raleway, Roboto, sans-serif' }}>Check-in Date:</label>
-            <DatePicker
-              selected={startDate}
-              onChange={(date) => setStartDate(date as Date)}
-              selectsStart
-              startDate={startDate}
-              endDate={endDate}
-              dateFormat={dateFormat}
-              className="w-full p-2 border border-gray-300 rounded-md "
-            />
-          </div>
-          <div className="w-full md:w-1/2 md:w-full mb-4 md:mb-0">
-            <label htmlFor="checkout" className="block mb-2"
-              style={{ fontFamily: 'Raleway, Roboto, sans-serif' }}>Check-out Date:</label>
-            <DatePicker
-              selected={endDate}
-              onChange={(date) => setEndDate(date as Date)}
-              selectsEnd
-              startDate={startDate}
-              endDate={endDate}
-              minDate={startDate}
-              dateFormat={dateFormat}
-              className="w-full p-2 border border-gray-300 rounded-md"
-            />
-          </div>
-          <div className="w-full md:w-1/2 mt-4 md:mt-0 md:ml-4 flex">
-            <div className="mr-4">
-              <label htmlFor="adults" className="block mb-1"
-                style={{ fontFamily: 'Raleway, Roboto, sans-serif' }}>Adults:</label>
-              <select
-                id="adults"
-                className="w-full p-2 border border-gray-300 rounded-md"
-                value={adults}
-                onChange={(e) => setAdults(Number(e.target.value))}
-              >
-                {[...Array(3)].map((_, index) => (
-                  <option key={index + 1} value={index + 1}>{index + 1}</option>
-                ))}
-              </select>
-            </div>
-            <div>
-              <label htmlFor="children" className="block mb-1"
-                style={{ fontFamily: 'Raleway, Roboto, sans-serif' }}>Children:</label>
-              <select
-                id="children"
-                className="w-full p-2 border border-gray-300 rounded-md"
-                value={children}
-                onChange={(e) => setChildren(Number(e.target.value))}
-              >
-                {[...Array(5)].map((_, index) => (
-                  <option key={index} value={index}>{index}</option>
-                ))}
-              </select>
-            </div>
-          </div>
+
           <div className=" items-center md:mt-5 px-24 self-center">
             <Link
-              href="/Bookroom/select"
+              href="/Bookroom/showroomavai"
               className="font-normal py-3 px-24 inline-block text-center "
               style={{
                 color: 'white',
                 textDecoration: 'none',
-                border: '0px solid #446341',
                 borderRadius: '1px',
                 padding: '15px 25px',
                 backgroundColor: '#075985',
@@ -99,12 +40,10 @@ const Home = () => {
                 fontFamily: 'Raleway, Roboto, sans-serif'
               }}
             >
-              <div className='w-24'>
+              <div className='w-24 '>
                 BOOK NOW
               </div>
             </Link>
-
-          </div>
         </div>
         <div className="w-auto mt-10 text-center"
           style={{ textAlign: 'center', backgroundColor: '#f7F2eB', paddingTop: '5rem', paddingRight: '20rem', paddingBottom: '5rem', paddingLeft: '20rem' }}>
