@@ -32,7 +32,7 @@ model RoomType {
 model Room {
   RoomNo      Int           @id @unique
   Status      Boolean
-  Typeid      Int?
+  Typeid      Int
   RoomType    RoomType?     @relation(fields: [Typeid], references: [RoomType_Id], onDelete: NoAction, onUpdate: NoAction, map: "public_Room_Typeid_fkey")
   reservation reservation[]
 }

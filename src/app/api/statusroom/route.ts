@@ -3,10 +3,14 @@ import { NextResponse } from "next/server";
 
 export async function GET(){
     const roomType = await db.room.findMany({
-        include:{
-            RoomType : true,
+        // include:{
+        //     RoomType : true,
+        // }
+        include: {
+            RoomType: true
         }
     })
+    // console.log(roomType)
     return Response.json(roomType)
 }
 export async function POST (request: Request) {

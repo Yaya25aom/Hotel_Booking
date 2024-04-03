@@ -128,10 +128,14 @@ const Home = () => {
             </div>
             <div className="w-full">
               <div className="p-15">
-                <p className="font-bold text-2xl" style={{ fontFamily: 'Raleway, Roboto, sans-serif' }} >  KING MONGKUTS UNIVERSITY OF TECHNOLOGY NORTH BANGKOK</p>
+                <p className="font-bold text-4xl" style={{ fontFamily: 'Raleway, Roboto, sans-serif' }} >Contact us</p>
+                <p className="font text-2xl" style={{ fontFamily: 'Raleway, Roboto, sans-serif', paddingTop: '1rem' }} >  KING MONGKUTS UNIVERSITY OF TECHNOLOGY NORTH BANGKOK</p>
                 <p style={{ fontFamily: 'Raleway, Roboto, sans-serif', paddingTop: '1rem' }} >1518 Pracharat 1 Road,Wongsawang, Bangsue, Bangkok 10800</p>
                 <div className="mt-10" style={{ fontFamily: 'Raleway, Roboto, sans-serif' }}>
-                  <p style={{ fontFamily: 'Raleway, Roboto, sans-serif' }} >Contact Us. Tel: 099-999-9999</p>
+                  <p style={{ fontFamily: 'Raleway, Roboto, sans-serif' }} >Tel : +66 (0) 99-999-9999</p>
+                  <p style={{ fontFamily: 'Raleway, Roboto, sans-serif' }} >Line : @calisahotel</p>
+                  <p style={{ fontFamily: 'Raleway, Roboto, sans-serif' }} >Facebook : Calisa hotel</p>
+                  <p style={{ fontFamily: 'Raleway, Roboto, sans-serif' }} >Email : info@calisahotel.com</p>
                 </div>
               </div>
             </div>
