@@ -1,4 +1,3 @@
-////calendar2
 'use client'
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
@@ -8,6 +7,7 @@ import { DateRange, Range, RangeKeyDict } from "react-date-range";
 import { addDays, format, isWeekend } from "date-fns";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
+
 
 import { useToast } from "@/components/ui/use-toast";
 import clsx from "clsx";
@@ -19,8 +19,8 @@ const List = ({  }) => {
 
     const searchParams = useSearchParams();
     const totalGuests = searchParams.get('totalGuests');
-
- 
+    const Adults = searchParams.get('Adults');
+    const Children = searchParams.get('Children');
     
     const handleRateOptionChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
       setSelectedRateOption(event.target.value);
@@ -32,19 +32,7 @@ const List = ({  }) => {
     const [Enhanc, setEnhanc] = useState([]);
     const [loading, setLoading] = useState(false); // Add loading state
   
-    const roomData = [
-      {
-        id: 1001,
-        name: "Ocean View Pool Junior Suite",
-        image: "/assets/image/pp2.png",
-      },
-      {
-        id: 1002,
-        name: "Deluxe Ocean View Suite",
-        image: "/assets/image/oc2.png",
-      },
-      // Add other room data as needed
-    ];
+  
     interface Room {
       RoomNo: string;
       RoomType: RoomType | null;
@@ -94,27 +82,57 @@ const List = ({  }) => {
       fetchRoomTypes();
       
     }, []);
-  
+    
+    const [selectedDateRange, setSelectedDateRange] = useState<Range[]>([]);
+    const [numDays, setNumDays] = useState<number>(0);
+    const [initialStartDate, setInitialStartDate] = useState<Date | null>(null);
+    
+    // ตรวจสอบค่าเริ่มต้นของวันที่เลือกไว้
+    useEffect(() => {
+      if (selectedDateRange.length > 0 && selectedDateRange[0].startDate) {
+        // กำหนดค่าเริ่มต้นของวันเริ่มต้นให้เป็นค่าที่เลือกไว้
+        setInitialStartDate(selectedDateRange[0].startDate);
+      }
+    }, [selectedDateRange]);
+    
     const [calendar, setCalendar] = useState({
-      startDate: new Date(),
-      endDate: addDays(new Date(), 5),
-      key: "selection",
-    });
-  
+        startDate: new Date(), // Set startDate to today's date
+        endDate: addDays(new Date(), 0), // Set endDate to today's date initially
+        key: "selection",
+      });
+    
+    useEffect(() => {
+      if (selectedDateRange.length > 0) {
+        const { startDate, endDate } = selectedDateRange[0];
+        if (startDate && endDate) {
+          // คำนวณจำนวนวันที่เลือก
+          const totalDays = Math.ceil((endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24)) + 1;
+          setNumDays(totalDays);
+        }
+      }
+    }, [selectedDateRange]);
+    
     const handleSelect = (ranges: RangeKeyDict) => {
       if (ranges && ranges.selection) {
         const { startDate, endDate } = ranges.selection;
-    
-        // Check if startDate and endDate are defined before setting the calendar
         if (startDate && endDate) {
+          setSelectedDateRange([ranges.selection]);
           setCalendar({
             startDate,
             endDate,
-            key: "selection", // Provide a default key if needed
+            key: "selection",
           });
         }
       }
     };
+    
+    
+    
+    const checkInDate = selectedDateRange && selectedDateRange.length > 0 && selectedDateRange[0].startDate ? selectedDateRange[0].startDate.toISOString() : '';
+    const checkOutDate = selectedDateRange && selectedDateRange.length > 0 && selectedDateRange[0].endDate ? selectedDateRange[0].endDate.toISOString() : '';
+    
+    
+    
     
     const customColorPointofDays = (e: Date | undefined) => {
       if (!e) return null; // Check if the date is undefined
@@ -147,7 +165,9 @@ const List = ({  }) => {
         <div className="text-black">{new Date(e).getDate()}</div>
       );
     };
-  
+    
+
+
     return (
       <div className="mt-24">
         <div className="w-[50%] p-3 bg-white shadow-xl mx-auto h-fit mb-[100px]">
@@ -184,13 +204,32 @@ const List = ({  }) => {
               </div>
               {!loading && roomTypes.length > 0 ? (
                 
-               <Link
-               href="/Bookroom/showroomavai"
-               className="font-normal py-2 px-4"
-               style={{ color: 'white', textDecoration: 'none', border: '1px solid #075985', borderRadius: '5px', padding: '5px 30px', backgroundColor: '#075985', fontFamily: 'Raleway, Roboto, sans-serif' }}
-             >
-               BOOK NOW
-             </Link>
+                <Link
+                href={{
+                    pathname: "/Bookroom/showroomavai",
+                    query: {
+                        numDays: numDays.toString(),
+                        totalGuests: totalGuests?.toString(),
+                        Adults: Adults?.toString(),
+                        Children: Children?.toString(),
+                        checkInDate,
+            checkOutDate,
+                      },
+                }}
+                className="font-normal py-2 px-4"
+                style={{
+                    color: 'white',
+                    textDecoration: 'none',
+                    border: '1px solid #075985',
+                    borderRadius: '5px',
+                    padding: '5px 30px',
+                    backgroundColor: '#075985',
+                    fontFamily: 'Raleway, Roboto, sans-serif'
+                }}
+            >
+                BOOK NOW
+            </Link>
+            
              
               ) : null}
             </div>
