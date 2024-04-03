@@ -1,351 +1,210 @@
+////calendar2
 'use client'
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import Link from 'next/link';
+import React, { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import axios from "axios";
+import Link from "next/link";
+import { DateRange, Range, RangeKeyDict } from "react-date-range";
+import { addDays, format, isWeekend } from "date-fns";
+import "react-date-range/dist/styles.css";
+import "react-date-range/dist/theme/default.css";
 
+import { useToast } from "@/components/ui/use-toast";
+import clsx from "clsx";
 
+const List = ({  }) => {
+   
+    const [selectedRateOption, setSelectedRateOption] = useState("limited-time-offer");
+    const { toast } = useToast();
+
+    const searchParams = useSearchParams();
+    const totalGuests = searchParams.get('totalGuests');
+
+ 
+    
+    const handleRateOptionChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
+      setSelectedRateOption(event.target.value);
+    };
   
-  // Call the function to display room availability when the page loads
-
-interface CalendarProps {
-    // ...props
-}
-
-type State = {
-    selectedDate: Date;
-    checkInDate: Date | null;
-    checkOutDate: Date | null;
-    currentMonth: Date;
-};
-
-const CalendarComponent: React.FC<CalendarProps> = () => {
-    const [state, setState] = useState<State>({
-        selectedDate: new Date(),
-        checkInDate: null,
-        checkOutDate: null,
-        currentMonth: new Date(),
-    });
+    const [isOpen, setIsOpen] = useState(null);
+    const [hoveredRoom, setHoveredRoom] = useState(null);
+    const [roomTypes, setRoomTypes] = useState([]);
+    const [Enhanc, setEnhanc] = useState([]);
+    const [loading, setLoading] = useState(false); // Add loading state
+  
+    const roomData = [
+      {
+        id: 1001,
+        name: "Ocean View Pool Junior Suite",
+        image: "/assets/image/pp2.png",
+      },
+      {
+        id: 1002,
+        name: "Deluxe Ocean View Suite",
+        image: "/assets/image/oc2.png",
+      },
+      // Add other room data as needed
+    ];
     interface Room {
-        RoomNo: number;
-        Status: boolean;
+      RoomNo: string;
+      RoomType: RoomType | null;
+      Status: boolean;
+    }
+    
+    interface RoomType {
+      RoomType_guest: number;
+      RoomType_bed: string;
+      RoomType_size: string;
+      RoomType_name: string;
+      RoomTypeDescrip: string;
+      RoomPrice: number;
+      DefalutRoomPrice: number;
+    }
+  
+    interface Room {
+      Status: boolean;
+      // Add other properties as needed
+    }
+    
+    const fetchRoomTypes = async () => {
+      try {
+        setLoading(true); // Set loading to true before fetching data
+        const response = await axios.get("/api/statusroom");
+        const totalGuestsNumber = parseInt(totalGuests || "0");
+        if (!isNaN(totalGuestsNumber)) {
+            setRoomTypes(response.data.filter((room: Room) => room.Status === true && room.RoomType?.RoomType_guest === totalGuestsNumber));
+          }
+      } catch (error) {
+        toast({
+            title: "Error",
+            description: "Oops! Something went wrong",
+            variant: 'destructive',
+          });
+      } finally {
+        setLoading(false); // Set loading to false after fetching data
+      }
+    };
+    const toggleCollapse = (RoomNo: any, event: React.MouseEvent<HTMLButtonElement>) => {
+      setIsOpen(prevOpen => prevOpen === RoomNo ? null : RoomNo);
+    };
+    
+    
+  
+    useEffect(() => {
+      fetchRoomTypes();
+      
+    }, []);
+  
+    const [calendar, setCalendar] = useState({
+      startDate: new Date(),
+      endDate: addDays(new Date(), 5),
+      key: "selection",
+    });
+  
+    const handleSelect = (ranges: RangeKeyDict) => {
+      if (ranges && ranges.selection) {
+        const { startDate, endDate } = ranges.selection;
+    
+        // Check if startDate and endDate are defined before setting the calendar
+        if (startDate && endDate) {
+          setCalendar({
+            startDate,
+            endDate,
+            key: "selection", // Provide a default key if needed
+          });
+        }
+      }
+    };
+    
+    const customColorPointofDays = (e: Date | undefined) => {
+      if (!e) return null; // Check if the date is undefined
+    
+      if (!calendar) return null; // Ensure calendar is not null or undefined
+    
+      if (calendar.startDate && new Date(e).toLocaleDateString() === new Date(calendar.startDate).toLocaleDateString()) {
+        return (
+          <>
+            <div className="">
+              <span className="z-10 bg-[#2563eb] absolute top-[2] right-[2] rounded-full w-3 h-3"></span>
+              <div className="text-black">{new Date(e).getDate()}</div>
+            </div>
+          </>
+        );
       }
     
-        const [room, setRoom] = useState<Room[]>([]);
-
-
-      
-        const fetchRooms = async () => {
-          try {
-            const response = await axios.get('/api/statusroom');
-            setRoom(response.data);
-          } catch (error) {
-            console.log('Error fetching rooms:', error);
-          }
-        };
-      
-        useEffect(() => {
-          fetchRooms();
-          
-        }, []);
-
-        const [selectedRoom, setSelectedRoom] = useState<Room | undefined>(undefined);
-
-        const checkRoomAvailability = async (date: Date) => {
-            try {
-                const response = await axios.get('/api/checkdate', {
-                    params: { date: date.toISOString() }
-                });
-                const isAvailable = response.data.isAvailable;
-                if (isAvailable) {
-                    // หากห้องว่าง คุณสามารถเลือกห้องได้ตามเงื่อนไขที่คุณต้องการ
-                    const availableRooms: Room[] = response.data.availableRooms;
-                    // ยกเลิกค่า selectedRoom เก่า และเลือกห้องใหม่
-                    setSelectedRoom(availableRooms[0]); // เลือกห้องแรกที่ว่างออกมา
-                } else {
-                    // กรณีห้องไม่ว่าง
-                    setSelectedRoom(undefined); // ไม่มีห้องที่เลือก
-                }
-            } catch (error) {
-                console.error('Error checking room availability:', error);
-                // ดำเนินการเมื่อเกิดข้อผิดพลาด
-            }
-        };
-        
-
-    const handlePrevMonth = () => {
-        setState((prevState) => ({
-            ...prevState,
-            currentMonth: new Date(prevState.currentMonth.getFullYear(), prevState.currentMonth.getMonth() - 1, 1),
-        }));
-    };
-
-    const handleNextMonth = () => {
-        setState((prevState) => ({
-            ...prevState,
-            currentMonth: new Date(prevState.currentMonth.getFullYear(), prevState.currentMonth.getMonth() + 1, 1),
-        }));
-    };
-    const handleDateClick = async (date: Date, isCurrentMonth: boolean) => {
-        try {
-            const isCurrentMonthValue = isCurrentMonth;
-            if (!state.checkInDate) {
-                setState((prevState) => ({
-                    ...prevState,
-                    checkInDate: date,
-                }));
-            } else if (!state.checkOutDate) {
-                if (isCurrentMonthValue && date > state.checkInDate) {
-                    setState((prevState) => ({
-                        ...prevState,
-                        checkOutDate: date,
-                    }));
-                } else if (!isCurrentMonthValue) {
-                    setState((prevState) => ({
-                        ...prevState,
-                        checkOutDate: date,
-                    }));
-                }
-            } else {
-                setState((prevState) => ({
-                    ...prevState,
-                    checkInDate: date,
-                    checkOutDate: null,
-                }));
-            }
+      if (calendar.endDate && new Date(e).toLocaleDateString() === new Date(calendar.endDate).toLocaleDateString()) {
+        return (
+          <>
+            <div className="">
+              <span className="z-10 bg-[#9f1239] absolute top-[2] right-[2] rounded-full w-3 h-3"></span>
+              <div className="text-black">{new Date(e).getDate()}</div>
+            </div>
+          </>
+        );
+      }
     
-            const response = await axios.get('/api/checkdate', {
-                params: { date: date.toISOString() }
-            });
-            const isAvailable = response.data.isAvailable;
-            if (!isAvailable) {
-                // แสดง Popup ห้องไม่ว่าง
-                alert('ขออภัย ห้องไม่ว่างในวันที่เลือก');
-            } else {
-                // ถ้าห้องว่าง กำหนด selectedRoom ให้เป็นห้องที่ว่างออกมาและตั้งค่า checkOutDate ให้เป็น null
-                const availableRooms: Room[] = response.data.availableRooms;
-                setSelectedRoom(availableRooms[0]); // เลือกห้องแรกที่ว่างออกมา
-                setState((prevState) => ({
-                    ...prevState,
-                    checkOutDate: null,
-                }));
-            }
-        } catch (error) {
-            console.error('Error checking room availability:', error);
-            // ดำเนินการเมื่อเกิดข้อผิดพลาด
-        }
+      return (
+        <div className="text-black">{new Date(e).getDate()}</div>
+      );
     };
-    
-    const isCurrentMonth = (date: Date) => {
-        const currentMonth = state.currentMonth.getMonth();
-        const dateMonth = date.getMonth();
-        return currentMonth === dateMonth;
-    };
-
-    const handleDateClickSafely = (clickedDate: Date | null, isCurrentMonth: boolean) => {
-        if (clickedDate) {
-            handleDateClick(clickedDate, isCurrentMonth);
-        }
-    };
-
-    const generateDates = (selectedDate: Date): (Date | { date: Date, isCurrentMonth: boolean, isToday: boolean })[] => {
-        const firstDayOfMonth = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), 1);
-        const lastDayOfMonth = new Date(selectedDate.getFullYear(), selectedDate.getMonth() + 1, 0);
-        const dates: (Date | { date: Date, isCurrentMonth: boolean, isToday: boolean })[] = [];
-        let currentDate = new Date(firstDayOfMonth.getFullYear(), firstDayOfMonth.getMonth(), 1 - firstDayOfMonth.getDay());
-        const today = new Date(); // Get today's date
-
-        while (currentDate <= lastDayOfMonth) {
-            const date = new Date(currentDate);
-            const isCurrentMonth = date.getMonth() === selectedDate.getMonth();
-            const isToday = date.toDateString() === today.toDateString(); // Check if the date is today's date
-            dates.push(isCurrentMonth ? date : { date, isCurrentMonth, isToday });
-            currentDate.setDate(currentDate.getDate() + 1);
-        }
-
-        return dates;
-    };
-
-
-    const dates = generateDates(state.currentMonth);
-
-    const generateNextMonthDates = (selectedDate: Date): Date[] => {
-        const nextMonth = new Date(selectedDate.getFullYear(), selectedDate.getMonth() + 1, 1);
-        const lastDayOfNextMonth = new Date(nextMonth.getFullYear(), nextMonth.getMonth() + 1, 0);
-        const dates: Date[] = [];
-        let currentDate = new Date(nextMonth.getFullYear(), nextMonth.getMonth(), 1 - nextMonth.getDay());
-        while (currentDate <= lastDayOfNextMonth) {
-            dates.push(new Date(currentDate));
-            currentDate.setDate(currentDate.getDate() + 1);
-        }
-        return dates;
-    };
-    const nextMonthDates = generateNextMonthDates(state.currentMonth);
-
+  
     return (
-        <div className="bg-white p-4 rounded-lg shadow">
-            <div className="flex justify-between items-center mb-4">
-                {/* <div className="flex"> */}
-                <button
-                    onClick={handlePrevMonth}
-                    className="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded"
-                >
-                    <span className="text-2xl">&lt;</span>
-                </button>
-                <div className="text-2xl font-bold ">
-                    {state.currentMonth.toLocaleDateString('en-US', { year: 'numeric' })}
-                </div>
-                {/* </div> */}
-                {/* <div className="flex"> */}
-                <button
-                    onClick={handleNextMonth}
-                    className="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded"
-                >
-                    <span className="text-2xl">&gt;</span>
-                </button>
-                {/* </div> */}
+      <div className="mt-24">
+        <div className="w-[50%] p-3 bg-white shadow-xl mx-auto h-fit mb-[100px]">
+          <div className="flex justify-center mt-3">
+            <DateRange
+              ranges={[calendar]}
+              onChange={handleSelect}
+              dayContentRenderer={customColorPointofDays}
+              editableDateInputs={true}
+              rangeColors={["#fcd34d"]}
+              moveRangeOnFirstSelection={false}
+              months={2}
+              direction="horizontal"
+            />
+          </div>
+          <div className="w-full flex justify-between px-5 pb-2 ">
+            <div className="flex flex-col gap-2">
+              <div className="indicator">
+                <span className="indicator-item indicator-middle indicator-start badge bg-[#2563eb]"></span>
+                <div className="ml-4 text-sm">Check-in</div>
+              </div>
+              <div className="indicator">
+                <span className="indicator-item indicator-middle indicator-start badge bg-[#9f1239]"></span>
+                <div className="ml-4 text-sm">Check-out</div>
+              </div>
+              <div className="indicator">
+                <span className="indicator-item indicator-middle indicator-start badge bg-[#fcd34d]"></span>
+                <div className="ml-4 text-sm">Selected Dates</div>
+              </div>
             </div>
-            <div className="flex justify-between items-center mb-2">
-                <div className="text-lg font-bold">
-                    {state.currentMonth.toLocaleDateString('en-US', { month: 'long' })}
-                </div>
-
-                <div className="text-lg font-bold text-gray-400">
-                    {new Date(state.currentMonth.getFullYear(), state.currentMonth.getMonth() + 1, 1).toLocaleDateString('en-US', { month: 'long' })}
-                </div>
+            <div className="">
+              <div>
+                THB <span className="font-bold text-xl">31,447</span>
+              </div>
+              {!loading && roomTypes.length > 0 ? (
+                
+               <Link
+               href="/Bookroom/showroomavai"
+               className="font-normal py-2 px-4"
+               style={{ color: 'white', textDecoration: 'none', border: '1px solid #075985', borderRadius: '5px', padding: '5px 30px', backgroundColor: '#075985', fontFamily: 'Raleway, Roboto, sans-serif' }}
+             >
+               BOOK NOW
+             </Link>
+             
+              ) : null}
             </div>
-
-            <div className="grid grid-cols-2 gap-4">
-                <div>
-                    <div className="grid grid-cols-7 gap-1 mb-2 text-sm font-bold text-gray-800">
-                        <span className="text-center">SUN</span>
-                        <span className="text-center">MON</span>
-                        <span className="text-center">TUE</span>
-                        <span className="text-center">WED</span>
-                        <span className="text-center">THU</span>
-                        <span className="text-center">FRI</span>
-                        <span className="text-center">SAT</span>
-                    </div>
-                    <div className="grid grid-cols-7 gap-1 text-sm">
-                        {dates.map((dateOrObj, index) =>
-                            dateOrObj instanceof Date ? (
-                                <div
-                                    key={index}
-                                    onClick={() => handleDateClickSafely(dateOrObj, true)}
-                                    className={`text-center py-2 rounded cursor-pointer ${state.checkInDate && dateOrObj.getTime() === state.checkInDate.getTime()
-                                        ? 'bg-blue-500 text-white'
-                                        : dateOrObj.toDateString() === new Date().toDateString() // Check if the date is today's date
-                                            ? 'bg-lime-300 text-black' // Apply lime background for today's date
-                                            : dateOrObj >= new Date() // Check if the date is after today
-                                                ? 'bg-lime-300 text-black' // Apply lime background for future dates
-                                                : ''
-                                        } ${state.checkOutDate && dateOrObj.getTime() === state.checkOutDate.getTime()
-                                            ? 'bg-red-500 text-white'
-                                            : ''
-                                        } ${state.checkInDate &&
-                                            state.checkOutDate &&
-                                            dateOrObj > state.checkInDate &&
-                                            dateOrObj < state.checkOutDate
-                                            ? 'bg-yellow-300'
-                                            : ''
-                                        }`}
-                                >
-                                    <span>{dateOrObj.getDate()}</span>
-                                </div>
-                            ) : (
-                                <div
-                                    key={index}
-                                    onClick={() => handleDateClickSafely(dateOrObj.date, true)}
-                                    className={`text-center py-2 rounded cursor-pointer text-gray-400 ${state.checkInDate && dateOrObj.date.getTime() === state.checkInDate.getTime()
-                                        ? 'bg-blue-500 text-white'
-                                        : dateOrObj.isToday // Check if the date is today's date
-                                            ? 'bg-lime-300 text-black' // Apply green background for today's date
-                                            : dateOrObj.date >= new Date() // Check if the date is after today
-                                                ? 'bg-lime-300 text-black' // Apply lime background for future dates
-                                                : ''
-                                        } ${state.checkOutDate && dateOrObj.date.getTime() === state.checkOutDate.getTime()
-                                            ? 'bg-red-500 text-white'
-                                            : ''
-                                        } ${state.checkInDate &&
-                                            state.checkOutDate &&
-                                            dateOrObj.date > state.checkInDate &&
-                                            dateOrObj.date < state.checkOutDate
-                                            ? 'bg-yellow-300 text-black'
-                                            : ''
-                                        }`}
-                                >
-                                    <span>{dateOrObj.date.getDate()}</span>
-                                </div>
-                            )
-                        )}
-                    </div>
-                </div>
-                <div>
-                    <div className="grid grid-cols-7 gap-1 mb-2 text-sm font-bold text-gray-400">
-                        <span className="text-center">SUN</span>
-                        <span className="text-center">MON</span>
-                        <span className="text-center">TUE</span>
-                        <span className="text-center">WED</span>
-                        <span className="text-center">THU</span>
-                        <span className="text-center">FRI</span>
-                        <span className="text-center">SAT</span>
-                    </div>
-                    <div className="grid grid-cols-7 gap-1 text-sm">
-                        {nextMonthDates.map((date) => (
-                            <div
-                                key={date.getTime()}
-                                onClick={() => handleDateClick(date, false)}
-                                className={`text-center py-2 rounded cursor-pointer text-gray-400 ${state.checkInDate && date.getTime() === state.checkInDate.getTime() && isCurrentMonth(date) === false
-                                        ? 'bg-blue-500 text-white'
-                                        : ''
-                                    } ${state.checkOutDate && date.getTime() === state.checkOutDate.getTime()
-                                        ? 'bg-red-500 text-white'
-                                        : ''
-                                    } ${state.checkInDate &&
-                                        state.checkOutDate &&
-                                        date > state.checkInDate &&
-                                        date < state.checkOutDate
-                                        ? 'bg-yellow-300 text-black'
-                                        : ''
-                                    } ${date >= new Date() && // Check if the date is today or after
-                                        new Date(date.getFullYear(), date.getMonth() + 1, 0) >= new Date() // Check if the date is in the next month
-                                        ? 'bg-lime-200 text-gray-400' // Apply lime background for today's date and future dates in the next month
-                                        : ''
-                                    }`}
-                            >
-                                <span>{date.getDate()}</span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-            </div>
-            <div className="mt-4 flex justify-between items-center">
-                <div>
-                    <div className="flex items-center mb-2">
-                        <div className="w-4 h-4 bg-blue-500 rounded-full mr-2"></div>
-                        <span className="text-sm">Check-in</span>
-                    </div>
-                    <div className="flex items-center mb-2">
-                        <div className="w-4 h-4 bg-red-500 rounded-full mr-2"></div>
-                        <span className="text-sm">Check-out</span>
-                    </div>
-                    <div className="flex items-center">
-                        <div className="w-4 h-4 bg-yellow-300 rounded-full mr-2"></div>
-                        <span className="text-sm">Selected dates</span>
-                    </div>
-                </div>
-                <div>
-                    <div className="flex items-center mb-2">
-                        <span className="text-sm font-bold mr-2">THB</span>
-                        <span className="text-2xl font-bold">31,330</span>
-                    </div>
-                    <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
-                        Book Now
-                    </button>
-                </div>
-            </div>
+          </div>
+      
         </div>
-    );
-};
-
-export default CalendarComponent;
+        {loading && <p>Loading...</p>}
+        {!loading && roomTypes.length === 0 && (
+          <div className="flex justify-center mt-4">
+            <p>No available rooms for selected dates.</p>
+          </div>
+        )}
+  </div>
+  )}
+  
+  export default List;
+  
