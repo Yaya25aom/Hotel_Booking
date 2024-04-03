@@ -25,7 +25,7 @@ const PaymentDetail = () => {
       </div>
       <div className="mb-6">
         <p className="text-center sm:text-left text-gray-500">Your payment is now being processed on QR PromtPay.</p>
-        <p className="text-center sm:text-left text-gray-500">Please verify the purchase information and click "Pay Now" below.</p>
+        <p className="text-center sm:text-left text-gray-500">Please verify the purchase information and click Pay Now  below.</p>
       </div>
       <div className="bg-gray-100 p-4 rounded-lg mb-20">
         <div className="mt-2">
@@ -46,7 +46,7 @@ const PaymentDetail = () => {
               <p className=" mb-10 left-0 text-black font-bold text-lg px-10 py-6 rounded" style={{paddingBottom : '7.5rem'}}>Step 1</p>
             </div>
           </div>
-          <p className="text-sm text-gray-500 text-center">Please click "Pay Now", Merchant generates a QR Code for credit card or bill payment.</p>
+          <p className="text-sm text-gray-500 text-center">Please click Pay Now, Merchant generates a QR Code for credit card or bill payment.</p>
         </div>
         <div className="col-span-1 flex flex-col items-center">
           <div className="relative">

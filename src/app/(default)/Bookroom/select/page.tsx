@@ -1,9 +1,10 @@
 
 'use client'
 import React, { useState } from 'react';
-
+import { useRouter } from "next/navigation";
 
 const Page = () => {
+  const router = useRouter();
     const [items, setItems] = useState<string[]>([]); // กำหนดชนิดของ items เป็น string[]
   
     const addItem = () => {
@@ -39,6 +40,13 @@ const [children, setChildren] = useState<number>(0);
               <option value="1">1 Adult</option>
               <option value="2">2 Adults</option>
               <option value="3">3 Adults</option>
+              <option value="4">4 Adults</option>
+              <option value="5">5 Adults</option>
+              <option value="6">6 Adults</option>
+              <option value="7">7 Adults</option>
+              <option value="8">8 Adults</option>
+              <option value="9">9 Adults</option>
+              <option value="10">10 Adults</option>
             </select>
             </div>
             <div className="flex items-center" style={{paddingLeft:'17rem', marginTop:'-35px'}}>
@@ -61,6 +69,14 @@ const [children, setChildren] = useState<number>(0);
         <option value="1">1 Adult</option>
         <option value="2">2 Adults</option>
         <option value="3">3 Adults</option>
+        <option value="4">4 Adults</option>
+              <option value="5">5 Adults</option>
+              <option value="6">6 Adults</option>
+              <option value="7">7 Adults</option>
+              <option value="8">8 Adults</option>
+              <option value="9">9 Adults</option>
+              <option value="10">10 Adults</option>
+        
       </select>
     </div>
     <div className="flex items-center" style={{ paddingLeft: '17rem', marginTop: '-35px' }}>
@@ -75,13 +91,31 @@ const [children, setChildren] = useState<number>(0);
 ))}
 
         </div>
-        <button className='' style={{backgroundColor:'#d4b4be',padding:'0.65rem',width:'50%',marginLeft:'100px',marginTop:
-    '100px'}} onClick={() => {
-        const totalGuests = adult + children;
-        console.log(`Total Guests: ${totalGuests}`);
-        // ส่วนนี้คุณสามารถใช้ค่า totalGuests ได้ต่อไป
-        // เช่น ส่งข้อมูลไปยัง API หรือนำไปแสดงผลใน UI
-      }}>UPDATE GUEST & ROOM</button>
+        <button
+  className=""
+  style={{
+    backgroundColor: '#d4b4be',
+    padding: '0.65rem',
+    width: '50%',
+    marginLeft: '100px',
+    marginTop: '100px',
+  }}
+  onClick={() => {
+    const totalGuests = adult + children;
+    console.log(`Total Guests: ${totalGuests}`);
+
+    const queryString = Object.entries({
+     
+      totalGuests,
+    })
+      .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
+      .join('&');
+
+    router.push(`/Bookroom/calen?${queryString}`);
+  }}
+>
+  UPDATE GUEST & ROOM
+</button>
             </div>
             </div>
             </div>
