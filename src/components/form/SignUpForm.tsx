@@ -1,6 +1,10 @@
 'use client';
 
 import { useForm } from 'react-hook-form';
+
+
+import React, { useState } from 'react';
+
 import {
   Form,
   FormControl,
@@ -22,6 +26,13 @@ const FormSchema = z
   .object({
     username: z.string().min(1, 'Username is required').max(100),
     email: z.string().min(1, 'Email is required').email('Invalid email'),
+    Title: z.string().min(1, 'Title is required').max(10),
+    FirstName: z.string().min(1, 'First is required').max(100),
+    LastName: z.string().min(1, 'LastName is required').max(100),
+    PhoneNo: z.string().min(1, 'PhoneNo is required').max(100),
+    Address: z.string().min(1, 'Address is required').max(100),
+    City: z.string().min(1, 'City is required').max(100),
+    Country: z.string().min(1, 'Country is required').max(100),
     password: z
       .string()
       .min(1, 'Password is required')
@@ -35,19 +46,28 @@ const FormSchema = z
 
 const SignUpForm = () => {
   const router = useRouter();
+
+ 
   const { toast } = useToast();
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
       username: '',
       email: '',
+      Title: '',
+      FirstName: '',
+      LastName: '',
+      PhoneNo: '',
+      Address: '',
+      City: '',
+      Country: '',
       password: '',
       confirmPassword: '',
     },
   });
 
   const onSubmit = async (values: z.infer<typeof FormSchema>) => {
-    const response = await fetch('/api/user', {
+    const response = await fetch('/api/info_guest', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -55,6 +75,13 @@ const SignUpForm = () => {
       body: JSON.stringify({
         username: values.username,
         email: values.email,
+        Title: values.Title,
+        FirstName: values.FirstName,
+        LastName: values.LastName,
+        PhoneNo: values.PhoneNo,
+        Address: values.Address,
+        City: values.City,
+        Country: values.Country,
         password: values.password
       })
     })
@@ -73,7 +100,8 @@ const SignUpForm = () => {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className='w-full'>
-        <div className='space-y-2'>
+        <div className='space-y-2' style={{paddingTop:'23rem',paddingLeft:'8rem',paddingRight:'42rem'}}>
+          <div className='mb-6'><h1 className='text-3xl'>WelCome to CaLisa Village</h1></div>
           <FormField
             control={form.control}
             name='username'
@@ -95,6 +123,100 @@ const SignUpForm = () => {
                 <FormLabel>Email</FormLabel>
                 <FormControl>
                   <Input placeholder='mail@example.com' {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name='Title'
+            render={({ field }) => (
+              <div className="w-full ">
+                <label htmlFor="title" className="block text-sm  font-medium text-gray-700">Title</label>
+                <select {...field} id="title" name="title" className="mt-1 block w-full pl-3 pr-10 py-2 border focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                  <option value="option1">Mr.</option>
+                  <option value="option2">Ms.</option>
+                  <option value="option3">Mrs.</option>
+                </select>
+                <div className="mt-2 text-sm text-red-600" id="title-error"></div>
+              </div>
+            )}
+          />
+
+           <FormField
+            control={form.control}
+            name='FirstName'
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>FirstName</FormLabel>
+                <FormControl>
+                <Input placeholder='johndoe' {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+           <FormField
+            control={form.control}
+            name='LastName'
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>LastName</FormLabel>
+                <FormControl>
+                <Input placeholder='Meesuk' {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+           <FormField
+            control={form.control}
+            name='PhoneNo'
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>PhoneNo</FormLabel>
+                <FormControl>
+                <Input type='tel' placeholder='66+' {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+           <FormField
+            control={form.control}
+            name='Address'
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Address</FormLabel>
+                <FormControl>
+                <Input type='text' placeholder='12/123' {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+           <FormField
+            control={form.control}
+            name='City'
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>City</FormLabel>
+                <FormControl>
+                <Input type='text'  {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name='Country'
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Country</FormLabel>
+                <FormControl>
+                <Input type='text'  {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
