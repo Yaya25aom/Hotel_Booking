@@ -31,7 +31,7 @@ export const authOptions: NextAuthOptions = {
            if(!credentials?.email || !credentials?.password){
             return null;
            }
-           const existingUser = await db.user.findUnique({
+           const existingUser = await db.informationGuest.findUnique({
             where: { email: credentials?.email }
            });
            if(!existingUser){
@@ -46,7 +46,7 @@ export const authOptions: NextAuthOptions = {
           }
         
            return{
-             id:  `${ existingUser.id }`,
+             id:  `${ existingUser.guestid }`,
              username : existingUser.username,
              email: existingUser.email
            }
