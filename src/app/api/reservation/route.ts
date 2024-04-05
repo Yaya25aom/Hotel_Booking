@@ -12,11 +12,8 @@ export async function GET(){
             }),
             Hotel : true,
             Enhanc : true,
-            informationGuest : {
-                include : {
-                    User : true,
-                }
-            }
+            informationGuest : true,
+            
           }
     })
     return NextResponse.json(reserve)
