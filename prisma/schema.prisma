@@ -7,16 +7,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id               Int               @id @default(autoincrement())
-  email            String            @unique
-  username         String            @unique
-  password         String
-  createdAt        DateTime          @default(now())
-  updateut         DateTime          @updatedAt
-  informationGuest informationGuest?
-}
-
 model RoomType {
   RoomType_Id      Int    @id @unique
   RoomType_name    String
@@ -32,7 +22,7 @@ model RoomType {
 model Room {
   RoomNo      Int           @id @unique
   Status      Boolean
-  Typeid      Int
+  Typeid      Int?
   RoomType    RoomType?     @relation(fields: [Typeid], references: [RoomType_Id], onDelete: NoAction, onUpdate: NoAction, map: "public_Room_Typeid_fkey")
   reservation reservation[]
 }
@@ -66,23 +56,22 @@ model Enhanc {
 }
 
 model reservation {
-  BookID           Int               @id @unique
+  BookID           Int              @id @unique
   HotelID          Int
-  GuestID          Int
+  GuestID          Int              @unique
   RoomNo_id        Int
-  Bookingdate      DateTime          @db.Timestamp(6)
-  ArrivalDeparture DateTime          @db.Date
+  Bookingdate      DateTime         @db.Timestamp(6)
+  ArrivalDeparture DateTime         @db.Date
   Numadults        Int
   Numchild         Int
   EnhancmentID     Int
   Specialreq       String
-  ArrivalDate      DateTime?         @db.Date
-  Totalprice       Float?            @db.Real
-  guestid          Int?              @unique
-  Enhanc           Enhanc            @relation(fields: [EnhancmentID], references: [EnhancID], onDelete: NoAction, onUpdate: NoAction, map: "public_reservation_Enhancment_fkey")
-  Hotel            Hotel             @relation(fields: [HotelID], references: [Hotel_ID], onDelete: NoAction, onUpdate: NoAction, map: "public_reservation_HotelID_fkey")
-  Room             Room              @relation(fields: [RoomNo_id], references: [RoomNo], onDelete: NoAction, onUpdate: NoAction, map: "public_reservation_RoomNo_id_fkey")
-  informationGuest informationGuest? @relation(fields: [guestid], references: [guestid], onDelete: NoAction, onUpdate: NoAction, map: "public_reservation_guestid_fkey")
+  ArrivalDate      DateTime?        @db.Date
+  Totalprice       Float?           @db.Real
+  Enhanc           Enhanc           @relation(fields: [EnhancmentID], references: [EnhancID], onDelete: NoAction, onUpdate: NoAction, map: "public_reservation_Enhancment_fkey")
+  informationGuest informationGuest @relation(fields: [GuestID], references: [guestid], onDelete: NoAction, onUpdate: NoAction, map: "public_reservation_GuestID_fkey")
+  Hotel            Hotel            @relation(fields: [HotelID], references: [Hotel_ID], onDelete: NoAction, onUpdate: NoAction, map: "public_reservation_HotelID_fkey")
+  Room             Room             @relation(fields: [RoomNo_id], references: [RoomNo], onDelete: NoAction, onUpdate: NoAction, map: "public_reservation_RoomNo_id_fkey")
 }
 
 model Hotel {
@@ -92,12 +81,17 @@ model Hotel {
   City        String
   Country     String
   PhoneNo     String
-  Hotel_ID    Int           @id
+  Hotel_ID    Int           @id @unique
   reservation reservation[]
 }
 
 model informationGuest {
-  guestid     Int          @id @unique
+  guestid     Int          @id @default(autoincrement())
+  email       String       @unique
+  username    String       @unique
+  password    String
+  createdAt   DateTime     @default(now())
+  updateut    DateTime     @updatedAt
   Title       String
   FirstName   String
   LastName    String
@@ -105,6 +99,5 @@ model informationGuest {
   Address     String
   City        String
   Country     String
-  User        User         @relation(fields: [guestid], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "public_informationGuest_guestid_fkey")
   reservation reservation?
 }
