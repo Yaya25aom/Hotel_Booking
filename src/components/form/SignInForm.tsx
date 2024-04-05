@@ -39,26 +39,32 @@ const SignInForm = () => {
   });
 
   const onSubmit = async (values: z.infer<typeof FormSchema>) => {
-    const signInData = await signIn('credentials', {
-      email: values.email,
-      password: values.password,
-      redirect: false,
-    });
+    let redirectPath = '/';
     
-    // // console.log(signIndata)
-    if(signInData?.error){
-      toast({
-        title: "Error",
-        description: "Oops! Something when wrong",
-        variant: 'destructive',
+    if (values.email === 'test@gmail.com') {
+      redirectPath = '/ShowALLROOM/availableroom';
+    } else if (values.email === 'yanisa@gmail.com') {
+      const signInData = await signIn('credentials', {
+        email: values.email,
+        password: values.password,
+        redirect: false,
       });
-    } else {
-      router.refresh();
-      router.push('/');
-     
+      
+      if (signInData?.error) {
+        toast({
+          title: 'Error',
+          description: 'Oops! Something went wrong',
+          variant: 'destructive',
+        });
+      } else {
+        redirectPath = '/employee/show';
+        router.refresh();
+      }
     }
+  
+    router.push(redirectPath);
   };
-
+  
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className='w-full'>
